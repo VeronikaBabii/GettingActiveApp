@@ -5,10 +5,9 @@ struct Constants {
     
     struct Storyboard {
         
-        // shortcut to reference HomeVC storyboard 
+        // shortcut to reference TabBarVC storyboard
         // static - so we can access it without having to create instances of the structure
-        static let homeViewController = "HomeVC"
-        
+        static let tabBarViewController = "TabBarVC"
     }
     
 }

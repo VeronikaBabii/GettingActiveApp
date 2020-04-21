@@ -16,7 +16,7 @@
 		158F00F1244CA87000074359 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 158F00EF244CA87000074359 /* LaunchScreen.storyboard */; };
 		158F00F9244CAAED00074359 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158F00F8244CAAED00074359 /* SignUpViewController.swift */; };
 		158F00FB244CAB0F00074359 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158F00FA244CAB0F00074359 /* LoginViewController.swift */; };
-		158F00FD244CAB2F00074359 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158F00FC244CAB2F00074359 /* HomeViewController.swift */; };
+		159E34D8244FA98700C5C6DF /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159E34D7244FA98700C5C6DF /* TabBarViewController.swift */; };
 		15DFD362244CCBD500B375DC /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15DFD361244CCBD500B375DC /* Utilities.swift */; };
 		15F05762244CDA54007B2AB3 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 15F05761244CDA54007B2AB3 /* GoogleService-Info.plist */; };
 		1CA81F6E397E7CD2A4C46066 /* Pods_GettingActiveApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 48A15E1718F73BAA58C4E3FF /* Pods_GettingActiveApp.framework */; };
@@ -34,7 +34,7 @@
 		158F00F2244CA87000074359 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		158F00F8244CAAED00074359 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		158F00FA244CAB0F00074359 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		158F00FC244CAB2F00074359 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		159E34D7244FA98700C5C6DF /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		15DFD361244CCBD500B375DC /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
 		15F05761244CDA54007B2AB3 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		48A15E1718F73BAA58C4E3FF /* Pods_GettingActiveApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_GettingActiveApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -93,8 +93,8 @@
 			children = (
 				158F00F8244CAAED00074359 /* SignUpViewController.swift */,
 				158F00FA244CAB0F00074359 /* LoginViewController.swift */,
-				158F00FC244CAB2F00074359 /* HomeViewController.swift */,
 				158F00E8244CA86D00074359 /* ViewController.swift */,
+				159E34D7244FA98700C5C6DF /* TabBarViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -245,9 +245,9 @@
 				158F00E5244CA86D00074359 /* AppDelegate.swift in Sources */,
 				15DFD362244CCBD500B375DC /* Utilities.swift in Sources */,
 				158F00F9244CAAED00074359 /* SignUpViewController.swift in Sources */,
+				159E34D8244FA98700C5C6DF /* TabBarViewController.swift in Sources */,
 				158F00FB244CAB0F00074359 /* LoginViewController.swift in Sources */,
 				158F00E7244CA86D00074359 /* SceneDelegate.swift in Sources */,
-				158F00FD244CAB2F00074359 /* HomeViewController.swift in Sources */,
 				1502BDE7244DAB3D00C95329 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

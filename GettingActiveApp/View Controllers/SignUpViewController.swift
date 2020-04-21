@@ -117,11 +117,11 @@ class SignUpViewController: UIViewController {
     
     // method to go to the home screen (sign rootVC to any other VC we're now)
     func transitionToHome() {
-        // reference to HomeViewController (this returns view controller, so we cast it as (?as) HomeViewController type)
-        let homeViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.homeViewController) as? HomeViewController
+        // reference to TabBarViewController (this returns view controller, so we cast it as (?as) TabBarViewController type)
+        let tabBarViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.tabBarViewController) as? TabBarViewController
         
         // swap - sign homeVC to the rootVC
-        view.window?.rootViewController = homeViewController
+        view.window?.rootViewController = tabBarViewController
         // show homeVC as rootVC instead
         view.window?.makeKeyAndVisible()
     }
