@@ -148,67 +148,49 @@
             </objects>
             <point key="canvasLocation" x="1706" y="433"/>
         </scene>
-        <!--Item 2-->
+        <!--ARCHIVE-->
         <scene sceneID="Xmq-Fb-9R4">
             <objects>
                 <viewController id="nRd-oa-zG2" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dVX-Fk-Ga8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aNq-MR-2fv">
-                                <rect key="frame" x="186" y="438" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="9yk-E5-Ngq"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="Chb-3s-0Lg"/>
+                    <tabBarItem key="tabBarItem" title="ARCHIVE" image="archive" id="Chb-3s-0Lg"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1WM-Pc-xie" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3145" y="512"/>
         </scene>
-        <!--Item 1-->
+        <!--HOME-->
         <scene sceneID="NfO-tp-xl8">
             <objects>
                 <viewController id="PON-Nf-jI4" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jMn-xy-jW2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xDX-5m-9hy">
-                                <rect key="frame" x="186" y="438" width="42" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="AMo-z9-2fU"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="UFU-W8-fgO"/>
+                    <tabBarItem key="tabBarItem" title="HOME" image="home" id="UFU-W8-fgO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dY4-XW-qRA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2455" y="512"/>
         </scene>
-        <!--Item-->
+        <!--PROFILE-->
         <scene sceneID="3f4-en-406">
             <objects>
                 <viewController id="lNS-vt-7eU" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m2y-Hq-MdQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="D2a-VD-glY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item" id="pW6-zd-BJo"/>
+                    <tabBarItem key="tabBarItem" title="PROFILE" image="profile" id="pW6-zd-BJo"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jcg-tp-BuH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -312,4 +294,9 @@
             <point key="canvasLocation" x="1706" y="-212"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="archive" width="25" height="25"/>
+        <image name="home" width="25" height="25"/>
+        <image name="profile" width="25" height="25"/>
+    </resources>
 </document>
