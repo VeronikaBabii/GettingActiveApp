@@ -155,7 +155,7 @@
                     <view key="view" contentMode="scaleToFill" id="dVX-Fk-Ga8">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.98216451038314123" green="1" blue="0.63313010248522494" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="9yk-E5-Ngq"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="ARCHIVE" image="archive" id="Chb-3s-0Lg"/>
@@ -171,7 +171,7 @@
                     <view key="view" contentMode="scaleToFill" id="jMn-xy-jW2">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.67378280220070019" green="1" blue="0.6466033690081735" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="AMo-z9-2fU"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="HOME" image="home" id="UFU-W8-fgO"/>
@@ -183,23 +183,83 @@
         <!--PROFILE-->
         <scene sceneID="3f4-en-406">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Jcg-tp-BuH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController id="lNS-vt-7eU" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m2y-Hq-MdQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tOD-Ph-9XW">
+                                <rect key="frame" x="354" y="44" width="40" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="settings"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.95591806994818651" green="0.93442588553623707" blue="0.85564759016578495" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="D2a-VD-glY"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="PROFILE" image="profile" id="pW6-zd-BJo"/>
+                    <navigationItem key="navigationItem" id="Orc-T6-D7g">
+                        <barButtonItem key="rightBarButtonItem" image="settings" id="jgS-Fo-Fgu">
+                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="-7" maxY="-3"/>
+                            <connections>
+                                <segue destination="rYs-g1-4da" kind="show" id="hnH-vR-KDu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Jcg-tp-BuH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3828" y="512"/>
+            <point key="canvasLocation" x="4528" y="512"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="LzQ-5P-xcN">
+            <objects>
+                <tableViewController id="rYs-g1-4da" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="GuV-GK-Xar">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="TCE-2f-lkI">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TCE-2f-lkI" id="ybw-XB-prV">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="rYs-g1-4da" id="jBV-Iv-QJ2"/>
+                            <outlet property="delegate" destination="rYs-g1-4da" id="UYY-wy-usw"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Settings" id="pPj-8B-TNB"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YxO-On-5B3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5252" y="512"/>
+        </scene>
+        <!--PROFILE-->
+        <scene sceneID="pUV-zu-Nzy">
+            <objects>
+                <navigationController id="jea-5H-1eb" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="PROFILE" image="profile" id="Yh1-L9-BFi"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="df4-0q-Boh">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="lNS-vt-7eU" kind="relationship" relationship="rootViewController" id="Omk-VF-6Rq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9hX-uX-w5c" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3842" y="512"/>
         </scene>
         <!--Tab Bar View Controller-->
         <scene sceneID="X6I-h7-8xh">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="OYR-4Y-0LA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <tabBarController storyboardIdentifier="TabBarVC" id="y4n-wU-wXj" customClass="TabBarViewController" customModule="GettingActiveApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3LL-jy-dFz">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
@@ -209,9 +269,10 @@
                     <connections>
                         <segue destination="PON-Nf-jI4" kind="relationship" relationship="viewControllers" id="pHL-O1-w4e"/>
                         <segue destination="nRd-oa-zG2" kind="relationship" relationship="viewControllers" id="eNm-fd-Qum"/>
-                        <segue destination="lNS-vt-7eU" kind="relationship" relationship="viewControllers" id="PTK-tk-rzL"/>
+                        <segue destination="jea-5H-1eb" kind="relationship" relationship="viewControllers" id="v7A-ML-GDi"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OYR-4Y-0LA" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3145" y="-212"/>
         </scene>
@@ -294,9 +355,11 @@
             <point key="canvasLocation" x="1706" y="-212"/>
         </scene>
     </scenes>
+    <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="archive" width="25" height="25"/>
         <image name="home" width="25" height="25"/>
         <image name="profile" width="25" height="25"/>
+        <image name="settings" width="50" height="50"/>
     </resources>
 </document>
