@@ -14,24 +14,19 @@ import FirebaseFirestore
 class SignUpViewController: UIViewController {
 
     @IBOutlet weak var firstNameTextField: UITextField!
-    
     @IBOutlet weak var lastNameTextField: UITextField!
-    
     @IBOutlet weak var emailTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
-    
     @IBOutlet weak var signUpButton: UIButton!
-    
     @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
         setUpElements()
     }
     
+    // to set the elements styling 
     func setUpElements() {
         
         // hide the error label
@@ -70,6 +65,7 @@ class SignUpViewController: UIViewController {
         return nil
     }
 
+    // when the sign up button is tapped
     @IBAction func signUpTapped(_ sender: Any) {
         
         // validate the fields
@@ -125,5 +121,4 @@ class SignUpViewController: UIViewController {
         // show homeVC as rootVC instead
         view.window?.makeKeyAndVisible()
     }
-    
 }

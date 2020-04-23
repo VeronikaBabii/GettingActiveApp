@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1502BDE7244DAB3D00C95329 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1502BDE6244DAB3D00C95329 /* Constants.swift */; };
+		156B1C4A24522C5600D6B13A /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156B1C4924522C5600D6B13A /* HomeViewController.swift */; };
+		157BB52D24509D1E00319CFB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157BB52C24509D1E00319CFB /* ProfileViewController.swift */; };
 		158F00E5244CA86D00074359 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158F00E4244CA86D00074359 /* AppDelegate.swift */; };
 		158F00E7244CA86D00074359 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158F00E6244CA86D00074359 /* SceneDelegate.swift */; };
 		158F00E9244CA86D00074359 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158F00E8244CA86D00074359 /* ViewController.swift */; };
@@ -24,6 +26,8 @@
 
 /* Begin PBXFileReference section */
 		1502BDE6244DAB3D00C95329 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		156B1C4924522C5600D6B13A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		157BB52C24509D1E00319CFB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		158F00E1244CA86D00074359 /* GettingActiveApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GettingActiveApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		158F00E4244CA86D00074359 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		158F00E6244CA86D00074359 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -95,6 +99,8 @@
 				158F00FA244CAB0F00074359 /* LoginViewController.swift */,
 				158F00E8244CA86D00074359 /* ViewController.swift */,
 				159E34D7244FA98700C5C6DF /* TabBarViewController.swift */,
+				157BB52C24509D1E00319CFB /* ProfileViewController.swift */,
+				156B1C4924522C5600D6B13A /* HomeViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -246,7 +252,9 @@
 				15DFD362244CCBD500B375DC /* Utilities.swift in Sources */,
 				158F00F9244CAAED00074359 /* SignUpViewController.swift in Sources */,
 				159E34D8244FA98700C5C6DF /* TabBarViewController.swift in Sources */,
+				156B1C4A24522C5600D6B13A /* HomeViewController.swift in Sources */,
 				158F00FB244CAB0F00074359 /* LoginViewController.swift in Sources */,
+				157BB52D24509D1E00319CFB /* ProfileViewController.swift in Sources */,
 				158F00E7244CA86D00074359 /* SceneDelegate.swift in Sources */,
 				1502BDE7244DAB3D00C95329 /* Constants.swift in Sources */,
 			);
