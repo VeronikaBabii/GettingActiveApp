@@ -24,12 +24,11 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     let taskHashtags = ["#productive #learn", "#kind #help", "#loveyourself #takecare"]
     
     @IBOutlet weak var helloLabel: UILabel!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         sayHello()
+
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -37,6 +36,7 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as! CollectionViewCell
         
         cell.taskTitleLabel.text = taskTitle[indexPath.row]
@@ -86,4 +86,6 @@ class CollectionViewController: UIViewController, UICollectionViewDataSource, UI
         button.layer.cornerRadius = 20
         button.tintColor = UIColor.black
     }
+    
+
 }

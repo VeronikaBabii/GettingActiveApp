@@ -16,12 +16,9 @@ class CollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var taskImage: UIImageView!
     
-    @IBOutlet weak var taskOpenModalButton: UIButton!
     @IBOutlet weak var taskSkipButton: UIButton!
-    
+    @IBOutlet weak var taskOpenModalButton: UIButton!
     
     @IBAction func openModalButtonTapped(_ sender: Any) {
-        
     }
-    
 }
