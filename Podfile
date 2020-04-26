@@ -12,5 +12,6 @@ target 'GettingActiveApp' do
 	pod 'Firebase/Core'
 	pod 'Firebase/Firestore'
 	pod 'FirebaseFirestoreSwift'
+	pod 'Firebase/Storage'
 
 end
