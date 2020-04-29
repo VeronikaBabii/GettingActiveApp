@@ -21,6 +21,11 @@ class TasksListScreen: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var helloLabel: UILabel!
     
+    @IBOutlet weak var centerPopupConstraint: NSLayoutConstraint!
+    
+    @IBOutlet weak var backgroundButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         sayHello()
@@ -28,8 +33,28 @@ class TasksListScreen: UIViewController {
     }
     
     // actions
+    // show popup
     @IBAction func yesButtonTapped(_ sender: Any) {
+        centerPopupConstraint.constant = 0 // popup appear
+        
+        // add slide animation for popup
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.layoutIfNeeded()
+            self.backgroundButton.alpha = 0.5
+        })
+        
          print("Hello")
+    }
+    
+    // done button on popup is clicked
+    @IBAction func closePopup(_ sender: Any) {
+        centerPopupConstraint.constant = -450 // popup disappear
+        
+        // add slide animation for popup
+        UIView.animate(withDuration: 0.1, animations: {
+            self.view.layoutIfNeeded()
+            self.backgroundButton.alpha = 0
+        })
     }
     
     @IBAction func noButtonTapped(_ sender: Any) {
@@ -100,7 +125,7 @@ extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
         cell.previewHashtagsLabel.text = task.hashtags
         // cell.previewImageView.image = tasksImage[indexPath.row]
         
-        //let modal = tableView.dequeueReusableCell(withIdentifier: "taskModal")
+        let modal = tableView.dequeueReusableCell(withIdentifier: "taskModal")
         
         
         
