@@ -18,4 +18,5 @@ class TaskViewCell: UITableViewCell {
     
     @IBOutlet weak var openModalButton: UIButton!
     @IBOutlet weak var skipTaskButton: UIButton!
+    
 }

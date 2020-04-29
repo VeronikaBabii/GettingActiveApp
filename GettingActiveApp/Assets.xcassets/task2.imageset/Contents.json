@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "filename" : "173-1730936_transparent-motivation-png-transparent-motivation-icon-png-png.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "filename" : "173-1730936_transparent-motivation-png-transparent-motivation-icon-png-png-1.png",
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "filename" : "173-1730936_transparent-motivation-png-transparent-motivation-icon-png-png-2.png",
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}
