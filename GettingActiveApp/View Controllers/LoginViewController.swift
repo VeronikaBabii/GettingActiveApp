@@ -23,8 +23,6 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         setUpElements()
     }
     
@@ -38,8 +36,7 @@ class LoginViewController: UIViewController {
         Utilities.styleTextField(passwordTextField)
         Utilities.styleFilledButton(loginButton)
     }
-    
-    // 
+
     func validateFields() -> String? {
         
         // check that all fields are filled in
@@ -47,7 +44,6 @@ class LoginViewController: UIViewController {
             passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             return "Please fill in all fields!"
         }
-        
         return nil
     }
     

@@ -22,7 +22,6 @@ class SignUpViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         setUpElements()
     }
     
@@ -61,7 +60,6 @@ class SignUpViewController: UIViewController {
         if Utilities.isPasswordValid(cleanedPassword) == false {
             return "Please make sure your password is at least 8 characters, contains a special character and a number!"
         }
-        
         return nil
     }
 
@@ -92,12 +90,34 @@ class SignUpViewController: UIViewController {
                     let db = Firestore.firestore()
                     
                     // push user data to the db
-                    db.collection("users").addDocument(data: ["firstname":firstname, "lastname":lastname, "uid":result!.user.uid, "profilePic":""]) { (error) in
-                        // handle error
-                         if error != nil  {
-                            self.showError("Error saving user data!")
-                        }
+                    db.collection("users").document(result!.user.uid).setData([
+                     "firstname":firstname,
+                     "lastname":lastname,
+                     "uid":result!.user.uid]) { (error) in
+                         if error != nil  { self.showError("Error saving user data!") }
                     }
+                    
+                    // push tasks to the db
+                    let tasksCollRef = db.collection("users").document(result!.user.uid).collection("tasks")
+                    
+                    tasksCollRef.document("taskFirst").setData([
+                        "title": "Let's be good!",
+                        "tip": "Help your relative with home stuff.",
+                        "hashtags": "#help #good"
+                    ])
+                    
+                    tasksCollRef.document("taskSecond").setData([
+                        "title": "Let's be productive!",
+                        "tip": "Do one thing that you've putting off for so long.",
+                        "hashtags": "#productive #do"
+                    ])
+                    
+                    tasksCollRef.document("taskThird").setData([
+                        "title": "Sometimes you just need to relax.",
+                        "tip": "Arrange a spa day and take care of yourself.",
+                        "hashtags": "#care #relax"
+                    ])
+                    
                     // transition to the home screen
                     self.transitionToHome()
                 }

@@ -13,18 +13,11 @@ import FirebaseFirestore
 
 class TasksListScreen: UIViewController {
     
-    // variables
     var db = Firestore.firestore()
     var tasksArray = [Task]() // array of tasks
     
-    // outlets
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var helloLabel: UILabel!
-    
-    @IBOutlet weak var centerPopupConstraint: NSLayoutConstraint!
-    
-    @IBOutlet weak var backgroundButton: UIButton!
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,43 +25,16 @@ class TasksListScreen: UIViewController {
         loadData()
     }
     
-    // actions
-    // show popup
-    @IBAction func yesButtonTapped(_ sender: Any) {
-        centerPopupConstraint.constant = 0 // popup appear
-        
-        // add slide animation for popup
-        UIView.animate(withDuration: 0.3, animations: {
-            self.view.layoutIfNeeded()
-            self.backgroundButton.alpha = 0.5
-        })
-        
-         print("Hello")
-    }
-    
-    // done button on popup is clicked
-    @IBAction func closePopup(_ sender: Any) {
-        centerPopupConstraint.constant = -450 // popup disappear
-        
-        // add slide animation for popup
-        UIView.animate(withDuration: 0.1, animations: {
-            self.view.layoutIfNeeded()
-            self.backgroundButton.alpha = 0
-        })
-    }
-    
-    @IBAction func noButtonTapped(_ sender: Any) {
-        print("Bye")
-    }
-    
-    // functions
-    // to load data from db
+    // load data from db
     func loadData() {
-        db.collection("tasks").getDocuments { (queryShapshot, error) in
+        let userID = Auth.auth().currentUser!.uid
+        let tasksCollRef = db.collection("users").document(userID).collection("tasks")
+        
+        tasksCollRef.getDocuments { (queryShapshot, error) in
             if let error = error {
                 print("\(error.localizedDescription)")
             } else {
-                self.tasksArray = queryShapshot!.documents.flatMap({Task(dictionary: $0.data())})
+                self.tasksArray = queryShapshot!.documents.compactMap({Task(dictionary: $0.data())})
                 // to update user interface
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -93,20 +59,13 @@ class TasksListScreen: UIViewController {
         }
     }
     
-    // styling the buttons
     func styleFilledButton(_ button:UIButton) {
         button.backgroundColor = UIColor.init(red: 48/255, green: 173/255, blue: 99/255, alpha: 1)
-        button.layer.cornerRadius = 15
+        button.layer.cornerRadius = 20
         button.tintColor = UIColor.white
     }
-    
-    func styleHollowButton(_ button:UIButton) {
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor.black.cgColor
-        button.layer.cornerRadius = 15
-        button.tintColor = UIColor.black
-    }
 }
+
 
 extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
     
@@ -114,6 +73,7 @@ extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
         return tasksArray.count
     }
     
+    // add rows
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell") as! TaskViewCell
@@ -125,16 +85,94 @@ extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
         cell.previewHashtagsLabel.text = task.hashtags
         // cell.previewImageView.image = tasksImage[indexPath.row]
         
-        let modal = tableView.dequeueReusableCell(withIdentifier: "taskModal")
-        
-        
-        
-        
-        
-        
         styleFilledButton(cell.openModalButton)
-        styleHollowButton(cell.skipTaskButton)
         
         return cell
     }
+    
+    // delete rows
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        // if action is deletion
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            
+            // delete task from db for the current user
+            let title = tasksArray[indexPath.row].title
+            let user = Auth.auth().currentUser
+            // access collection of tasks of the current user
+            let collectionRef = db.collection("users").document((user?.uid)!).collection("tasks")
+            // search for task with needed title
+            let query : Query = collectionRef.whereField("title", isEqualTo: title)
+            print(title)
+            print(query)
+            
+            query.getDocuments(completion:{ (snapshot, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    for document in snapshot!.documents {
+                        collectionRef.document("\(document.documentID)").delete()
+                    }
+                }
+            })
+            
+            // delete task from table view
+            tasksArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+            
+            // add new task to the db and to the table, instead of deleted one
+            let userID = Auth.auth().currentUser!.uid
+            let tasksCollRef = db.collection("users").document(userID).collection("tasks")
+            
+            tasksCollRef.document("taskNew").setData([
+                "title": "New task",
+                "tip": "new",
+                "hashtags": "#new #new"
+            ])
+        }
+    }
+    
+    //
+    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let complete = completeAction(at: indexPath)
+        
+        // delete task from db for the current user
+        let title = tasksArray[indexPath.row].title
+        let user = Auth.auth().currentUser
+        let collectionRef = db.collection("users").document((user?.uid)!).collection("tasks")
+        let query : Query = collectionRef.whereField("title", isEqualTo: title)
+        
+        query.getDocuments(completion:{ (snapshot, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                for document in snapshot!.documents {
+                    collectionRef.document("\(document.documentID)").delete()
+                }
+            }
+        })
+        
+        // add task to the archive page
+        
+        
+        return UISwipeActionsConfiguration(actions: [complete])
+    }
+    
+    // swipe left done action
+    func completeAction(at indexPath: IndexPath) -> UIContextualAction {
+        
+        // remove task from table view
+        let action = UIContextualAction(style: .destructive, title: "Complete") { (action, view, completion) in
+            self.tasksArray.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            completion(true)
+        }
+        action.title = "Done"
+        action.backgroundColor = .green
+        
+        return action
+    }
+    
 }

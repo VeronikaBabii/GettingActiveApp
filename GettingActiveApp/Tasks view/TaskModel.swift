@@ -9,20 +9,6 @@
 import Foundation
 import FirebaseFirestore
 
-//class TaskModel {
-//
-//    var taskModelTitle: String?
-//    var taskModelHashtags: String?
-//    var taskModelTip: String?
-//
-//    init(taskModelTitle: String?, taskModelHashtags: String?, taskModelTip: String?) {
-//        self.taskModelTitle = taskModelTitle
-//        self.taskModelHashtags = taskModelHashtags
-//        self.taskModelTip = taskModelTip
-//    }
-//}
-
-
 protocol DocumentSerializable {
     init?(dictionary:[String:Any])
 }
@@ -31,12 +17,14 @@ struct Task {
     var title: String
     var tip: String
     var hashtags: String
+    var imageURL: String
     
     var dictionary:[String:Any] {
         return [
             "title": title,
             "tip": tip,
-            "hashtags": hashtags
+            "hashtags": hashtags,
+            "imageURL": imageURL
         ]
     }
 }
@@ -45,9 +33,10 @@ extension Task : DocumentSerializable {
     init?(dictionary: [String : Any]) {
         guard let title = dictionary["title"] as? String,
             let tip = dictionary["tip"] as? String,
-            let hashtags = dictionary["hashtags"] as? String else {return nil}
+            let hashtags = dictionary["hashtags"] as? String,
+            let imageURL = dictionary["imageURL"] as? String else {return nil}
         
-        self.init(title: title, tip: tip, hashtags: hashtags)
+        self.init(title: title, tip: tip, hashtags: hashtags, imageURL: imageURL)
     }
 }
 

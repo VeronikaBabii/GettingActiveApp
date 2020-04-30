@@ -14,7 +14,6 @@
 		156791972456287700E606AD /* TaskViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156791962456287700E606AD /* TaskViewCell.swift */; };
 		157BB52D24509D1E00319CFB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157BB52C24509D1E00319CFB /* ProfileViewController.swift */; };
 		15851B1B245741E700863D50 /* DesignableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15851B1A245741E700863D50 /* DesignableView.swift */; };
-		15851B1E2457444600863D50 /* TaskModalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15851B1D2457444600863D50 /* TaskModalVC.swift */; };
 		158F00E5244CA86D00074359 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158F00E4244CA86D00074359 /* AppDelegate.swift */; };
 		158F00E7244CA86D00074359 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158F00E6244CA86D00074359 /* SceneDelegate.swift */; };
 		158F00E9244CA86D00074359 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158F00E8244CA86D00074359 /* ViewController.swift */; };
@@ -37,7 +36,6 @@
 		156791962456287700E606AD /* TaskViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewCell.swift; sourceTree = "<group>"; };
 		157BB52C24509D1E00319CFB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		15851B1A245741E700863D50 /* DesignableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignableView.swift; sourceTree = "<group>"; };
-		15851B1D2457444600863D50 /* TaskModalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModalVC.swift; sourceTree = "<group>"; };
 		158F00E1244CA86D00074359 /* GettingActiveApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GettingActiveApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		158F00E4244CA86D00074359 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		158F00E6244CA86D00074359 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,7 +72,6 @@
 				15679194245626BB00E606AD /* TasksListScreen.swift */,
 				156791962456287700E606AD /* TaskViewCell.swift */,
 				151E80D62458958900856B46 /* TaskModel.swift */,
-				15851B1D2457444600863D50 /* TaskModalVC.swift */,
 			);
 			path = "Tasks view";
 			sourceTree = "<group>";
@@ -284,7 +281,6 @@
 				15DFD362244CCBD500B375DC /* Utilities.swift in Sources */,
 				158F00F9244CAAED00074359 /* SignUpViewController.swift in Sources */,
 				159E34D8244FA98700C5C6DF /* TabBarViewController.swift in Sources */,
-				15851B1E2457444600863D50 /* TaskModalVC.swift in Sources */,
 				156791972456287700E606AD /* TaskViewCell.swift in Sources */,
 				15851B1B245741E700863D50 /* DesignableView.swift in Sources */,
 				158F00FB244CAB0F00074359 /* LoginViewController.swift in Sources */,
