@@ -340,7 +340,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XtP-4E-uHO">
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XtP-4E-uHO" userLabel="firstnameTextfield">
                                                     <rect key="frame" x="257" y="5" width="97" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -386,7 +386,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Trz-CI-V2f">
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="01/01/2001" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Trz-CI-V2f">
                                                     <rect key="frame" x="257" y="5" width="97" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -495,6 +495,9 @@
                     <navigationItem key="navigationItem" title="Settings" id="pPj-8B-TNB"/>
                     <connections>
                         <outlet property="aboutButton" destination="UGI-kW-2DU" id="xm3-gv-QPc"/>
+                        <outlet property="datePickerTextfield" destination="Trz-CI-V2f" id="37J-0b-EvP"/>
+                        <outlet property="firstnameTextfield" destination="XtP-4E-uHO" id="Nnl-Mj-Fk7"/>
+                        <outlet property="genderPickerTextfield" destination="A6h-Bt-EJD" id="b7S-wx-xdE"/>
                         <outlet property="logoutButton" destination="iej-Qz-jMo" id="a6k-ka-1S8"/>
                     </connections>
                 </tableViewController>
