@@ -58,17 +58,11 @@ class TasksListScreen: UIViewController {
             }
         }
     }
-    
-    func styleFilledButton(_ button:UIButton) {
-        button.backgroundColor = UIColor.init(red: 48/255, green: 173/255, blue: 99/255, alpha: 1)
-        button.layer.cornerRadius = 20
-        button.tintColor = UIColor.white
-    }
 }
-
 
 extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
     
+    // number of rows
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return tasksArray.count
     }
@@ -83,14 +77,12 @@ extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
         cell.previewTitleLabel.text = task.title
         cell.previewMotivLabel.text = task.tip
         cell.previewHashtagsLabel.text = task.hashtags
-        // cell.previewImageView.image = tasksImage[indexPath.row]
-        
-        styleFilledButton(cell.openModalButton)
+        // cell.previewImageView.image =
         
         return cell
     }
     
-    // delete rows
+    // swipe right - task deleted
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         // if action is deletion
@@ -103,8 +95,6 @@ extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
             let collectionRef = db.collection("users").document((user?.uid)!).collection("tasks")
             // search for task with needed title
             let query : Query = collectionRef.whereField("title", isEqualTo: title)
-            print(title)
-            print(query)
             
             query.getDocuments(completion:{ (snapshot, error) in
                 if let error = error {
@@ -120,25 +110,30 @@ extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
             tasksArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             
-            
-            // add new task to the db and to the table, instead of deleted one
+            // add new task to the db instead of deleted one
             let userID = Auth.auth().currentUser!.uid
             let tasksCollRef = db.collection("users").document(userID).collection("tasks")
             
             tasksCollRef.document("taskNew").setData([
                 "title": "New task",
                 "tip": "new",
-                "hashtags": "#new #new"
+                "hashtags": "#new #new",
+                "imageURL": ""
             ])
+            
+             // add new task to the table view
+            
+            
+            
         }
     }
     
-    //
+    // swipe left - task done
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let complete = completeAction(at: indexPath)
         
-        // delete task from db for the current user
+        // delete done task from db for the current user
         let title = tasksArray[indexPath.row].title
         let user = Auth.auth().currentUser
         let collectionRef = db.collection("users").document((user?.uid)!).collection("tasks")
@@ -154,15 +149,22 @@ extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
             }
         })
         
-        // add task to the archive page
+       // create archive collection and push done task in it
+        let userID = Auth.auth().currentUser!.uid
+        let archiveCollRef = db.collection("users").document(userID).collection("archive")
         
+        archiveCollRef.addDocument(data: [
+            "title": tasksArray[indexPath.row].title,
+            "tip": tasksArray[indexPath.row].tip,
+            "hashtags": tasksArray[indexPath.row].hashtags,
+            "imageURL": tasksArray[indexPath.row].imageURL
+        ])
         
         return UISwipeActionsConfiguration(actions: [complete])
     }
     
-    // swipe left done action
+    // swipe left - done task, helper func
     func completeAction(at indexPath: IndexPath) -> UIContextualAction {
-        
         // remove task from table view
         let action = UIContextualAction(style: .destructive, title: "Complete") { (action, view, completion) in
             self.tasksArray.remove(at: indexPath.row)
@@ -174,5 +176,4 @@ extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
         
         return action
     }
-    
 }

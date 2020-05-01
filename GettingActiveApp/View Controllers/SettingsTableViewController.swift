@@ -20,7 +20,10 @@ class SettingsTableViewController: UITableViewController {
         
     // log out
     @IBAction func logoutButtonTapped(_ sender: Any) {
+       let mainVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.mainViewController) as? ViewController
         
+        view.window?.rootViewController = mainVC
+        view.window?.makeKeyAndVisible()
     }
     
     // redirect to about us file on web

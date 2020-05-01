@@ -23,7 +23,9 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpElements()
+        
     }
+
     
     // to set the elements styling 
     func setUpElements() {
@@ -103,19 +105,22 @@ class SignUpViewController: UIViewController {
                     tasksCollRef.document("taskFirst").setData([
                         "title": "Let's be good!",
                         "tip": "Help your relative with home stuff.",
-                        "hashtags": "#help #good"
+                        "hashtags": "#help #good",
+                        "imageURL": ""
                     ])
                     
                     tasksCollRef.document("taskSecond").setData([
                         "title": "Let's be productive!",
                         "tip": "Do one thing that you've putting off for so long.",
-                        "hashtags": "#productive #do"
+                        "hashtags": "#productive #do",
+                        "imageURL": ""
                     ])
                     
                     tasksCollRef.document("taskThird").setData([
                         "title": "Sometimes you just need to relax.",
                         "tip": "Arrange a spa day and take care of yourself.",
-                        "hashtags": "#care #relax"
+                        "hashtags": "#care #relax",
+                        "imageURL": ""
                     ])
                     
                     // transition to the home screen

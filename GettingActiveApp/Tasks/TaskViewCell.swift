@@ -15,6 +15,4 @@ class TaskViewCell: UITableViewCell {
     @IBOutlet weak var previewHashtagsLabel: UILabel!
     
     @IBOutlet weak var previewImageView: UIImageView!
-    
-    @IBOutlet weak var openModalButton: UIButton!
 }
