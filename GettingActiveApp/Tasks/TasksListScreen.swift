@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseStorage
 
 class TasksListScreen: UIViewController {
     
@@ -23,6 +24,17 @@ class TasksListScreen: UIViewController {
         super.viewDidLoad()
         sayHello()
         loadData()
+        downloadImage()
+    }
+    
+    func downloadImage() {
+        let storageRef = Storage.storage().reference().child("imagesFolder").child("task1.png")
+        storageRef.downloadURL { (url, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+           print("Image URL: \((url?.absoluteString)!)")
+        }
     }
     
     // load data from db
@@ -77,7 +89,9 @@ extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
         cell.previewTitleLabel.text = task.title
         cell.previewMotivLabel.text = task.tip
         cell.previewHashtagsLabel.text = task.hashtags
-        // cell.previewImageView.image =
+        //cell.previewImageView.image = UIImage(contentsOfFile: task.imageURL)
+        
+        print("Image URL is \(task.imageURL)")
         
         return cell
     }
@@ -115,9 +129,9 @@ extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
             let tasksCollRef = db.collection("users").document(userID).collection("tasks")
             
             tasksCollRef.document("taskNew").setData([
-                "title": "New task",
-                "tip": "new",
-                "hashtags": "#new #new",
+                "title": "Заведіть кімнатну рослину",
+                "tip": "Заведіть собі кімнатну рослинку, вона не тілки прикрасить інтер'єр вашої кімнати, а й наповнить її киснем.",
+                "hashtags": "#розвиток #відпочинок #побут",
                 "imageURL": ""
             ])
             
@@ -159,6 +173,20 @@ extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
             "hashtags": tasksArray[indexPath.row].hashtags,
             "imageURL": tasksArray[indexPath.row].imageURL
         ])
+        
+        // print current archive collection size
+        archiveCollRef.getDocuments { (queryShapshot, error) in
+        if let error = error {
+            print("\(error.localizedDescription)")
+        } else {
+            var count = 0
+            for document in queryShapshot!.documents {
+                count += 1
+                print("\(document.documentID) => \(document.data())");
+            }
+            print("Number of archived tasks = \(count)");
+        }
+        }
         
         return UISwipeActionsConfiguration(actions: [complete])
     }

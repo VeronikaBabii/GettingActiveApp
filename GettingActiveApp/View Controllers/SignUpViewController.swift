@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 import FirebaseFirestore
+import FirebaseStorage
 
 class SignUpViewController: UIViewController {
 
@@ -103,24 +104,31 @@ class SignUpViewController: UIViewController {
                     let tasksCollRef = db.collection("users").document(result!.user.uid).collection("tasks")
                     
                     tasksCollRef.document("taskFirst").setData([
-                        "title": "Let's be good!",
-                        "tip": "Help your relative with home stuff.",
-                        "hashtags": "#help #good",
-                        "imageURL": ""
+                        "title": "Копійка гривню береже",
+                        "tip": "Копійка гривню береже, чули таке? Чи є у Вас скарбничка? Якщо немає - є ідея. Спробуйте створити скарбничку своїми руками. Яка вона буде - справа Ваша. І ще, порада, заповніть ії.",
+                        "hashtags": "#гроші #збереження #своїмиРуками",
+                        "imageURL": "gs://gettingactiveapp.appspot.com/imagesFolder/task1.png"
                     ])
                     
                     tasksCollRef.document("taskSecond").setData([
-                        "title": "Let's be productive!",
-                        "tip": "Do one thing that you've putting off for so long.",
-                        "hashtags": "#productive #do",
-                        "imageURL": ""
+                        "title": "В здоровому тілі, здоровий дух",
+                        "tip": "Зробіть ранкову зарядку або пробіжку на свіжому повітрі",
+                        "hashtags": "#розвиток #активність #здоров'я",
+                        "imageURL": "gs://gettingactiveapp.appspot.com/imagesFolder/task2.png"
                     ])
                     
                     tasksCollRef.document("taskThird").setData([
-                        "title": "Sometimes you just need to relax.",
-                        "tip": "Arrange a spa day and take care of yourself.",
-                        "hashtags": "#care #relax",
-                        "imageURL": ""
+                        "title": "Проводьте більше часу з рідними",
+                        "tip": "Проведіть трохи часу зі своїми близькими людьми: ви можете просто відпочити, переглядаючи ваш улюблений фільм, або допомогти вашим батькам у приготуванні їжі, прибиранні, тощо.",
+                        "hashtags": "#родина #допомога #сім'я #побут",
+                        "imageURL": "gs://gettingactiveapp.appspot.com/imagesFolder/task3.png"
+                    ])
+                    
+                    tasksCollRef.document("fourthThird").setData([
+                        "title": "Де не вистачає слів - говорить музика",
+                        "tip": "Щоб трохи відпочити від буденних справ, пропонуємо вам послухати улюблену музику, а ще цікавіше навчитися грати її на музичному інструменті або просто співати.",
+                        "hashtags": "#музика #хобі #відпочинок",
+                        "imageURL": "gs://gettingactiveapp.appspot.com/imagesFolder/task3.png"
                     ])
                     
                     // transition to the home screen
