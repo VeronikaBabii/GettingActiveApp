@@ -13,7 +13,7 @@ import FirebaseFirestore
 import FirebaseStorage
 
 class SignUpViewController: UIViewController {
-
+    
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -24,9 +24,8 @@ class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpElements()
-        
     }
-
+    
     
     // to set the elements styling 
     func setUpElements() {
@@ -65,17 +64,15 @@ class SignUpViewController: UIViewController {
         }
         return nil
     }
-
-    // when the sign up button is tapped
+    
     @IBAction func signUpTapped(_ sender: Any) {
         
-        // validate the fields
         let error = validateFields()
         
         // there's an error, bc something wrong with the fields, so show error message
         if error != nil {
             showError(error!)
-        } else { // no errors
+        } else {
             
             // create cleaned versions of the data
             let firstname = firstNameTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -94,10 +91,10 @@ class SignUpViewController: UIViewController {
                     
                     // push user data to the db
                     db.collection("users").document(result!.user.uid).setData([
-                     "firstname":firstname,
-                     "lastname":lastname,
-                     "uid":result!.user.uid]) { (error) in
-                         if error != nil  { self.showError("Error saving user data!") }
+                        "firstname":firstname,
+                        "lastname":lastname,
+                        "uid":result!.user.uid]) { (error) in
+                            if error != nil  { self.showError("Error saving user data!") }
                     }
                     
                     // push tasks to the db
@@ -137,6 +134,14 @@ class SignUpViewController: UIViewController {
             }
         }
     }
+    
+    @IBAction func backButtonTapped(_ sender: Any) {
+        let mainVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.mainViewController) as? ViewController
+        
+        view.window?.rootViewController = mainVC
+        view.window?.makeKeyAndVisible()
+    }
+    
     
     // method to show error message on the page
     func showError(_ message:String) {

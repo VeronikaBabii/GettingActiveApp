@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "checkmark-24-512.png",
+      "filename" : "icons8-back-48.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "icons8-back-49.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "icons8-back-50.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

@@ -22,6 +22,10 @@ class TasksListScreen: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.isNavigationBarHidden = true
+        view.backgroundColor = UIColor.init(red: 48/255, green: 173/255, blue: 99/255, alpha: 1)
+        
         sayHello()
         loadData()
         downloadImage()
@@ -33,7 +37,7 @@ class TasksListScreen: UIViewController {
             if let error = error {
                 print(error.localizedDescription)
             }
-           print("Image URL: \((url?.absoluteString)!)")
+            print("Image URL: \((url?.absoluteString)!)")
         }
     }
     
@@ -63,8 +67,8 @@ class TasksListScreen: UIViewController {
                     print("Error getting documents: \(error)")
                 } else {
                     if let currentUserDoc = snapshot?.documents.first(where: { ($0["uid"] as? String) == userId }) {
-                       let userFirstname = currentUserDoc["firstname"] as! String
-                       self.helloLabel.text = "Hello, \(userFirstname)!"
+                        let userFirstname = currentUserDoc["firstname"] as! String
+                        self.helloLabel.text = "Hello, \(userFirstname)!"
                     }
                 }
             }
@@ -135,7 +139,7 @@ extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
                 "imageURL": ""
             ])
             
-             // add new task to the table view
+            // add new task to the table view
             
             
             
@@ -163,7 +167,7 @@ extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
             }
         })
         
-       // create archive collection and push done task in it
+        // create archive collection and push done task in it
         let userID = Auth.auth().currentUser!.uid
         let archiveCollRef = db.collection("users").document(userID).collection("archive")
         
@@ -176,16 +180,16 @@ extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
         
         // print current archive collection size
         archiveCollRef.getDocuments { (queryShapshot, error) in
-        if let error = error {
-            print("\(error.localizedDescription)")
-        } else {
-            var count = 0
-            for document in queryShapshot!.documents {
-                count += 1
-                print("\(document.documentID) => \(document.data())");
+            if let error = error {
+                print("\(error.localizedDescription)")
+            } else {
+                var count = 0
+                for document in queryShapshot!.documents {
+                    count += 1
+                    print("\(document.documentID) => \(document.data())");
+                }
+                print("Number of archived tasks = \(count)");
             }
-            print("Number of archived tasks = \(count)");
-        }
         }
         
         return UISwipeActionsConfiguration(actions: [complete])

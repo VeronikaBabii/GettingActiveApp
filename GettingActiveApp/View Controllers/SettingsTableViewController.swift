@@ -14,28 +14,22 @@ import FirebaseFirestore
 class SettingsTableViewController: UITableViewController {
     
     var db = Firestore.firestore()
+    var datePicker: UIDatePicker?
     
     @IBOutlet weak var logoutButton: UIButton!
     @IBOutlet weak var aboutButton: UIView!
-    
     @IBOutlet weak var firstnameTextfield: UITextField!
-    
     @IBOutlet weak var datePickerTextfield: UITextField!
-    
-    @IBOutlet weak var genderPickerTextfield: UITextField!
-    
-    var datePicker: UIDatePicker?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setUserFirstname()
         setDatePicker()
-        setGenderSelection()
     }
-        
+    
     // log out
     @IBAction func logoutButtonTapped(_ sender: Any) {
-       let mainVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.mainViewController) as? ViewController
+        let mainVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.mainViewController) as? ViewController
         
         view.window?.rootViewController = mainVC
         view.window?.makeKeyAndVisible()
@@ -43,11 +37,6 @@ class SettingsTableViewController: UITableViewController {
     
     // redirect to about us file on web
     @IBAction func aboutButtonTapped(_ sender: Any) {
-        
-    }
-    
-    // configure gender selection
-    func setGenderSelection() {
         
     }
     
@@ -87,16 +76,16 @@ class SettingsTableViewController: UITableViewController {
     // get user firstname and add it to the name field
     func setUserFirstname() {
         if let userId = Auth.auth().currentUser?.uid {
-        db.collection("users").getDocuments { (snapshot, error) in
-            if let error = error {
-                print("Error getting documents: \(error)")
-            } else {
-                if let currentUserDoc = snapshot?.documents.first(where: { ($0["uid"] as? String) == userId }) {
-                    let userFirstname = currentUserDoc["firstname"] as! String
-                    self.firstnameTextfield.text = "\(userFirstname)"
+            db.collection("users").getDocuments { (snapshot, error) in
+                if let error = error {
+                    print("Error getting documents: \(error)")
+                } else {
+                    if let currentUserDoc = snapshot?.documents.first(where: { ($0["uid"] as? String) == userId }) {
+                        let userFirstname = currentUserDoc["firstname"] as! String
+                        self.firstnameTextfield.text = "\(userFirstname)"
+                    }
                 }
             }
-        }
         }
     }
     

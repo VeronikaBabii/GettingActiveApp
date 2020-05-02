@@ -19,14 +19,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
-    
-    @IBOutlet weak var progressBar: UIProgressView!
     @IBOutlet weak var progressLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getUserData()
-        setProgressBar()
+        setProgress()
     }
     
     // action to open image picker on click
@@ -36,37 +34,28 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         imagePicker.allowsEditing = true
         imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
         self.present(imagePicker, animated: true, completion: nil)
-        
-        //saveChanges()
     }
     
     // configure user progress bar
-    func setProgressBar() {
+    func setProgress() {
         
-       // print current archive collection size
+        // print current archive collection size
         let userID = Auth.auth().currentUser!.uid
         let archiveCollRef = db.collection("users").document(userID).collection("archive")
-
-        archiveCollRef.getDocuments { (queryShapshot, error) in
-        if let error = error {
-            print("\(error.localizedDescription)")
-        } else {
-            var count = 0
-            for _ in queryShapshot!.documents {
-                count += 1
-            }
-            print("Number of archived tasks = \(count)");
-            
-            self.progressLabel.text = "You've done \(count) tasks. Great job! "
-            
-            // set progress bar
-            //let progress = Float(count/3)
-            //print(progress)
-           // self.progressBar.setProgress(progress, animated: true)
-            
-        }
-        }
         
+        archiveCollRef.getDocuments { (queryShapshot, error) in
+            if let error = error {
+                print("\(error.localizedDescription)")
+            } else {
+                var count = 0
+                for _ in queryShapshot!.documents {
+                    count += 1
+                }
+                print("Number of archived tasks = \(count)");
+                
+                self.progressLabel.text = "You've done \(count) tasks. Great job! "
+            }
+        }
     }
     
     private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
@@ -83,7 +72,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         dismiss(animated: true, completion: nil)
     }
     
-    //
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
@@ -101,38 +89,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                         let userFirstname = currentUserDoc["firstname"] as! String
                         let userLastname = currentUserDoc["lastname"] as! String
                         self.usernameLabel.text = "\(userFirstname) \(userLastname)"
-                        
-                        // get and set user picture
-//                        if let profilePicURL = currentUserDoc["profilePic"] as? String {
-//                            let url = URL(string: profilePicURL)
-//
-//                            URLSession.shared.dataTask(with: url!) { (data, response, error) in
-//                                if error != nil {
-//                                    print(error!)
-//                                    return
-//                                }
-//                                DispatchQueue.main.async {
-//                                    self.profileImage?.image = UIImage(data: data!)
-//                                }
-//                            }.resume()
-//                        }
                     }
                 }
             }
         }
     }
-    
-    // to save selected profile picture in the db
-//    func saveChanges() {
-//        let imageName = UUID().uuidString
-//        // profileImages?
-//        let imageRef = Storage.storage().reference().child("profileImages").child(imageName)
-//
-//        //if let uploadData = UIImage
-//        imageRef.putData(uploadData, metadata: nil) { (metadata, error) in
-//            if let error = error {
-//
-//            }
-//        }
-//    }
 }

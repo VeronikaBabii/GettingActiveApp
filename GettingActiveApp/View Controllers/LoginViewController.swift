@@ -12,13 +12,10 @@ import FirebaseAuth
 import FirebaseFirestore
 
 class LoginViewController: UIViewController {
-
+    
     @IBOutlet weak var emailTextField: UITextField!
-    
     @IBOutlet weak var passwordTextField: UITextField!
-    
     @IBOutlet weak var loginButton: UIButton!
-    
     @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
@@ -27,16 +24,14 @@ class LoginViewController: UIViewController {
     }
     
     func setUpElements() {
-        
-        // hide the error label
-        errorLabel.alpha = 0
+        errorLabel.alpha = 0 // hide the error label
         
         // style the elements
         Utilities.styleTextField(emailTextField)
         Utilities.styleTextField(passwordTextField)
         Utilities.styleFilledButton(loginButton)
     }
-
+    
     func validateFields() -> String? {
         
         // check that all fields are filled in
@@ -47,6 +42,12 @@ class LoginViewController: UIViewController {
         return nil
     }
     
+    @IBAction func backButtonTapped(_ sender: Any) {
+        let mainVC = storyboard?.instantiateViewController(identifier: Constants.Storyboard.mainViewController) as? ViewController
+        
+        view.window?.rootViewController = mainVC
+        view.window?.makeKeyAndVisible()
+    }
     
     @IBAction func loginTapped(_ sender: Any) {
         
