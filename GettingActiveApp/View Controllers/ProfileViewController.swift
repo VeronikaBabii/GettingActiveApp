@@ -51,7 +51,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 for _ in queryShapshot!.documents {
                     count += 1
                 }
-                print("Number of archived tasks = \(count)");
+                //print("Number of archived tasks = \(count)");
                 
                 self.progressLabel.text = "You've done \(count) tasks. Great job! "
             }

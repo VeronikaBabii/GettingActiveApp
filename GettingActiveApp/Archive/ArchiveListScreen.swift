@@ -20,11 +20,26 @@ class ArchiveListScreen: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        setUpDesign()
+        loadData()
+        listenToArchiveCollection()
+        self.tableView.reloadData()
+    }
+    
+    func setUpDesign() {
         self.navigationController?.isNavigationBarHidden = true
         view.backgroundColor = UIColor.init(red: 48/255, green: 173/255, blue: 99/255, alpha: 1)
-        
-        loadData()
+    }
+    
+    // add listener
+    func listenToArchiveCollection() {
+        db.collection("archive").addSnapshotListener { querySnapshot, error in
+                guard let documents = querySnapshot?.documents else {
+                    print("Error fetching documents: \(error!)")
+                    return
+                }
+                self.tableView.reloadData()
+            }
     }
     
     // load data from db
@@ -60,7 +75,8 @@ extension ArchiveListScreen: UITableViewDataSource, UITableViewDelegate {
         let task = archiveTasksArray[indexPath.row]
         
         cell.archiveTitle.text = task.title
-        cell.archiveDescription.text = task.tip
+        cell.archiveDescription.text = task.description
+        cell.archiveTipLabel.text = task.tip
         cell.archiveHashtags.text = task.hashtags
         
         return cell

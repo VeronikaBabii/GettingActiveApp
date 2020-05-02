@@ -29,9 +29,7 @@ class SignUpViewController: UIViewController {
     
     // to set the elements styling 
     func setUpElements() {
-        
-        // hide the error label
-        errorLabel.alpha = 0
+        errorLabel.alpha = 0 // hide the error label
         
         // style the elements
         Utilities.styleTextField(firstNameTextField)
@@ -39,7 +37,6 @@ class SignUpViewController: UIViewController {
         Utilities.styleTextField(emailTextField)
         Utilities.styleTextField(passwordTextField)
         Utilities.styleFilledButton(signUpButton)
-        
     }
     
     // check the fields and validate that the data is correct.
@@ -102,30 +99,30 @@ class SignUpViewController: UIViewController {
                     
                     tasksCollRef.document("taskFirst").setData([
                         "title": "Копійка гривню береже",
-                        "tip": "Копійка гривню береже, чули таке? Чи є у Вас скарбничка? Якщо немає - є ідея. Спробуйте створити скарбничку своїми руками. Яка вона буде - справа Ваша. І ще, порада, заповніть ії.",
-                        "hashtags": "#гроші #збереження #своїмиРуками",
-                        "imageURL": "gs://gettingactiveapp.appspot.com/imagesFolder/task1.png"
+                        "description": "Копійка гривню береже, чули таке? Чи є у Вас скарбничка? Якщо немає - є ідея. Спробуйте створити скарбничку своїми руками. Яка вона буде - справа Ваша. І ще, порада, заповніть ії.",
+                        "tip": "Живеться, якщо копійка ведеться.",
+                        "hashtags": "#гроші #збереження #своїмиРуками"
                     ])
                     
                     tasksCollRef.document("taskSecond").setData([
                         "title": "В здоровому тілі, здоровий дух",
-                        "tip": "Зробіть ранкову зарядку або пробіжку на свіжому повітрі",
-                        "hashtags": "#розвиток #активність #здоров'я",
-                        "imageURL": "gs://gettingactiveapp.appspot.com/imagesFolder/task2.png"
+                        "description": "Зробіть ранкову зарядку або пробіжку на свіжому повітрі",
+                        "tip": "Доведено, що фізична активність значно покращує самопочуття та настрій на цілий день.",
+                        "hashtags": "#розвиток #активність #здоров'я"
                     ])
                     
                     tasksCollRef.document("taskThird").setData([
                         "title": "Проводьте більше часу з рідними",
-                        "tip": "Проведіть трохи часу зі своїми близькими людьми: ви можете просто відпочити, переглядаючи ваш улюблений фільм, або допомогти вашим батькам у приготуванні їжі, прибиранні, тощо.",
-                        "hashtags": "#родина #допомога #сім'я #побут",
-                        "imageURL": "gs://gettingactiveapp.appspot.com/imagesFolder/task3.png"
+                        "description": "Проведіть трохи часу зі своїми близькими людьми: ви можете просто відпочити, переглядаючи ваш улюблений фільм, або допомогти вашим батькам у приготуванні їжі, прибиранні, тощо.",
+                        "tip": "Цінуйте та не втрачайте час, який ви можете провести з рідними людьми.",
+                        "hashtags": "#родина #допомога #сім'я #побут"
                     ])
                     
-                    tasksCollRef.document("fourthThird").setData([
+                    tasksCollRef.document("taskFourth").setData([
                         "title": "Де не вистачає слів - говорить музика",
-                        "tip": "Щоб трохи відпочити від буденних справ, пропонуємо вам послухати улюблену музику, а ще цікавіше навчитися грати її на музичному інструменті або просто співати.",
-                        "hashtags": "#музика #хобі #відпочинок",
-                        "imageURL": "gs://gettingactiveapp.appspot.com/imagesFolder/task3.png"
+                        "description": "Щоб трохи відпочити від буденних справ, пропонуємо вам послухати улюблену музику, а ще цікавіше навчитися грати її на музичному інструменті або просто співати.",
+                        "tip": "Заняття музикою чудове хобі, яке дозволить вам відпочити та підняти вам настрій",
+                        "hashtags": "#музика #хобі #відпочинок"
                     ])
                     
                     // transition to the home screen
@@ -141,7 +138,6 @@ class SignUpViewController: UIViewController {
         view.window?.rootViewController = mainVC
         view.window?.makeKeyAndVisible()
     }
-    
     
     // method to show error message on the page
     func showError(_ message:String) {

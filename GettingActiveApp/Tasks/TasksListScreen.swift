@@ -22,13 +22,30 @@ class TasksListScreen: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.navigationController?.isNavigationBarHidden = true
-        view.backgroundColor = UIColor.init(red: 48/255, green: 173/255, blue: 99/255, alpha: 1)
-        
-        sayHello()
+        setUpDesign()
         loadData()
         downloadImage()
+    }
+    
+    func setUpDesign() {
+        self.navigationController?.isNavigationBarHidden = true
+        view.backgroundColor = UIColor.init(red: 48/255, green: 173/255, blue: 99/255, alpha: 1)
+        sayHello()
+    }
+    
+    func sayHello() {
+        if let userId = Auth.auth().currentUser?.uid {
+            db.collection("users").getDocuments { (snapshot, error) in
+                if let error = error {
+                    print("Error getting documents: \(error)")
+                } else {
+                    if let currentUserDoc = snapshot?.documents.first(where: { ($0["uid"] as? String) == userId }) {
+                        let userFirstname = currentUserDoc["firstname"] as! String
+                        self.helloLabel.text = "Hello, \(userFirstname)!"
+                    }
+                }
+            }
+        }
     }
     
     func downloadImage() {
@@ -37,7 +54,7 @@ class TasksListScreen: UIViewController {
             if let error = error {
                 print(error.localizedDescription)
             }
-            print("Image URL: \((url?.absoluteString)!)")
+            //print("Image URL: \((url?.absoluteString)!)")
         }
     }
     
@@ -54,22 +71,6 @@ class TasksListScreen: UIViewController {
                 // to update user interface
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
-                }
-            }
-        }
-    }
-    
-    // print "hello, userFirstname" message
-    func sayHello() {
-        if let userId = Auth.auth().currentUser?.uid {
-            db.collection("users").getDocuments { (snapshot, error) in
-                if let error = error {
-                    print("Error getting documents: \(error)")
-                } else {
-                    if let currentUserDoc = snapshot?.documents.first(where: { ($0["uid"] as? String) == userId }) {
-                        let userFirstname = currentUserDoc["firstname"] as! String
-                        self.helloLabel.text = "Hello, \(userFirstname)!"
-                    }
                 }
             }
         }
@@ -91,11 +92,12 @@ extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
         let task = tasksArray[indexPath.row]
         
         cell.previewTitleLabel.text = task.title
-        cell.previewMotivLabel.text = task.tip
+        cell.previewMotivLabel.text = task.description
+        cell.previewTipLabel.text = task.tip
         cell.previewHashtagsLabel.text = task.hashtags
         //cell.previewImageView.image = UIImage(contentsOfFile: task.imageURL)
         
-        print("Image URL is \(task.imageURL)")
+        //print("Image URL is \(task.imageURL)")
         
         return cell
     }
@@ -134,17 +136,19 @@ extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
             
             tasksCollRef.document("taskNew").setData([
                 "title": "Заведіть кімнатну рослину",
-                "tip": "Заведіть собі кімнатну рослинку, вона не тілки прикрасить інтер'єр вашої кімнати, а й наповнить її киснем.",
-                "hashtags": "#розвиток #відпочинок #побут",
-                "imageURL": ""
+                "description": "Заведіть собі кімнатну рослинку, вона не тілки прикрасить інтер'єр вашої кімнати, а й наповнить її киснем.",
+                "tip": "Якщо у вас немає часу постійно доглядати за рослинкою, ви можете купити кактус, спатіфілюм або хлорофітум, вони не потребують постійного догляду та поливу.",
+                "hashtags": "#розвиток #відпочинок #побут"
             ])
             
             // add new task to the table view
             
             
-            
         }
     }
+    
+    // if tasksArray.count = 0, add new three tasks to the tableview
+    
     
     // swipe left - task done
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -173,9 +177,9 @@ extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
         
         archiveCollRef.addDocument(data: [
             "title": tasksArray[indexPath.row].title,
+            "description": tasksArray[indexPath.row].description,
             "tip": tasksArray[indexPath.row].tip,
-            "hashtags": tasksArray[indexPath.row].hashtags,
-            "imageURL": tasksArray[indexPath.row].imageURL
+            "hashtags": tasksArray[indexPath.row].hashtags
         ])
         
         // print current archive collection size
@@ -186,9 +190,9 @@ extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
                 var count = 0
                 for document in queryShapshot!.documents {
                     count += 1
-                    print("\(document.documentID) => \(document.data())");
+                    //print("\(document.documentID) => \(document.data())");
                 }
-                print("Number of archived tasks = \(count)");
+                //print("Number of archived tasks = \(count)");
             }
         }
         

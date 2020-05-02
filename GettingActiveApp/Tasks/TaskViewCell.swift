@@ -18,5 +18,7 @@ class TaskViewCell: UITableViewCell {
     
     @IBOutlet weak var previewTitleLabel: UILabel!
     @IBOutlet weak var previewMotivLabel: UILabel!
+    @IBOutlet weak var previewTipLabel: UILabel!
     @IBOutlet weak var previewHashtagsLabel: UILabel!
+    
 }

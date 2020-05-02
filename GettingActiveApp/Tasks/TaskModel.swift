@@ -15,16 +15,17 @@ protocol DocumentSerializable {
 
 struct Task {
     var title: String
+    var description: String
     var tip: String
     var hashtags: String
-    var imageURL: String
+    
     
     var dictionary:[String:Any] {
         return [
             "title": title,
+            "description": description,
             "tip": tip,
-            "hashtags": hashtags,
-            "imageURL": imageURL
+            "hashtags": hashtags
         ]
     }
 }
@@ -32,11 +33,11 @@ struct Task {
 extension Task : DocumentSerializable {
     init?(dictionary: [String : Any]) {
         guard let title = dictionary["title"] as? String,
+            let description = dictionary["description"] as? String,
             let tip = dictionary["tip"] as? String,
-            let hashtags = dictionary["hashtags"] as? String,
-            let imageURL = dictionary["imageURL"] as? String else {return nil}
+            let hashtags = dictionary["hashtags"] as? String else {return nil}
         
-        self.init(title: title, tip: tip, hashtags: hashtags, imageURL: imageURL)
+        self.init(title: title, description: description, tip: tip, hashtags: hashtags)
     }
 }
 

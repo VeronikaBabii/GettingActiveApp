@@ -11,5 +11,7 @@ import UIKit
 class ArchiveViewCell: UITableViewCell {
     @IBOutlet weak var archiveTitle: UILabel!
     @IBOutlet weak var archiveDescription: UILabel!
+    @IBOutlet weak var archiveTipLabel: UILabel!
     @IBOutlet weak var archiveHashtags: UILabel!
+    
 }
