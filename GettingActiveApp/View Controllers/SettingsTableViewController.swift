@@ -23,8 +23,13 @@ class SettingsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setUpDesign()
         setUserFirstname()
         setDatePicker()
+    }
+    
+    func setUpDesign() {
+        //navigationController?.navigationBar.barTintColor = UIColor.init(red: 48/255, green: 173/255, blue: 99/255, alpha: 1)
     }
     
     // log out

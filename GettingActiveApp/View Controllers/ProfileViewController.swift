@@ -23,6 +23,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        setNavbar()
         getUserData()
         setProgress()
     }
@@ -34,6 +35,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         imagePicker.allowsEditing = true
         imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
         self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func setNavbar() {
+        let navbar = self.navigationController?.navigationBar
+        navbar?.barTintColor = UIColor.init(red: 48/255, green: 173/255, blue: 99/255, alpha: 1)
+        navbar?.tintColor = UIColor.black
+
     }
     
     // configure user progress bar

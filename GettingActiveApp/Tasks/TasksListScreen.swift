@@ -22,10 +22,135 @@ class TasksListScreen: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        addTasks()
         setUpDesign()
         loadData()
         downloadImage()
     }
+    
+    // push tasks to the db
+    func addTasks() {
+        
+        let userID = Auth.auth().currentUser!.uid
+        let tasksCollRef = db.collection("users").document(userID).collection("tasks")
+        
+        tasksCollRef.document("1").setData([
+            "title": "Копійка гривню береже",
+            "description": "Копійка гривню береже, чули таке? Чи є у Вас скарбничка? Якщо немає - є ідея. Спробуйте створити скарбничку своїми руками. Яка вона буде - справа Ваша. І ще, порада, заповніть ії.",
+            "tip": "Живеться, якщо копійка ведеться",
+            "hashtags": "#гроші #збереження #своїми руками"
+        ])
+        
+        tasksCollRef.document("2").setData([
+            "title": "В здоровому тілі - здоровий дух",
+            "description": "Зробіть ранкову зарядку або пробіжку на свіжому повітрі.",
+            "tip": "Фізична активність значно покращує самопочуття на цілий день",
+            "hashtags": "#розвиток #фізична активність #здоров'я"
+        ])
+        
+        tasksCollRef.document("3").setData([
+            "title": "Гарна книга - мудрий вчитель",
+            "description": "Виберіть книжку, яку б вам хотілося прочитати: це може бути художня література, наукові підручники або пізнавальні книжки та почніть читати.",
+            "tip": "Збагачуйте свій внутрішній світ та дізнавайтесь багато цікавого",
+            "hashtags": "#розвиток #знання #навчання #книжки"
+        ])
+        
+        // deleted tag
+        tasksCollRef.document("4").setData([
+            "title": "Збалансований розум та самопочуття понад усе",
+            "description": "Помедитуйте під заспокійливу музику: заплющте очі, зосередьте увагу на своєму диханні та ні про що не думайте. Почніть практикувати медитацію принаймні з 5 хвилин та щодня збільшуйте час медитації.",
+            "tip": "Дозвольте своїм думкам вільно блукати у вашій голові",
+            "hashtags": "#розвиток #здоров'я #відпочинок"
+        ])
+        
+        tasksCollRef.document("5").setData([
+            "title": "Проводьте більше часу зі своїми рідними",
+            "description": "Проведіть трохи часу зі своїми близькими людьми: ви можете просто відпочити, переглядаючи ваш улюблений фільм, або допомогти вашим батькам у приготуванні їжі, прибиранні, тощо.",
+            "tip": "Цінуйте та не втрачайте час, який ви можете провести з рідними людьми",
+            "hashtags": "#родина #допомога #сім'я #побут"
+        ])
+        
+        tasksCollRef.document("6").setData([
+            "title": "Заведіть кімнатну рослину",
+            "description": "Придбайте собі кімнатну рослинку. Якщо у вас немає часу постійно доглядати за рослинкою, ви можете купити кактус, спатіфілюм або хлорофітум, вони не потребують постійного догляду та поливу.",
+            "tip": "Рослина збагачує кімнату киснем та прикрашає інтер'єр",
+            "hashtags": "#розвиток #відпочинок #побут"
+        ])
+        
+        // deleted hashtag
+        tasksCollRef.document("7").setData([
+            "title": "Записник",
+            "description": "Заведіть записник або щоденник, в який ви зможете записувати свої плани на майбутнє, побутові справи на день або креативні думки та ідеї.",
+            "tip": "Записник допоможе вам запам'ятати необхідні справи на день",
+            "hashtags": "#розвиток #творчість #побут #робота"
+        ])
+        
+        tasksCollRef.document("8").setData([
+            "title": "Де не вистачає слів - говорить музика",
+            "description": "Щоб трохи відпочити від буденних справ, пропонуємо вам послухати улюблену музику, поспівати або ще цікавіше - навчитися грати її на музичному інструменті.",
+            "tip": "Музика дозволить вам відпочити та підніме настрій",
+            "hashtags": "#розвиток #музика #відпочинок #хобі"
+        ])
+        
+        tasksCollRef.document("9").setData([
+            "title": "Проводьте час в інтернеті з користю",
+            "description": "Подивіться документальний фільм, який ви ще не бачили або прочитайте цікаву статтю.",
+            "tip": "Рекомендуємо вам подивитися відео на каналі TED :)",
+            "hashtags": "#відпочинок #розвиток #інтернет"
+        ])
+        
+        tasksCollRef.document("10").setData([
+            "title": "Навчання ніколи не буває зайвим",
+            "description": "Запишіться на курси: це можуть бути мовні курси, підвищення вашої робочої кваліфікації або щось, що припаде вам до смаку (уроки акторської майстерності, танці, малювання або дизайн).",
+            "tip": "Coursera - сайт, на якому ви знайдете будь-які курси",
+            "hashtags": "#навчання #розвиток #хобі #робота #творчість"
+        ])
+        
+    }
+    
+    
+//    func addTasks() {
+//        
+//        // push tasks to the db
+//        
+//        // copy to db.collection("users").document(userID)
+//        // from db.collection("tasks").document("firstBundle").collection("tasks")
+//        
+//        let userID = Auth.auth().currentUser!.uid
+//        let userRef = db.collection("users").document(userID)
+//        
+//        let tasksCollRef = db.collection("users").document(userID).collection("tasks")
+//        
+//        let firstBundleCollRef = db.collection("tasks").document("firstBundle").collection("tasks")
+//        
+//        firstBundleCollRef.getDocuments { (querySnapshot, err) in
+//            if let err = err {
+//                print("Error getting documents: \(err.localizedDescription)")
+//            } else {
+//                if let snapshot = querySnapshot {
+//                    for document in snapshot.documents {
+//                        let data = document.data()
+//                        let batch = self.db.batch()
+//                        let docset = querySnapshot
+//                        
+//                        let newCollRef = userRef.collection("tasks").document()
+//                        
+//                        docset?.documents.forEach {_ in batch.setData(data, forDocument: newCollRef)}
+//                        
+//                        batch.commit(completion: { (error) in
+//                            if let error = error {
+//                                print(error.localizedDescription)
+//                            } else {
+//                                print("Successfuly copied docs")
+//                                // print(data)
+//                            }
+//                        })
+//                    }
+//                }
+//            }
+//        }
+    
+    
     
     func setUpDesign() {
         self.navigationController?.isNavigationBarHidden = true
@@ -59,6 +184,8 @@ class TasksListScreen: UIViewController {
     }
     
     // load data from db
+    
+    // error here
     func loadData() {
         let userID = Auth.auth().currentUser!.uid
         let tasksCollRef = db.collection("users").document(userID).collection("tasks")
@@ -68,6 +195,7 @@ class TasksListScreen: UIViewController {
                 print("\(error.localizedDescription)")
             } else {
                 self.tasksArray = queryShapshot!.documents.compactMap({Task(dictionary: $0.data())})
+                print("Data: \(self.tasksArray)")
                 // to update user interface
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -130,24 +258,10 @@ extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
             tasksArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
             
-            // add new task to the db instead of deleted one
-            let userID = Auth.auth().currentUser!.uid
-            let tasksCollRef = db.collection("users").document(userID).collection("tasks")
-            
-            tasksCollRef.document("taskNew").setData([
-                "title": "Заведіть кімнатну рослину",
-                "description": "Заведіть собі кімнатну рослинку, вона не тілки прикрасить інтер'єр вашої кімнати, а й наповнить її киснем.",
-                "tip": "Якщо у вас немає часу постійно доглядати за рослинкою, ви можете купити кактус, спатіфілюм або хлорофітум, вони не потребують постійного догляду та поливу.",
-                "hashtags": "#розвиток #відпочинок #побут"
-            ])
-            
-            // add new task to the table view
-            
-            
         }
     }
     
-    // if tasksArray.count = 0, add new three tasks to the tableview
+    // if tasksArray.count = 0, add new 10 tasks to the tableview
     
     
     // swipe left - task done

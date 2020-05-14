@@ -41,3 +41,41 @@ extension Task : DocumentSerializable {
     }
 }
 
+//protocol DocumentSerializable {
+//    init?(dictionary:[String:Any])
+//}
+//
+//struct Task {
+//    var title: String
+//    var description: String
+//    var tip: String
+//    var hashtags: String
+//    var hashtagsArray: [String]
+//
+//
+//    var dictionary:[String:Any] {
+//        return [
+//            "title": title,
+//            "description": description,
+//            "tip": tip,
+//            "hashtagsArray": hashtagsArray,
+//            "hashtags": hashtags
+//        ]
+//    }
+//}
+//
+//extension Task : DocumentSerializable {
+//    init?(dictionary: [String : Any]) {
+//        guard let title = dictionary["title"] as? String,
+//            let description = dictionary["description"] as? String,
+//            let tip = dictionary["tip"] as? String,
+//            let hashtagsArray = dictionary["hashtags"] as? [String] else {return nil}
+//
+//        var hashtags: String = ""
+//        for item in hashtagsArray {
+//            hashtags += "#\(item)"
+//        }
+//
+//        self.init(title: title, description: description, tip: tip, hashtags: hashtags, hashtagsArray: hashtagsArray)
+//    }
+//}
