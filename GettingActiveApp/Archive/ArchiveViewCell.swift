@@ -14,7 +14,4 @@ class ArchiveViewCell: UITableViewCell {
     @IBOutlet weak var archiveTipLabel: UILabel!
     @IBOutlet weak var archiveHashtags: UILabel!
     
-    // ghjklkjhjkl
-    
-    //hgfgkllkjhghjkl
 }

@@ -24,6 +24,9 @@ class ArchiveListScreen: UIViewController {
         loadData()
         listenToArchiveCollection()
         self.tableView.reloadData()
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
     func setUpDesign() {
@@ -34,12 +37,12 @@ class ArchiveListScreen: UIViewController {
     // add listener
     func listenToArchiveCollection() {
         db.collection("archive").addSnapshotListener { querySnapshot, error in
-                guard let documents = querySnapshot?.documents else {
-                    print("Error fetching documents: \(error!)")
-                    return
-                }
-                self.tableView.reloadData()
+            guard let documents = querySnapshot?.documents else {
+                print("Error fetching documents: \(error!)")
+                return
             }
+            self.tableView.reloadData()
+        }
     }
     
     // load data from db

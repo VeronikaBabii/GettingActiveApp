@@ -334,11 +334,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cdP-i6-xkM">
-                                <rect key="frame" x="77" y="428" width="260" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="cdP-i6-xkM">
+                                <rect key="frame" x="70" y="428" width="274" height="40"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="260" id="Jqf-AV-zAL"/>
-                                    <constraint firstAttribute="height" constant="30" id="pO2-GX-eyh"/>
+                                    <constraint firstAttribute="height" constant="40" id="pO2-GX-eyh"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
                                 <nil key="textColor"/>
@@ -354,9 +353,9 @@
                             <constraint firstItem="6KG-Li-WHt" firstAttribute="top" secondItem="D2a-VD-glY" secondAttribute="top" constant="85" id="Mi1-WI-6MD"/>
                             <constraint firstItem="6KG-Li-WHt" firstAttribute="leading" secondItem="D2a-VD-glY" secondAttribute="leading" constant="132" id="OxZ-pW-Xmn"/>
                             <constraint firstItem="OZv-wE-Z7G" firstAttribute="top" secondItem="6KG-Li-WHt" secondAttribute="bottom" constant="15" id="Pen-FD-ND4"/>
-                            <constraint firstItem="D2a-VD-glY" firstAttribute="trailing" secondItem="cdP-i6-xkM" secondAttribute="trailing" constant="77" id="Uz7-1v-i9k"/>
+                            <constraint firstItem="D2a-VD-glY" firstAttribute="trailing" secondItem="cdP-i6-xkM" secondAttribute="trailing" constant="70" id="Uz7-1v-i9k"/>
                             <constraint firstItem="cCd-qx-y0g" firstAttribute="leading" secondItem="D2a-VD-glY" secondAttribute="leading" constant="132" id="WKG-IA-bmp"/>
-                            <constraint firstItem="cdP-i6-xkM" firstAttribute="leading" secondItem="D2a-VD-glY" secondAttribute="leading" constant="77" id="foX-Vk-o1g"/>
+                            <constraint firstItem="cdP-i6-xkM" firstAttribute="leading" secondItem="D2a-VD-glY" secondAttribute="leading" constant="70" id="foX-Vk-o1g"/>
                             <constraint firstItem="cCd-qx-y0g" firstAttribute="top" secondItem="D2a-VD-glY" secondAttribute="top" constant="85" id="ilh-ka-TA8"/>
                             <constraint firstItem="D2a-VD-glY" firstAttribute="trailing" secondItem="6KG-Li-WHt" secondAttribute="trailing" constant="132" id="m6x-cG-Zoy"/>
                             <constraint firstItem="cdP-i6-xkM" firstAttribute="top" secondItem="6KG-Li-WHt" secondAttribute="bottom" constant="105" id="nne-zW-euv"/>
@@ -548,7 +547,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YxO-On-5B3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6083" y="433"/>
+            <point key="canvasLocation" x="6067" y="433"/>
         </scene>
         <!--PROFILE-->
         <scene sceneID="pUV-zu-Nzy">
@@ -725,7 +724,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wa2-Y5-hpT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5113" y="-293"/>
+            <point key="canvasLocation" x="5075" y="-293"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="rXA-cd-5eg">
@@ -827,7 +826,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KxK-I7-epH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4384" y="-293"/>
+            <point key="canvasLocation" x="4358" y="-293"/>
         </scene>
         <!--ARCHIVE-->
         <scene sceneID="MnX-W0-xgC">
