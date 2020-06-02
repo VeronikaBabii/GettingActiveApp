@@ -29,7 +29,7 @@ class SettingsTableViewController: UITableViewController {
     }
 
     func setUpDesign() {
-        //navigationController?.navigationBar.barTintColor = UIColor.init(red: 48/255, green: 173/255, blue: 99/255, alpha: 1)
+        navigationController?.navigationBar.barTintColor = UIColor.init(red: 48/255, green: 173/255, blue: 99/255, alpha: 1)
     }
 
     // log out

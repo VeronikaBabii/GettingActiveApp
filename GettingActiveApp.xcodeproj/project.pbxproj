@@ -13,6 +13,8 @@
 		1523B8A1245C314A009918D0 /* ArchiveListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1523B8A0245C314A009918D0 /* ArchiveListScreen.swift */; };
 		154DC46724853EB9005C1B1E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154DC46624853EB9005C1B1E /* TableViewController.swift */; };
 		154DC46924854605005C1B1E /* Sweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154DC46824854605005C1B1E /* Sweet.swift */; };
+		154DC46C2486A46C005C1B1E /* MyTasksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154DC46B2486A46C005C1B1E /* MyTasksVC.swift */; };
+		154DC46E2486A4A5005C1B1E /* MyTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154DC46D2486A4A5005C1B1E /* MyTaskTableViewCell.swift */; };
 		1567918B245458D600E606AD /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1567918A245458D600E606AD /* SettingsTableViewController.swift */; };
 		15679195245626BB00E606AD /* TasksListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15679194245626BB00E606AD /* TasksListScreen.swift */; };
 		156791972456287700E606AD /* TaskViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156791962456287700E606AD /* TaskViewCell.swift */; };
@@ -38,6 +40,8 @@
 		1523B8A0245C314A009918D0 /* ArchiveListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveListScreen.swift; sourceTree = "<group>"; };
 		154DC46624853EB9005C1B1E /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		154DC46824854605005C1B1E /* Sweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sweet.swift; sourceTree = "<group>"; };
+		154DC46B2486A46C005C1B1E /* MyTasksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTasksVC.swift; sourceTree = "<group>"; };
+		154DC46D2486A4A5005C1B1E /* MyTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTaskTableViewCell.swift; sourceTree = "<group>"; };
 		1567918A245458D600E606AD /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
 		15679194245626BB00E606AD /* TasksListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListScreen.swift; sourceTree = "<group>"; };
 		156791962456287700E606AD /* TaskViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewCell.swift; sourceTree = "<group>"; };
@@ -90,6 +94,15 @@
 			path = TestSwiffer;
 			sourceTree = "<group>";
 		};
+		154DC46A2486A426005C1B1E /* MyTasksPage */ = {
+			isa = PBXGroup;
+			children = (
+				154DC46B2486A46C005C1B1E /* MyTasksVC.swift */,
+				154DC46D2486A4A5005C1B1E /* MyTaskTableViewCell.swift */,
+			);
+			path = MyTasksPage;
+			sourceTree = "<group>";
+		};
 		15851B192457418F00863D50 /* AllTasksPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +141,7 @@
 				15F146E5247AA762006873B8 /* Authorization */,
 				15851B192457418F00863D50 /* AllTasksPage */,
 				1523B8A2245C315F009918D0 /* ArchiveTasksPage */,
+				154DC46A2486A426005C1B1E /* MyTasksPage */,
 				154DC46324853E47005C1B1E /* TestSwiffer */,
 				158F00EA244CA86D00074359 /* Main.storyboard */,
 				158F00ED244CA87000074359 /* Assets.xcassets */,
@@ -307,7 +321,9 @@
 				158F00E5244CA86D00074359 /* AppDelegate.swift in Sources */,
 				15DFD362244CCBD500B375DC /* Utilities.swift in Sources */,
 				158F00F9244CAAED00074359 /* SignUpViewController.swift in Sources */,
+				154DC46C2486A46C005C1B1E /* MyTasksVC.swift in Sources */,
 				159E34D8244FA98700C5C6DF /* TabBarViewController.swift in Sources */,
+				154DC46E2486A4A5005C1B1E /* MyTaskTableViewCell.swift in Sources */,
 				156791972456287700E606AD /* TaskViewCell.swift in Sources */,
 				154DC46924854605005C1B1E /* Sweet.swift in Sources */,
 				158F00FB244CAB0F00074359 /* LoginViewController.swift in Sources */,

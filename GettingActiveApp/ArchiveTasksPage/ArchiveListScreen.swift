@@ -23,10 +23,6 @@ class ArchiveListScreen: UIViewController {
         setUpDesign()
         loadData()
         listenToArchiveCollection()
-        self.tableView.reloadData()
-        DispatchQueue.main.async {
-            self.tableView.reloadData()
-        }
     }
     
     func setUpDesign() {
