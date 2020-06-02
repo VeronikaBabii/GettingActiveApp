@@ -20,12 +20,15 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var progressLabel: UILabel!
+    @IBOutlet weak var openArchiveButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavbar()
         getUserData()
         setProgress()
+        
+        Utilities.styleFilledButton(openArchiveButton)
     }
     
     // action to open image picker on click
@@ -35,6 +38,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         imagePicker.allowsEditing = true
         imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
         self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    // action to open tasks archive
+    @IBAction func openArchiveClicked(_ sender: Any) {
+        
     }
     
     func setNavbar() {

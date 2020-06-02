@@ -13,12 +13,12 @@ import FirebaseFirestore
 import FirebaseStorage
 
 class TaskViewCell: UITableViewCell {
-    
+
     var tasksArray = [Task]()
-    
+
     @IBOutlet weak var previewTitleLabel: UILabel!
     @IBOutlet weak var previewMotivLabel: UILabel!
     @IBOutlet weak var previewTipLabel: UILabel!
     @IBOutlet weak var previewHashtagsLabel: UILabel!
-    
+
 }
