@@ -265,6 +265,9 @@
                         <viewLayoutGuide key="safeArea" id="ae8-AQ-uzI"/>
                     </view>
                     <navigationItem key="navigationItem" id="hoC-XG-M5P"/>
+                    <connections>
+                        <outlet property="tableView" destination="EhR-CZ-0Sz" id="eJg-et-PBi"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6kn-tR-wre" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -850,7 +853,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wa2-Y5-hpT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5791" y="-895"/>
+            <point key="canvasLocation" x="5761" y="-212"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="rXA-cd-5eg">

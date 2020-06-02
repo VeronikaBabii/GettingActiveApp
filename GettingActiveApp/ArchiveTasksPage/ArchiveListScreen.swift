@@ -30,17 +30,6 @@ class ArchiveListScreen: UIViewController {
         view.backgroundColor = UIColor.init(red: 48/255, green: 173/255, blue: 99/255, alpha: 1)
     }
     
-    // add listener
-    func listenToArchiveCollection() {
-        db.collection("archive").addSnapshotListener { querySnapshot, error in
-            guard let documents = querySnapshot?.documents else {
-                print("Error fetching documents: \(error!)")
-                return
-            }
-            self.tableView.reloadData()
-        }
-    }
-    
     // load data from db
     func loadData() {
         let userID = Auth.auth().currentUser!.uid
@@ -55,6 +44,17 @@ class ArchiveListScreen: UIViewController {
                     self.tableView.reloadData()
                 }
             }
+        }
+    }
+    
+    // add listener
+    func listenToArchiveCollection() {
+        db.collection("archive").addSnapshotListener { querySnapshot, error in
+            guard let documents = querySnapshot?.documents else {
+                print("Error fetching documents: \(error!)")
+                return
+            }
+            self.tableView.reloadData()
         }
     }
 }
