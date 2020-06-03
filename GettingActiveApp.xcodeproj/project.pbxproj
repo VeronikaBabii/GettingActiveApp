@@ -173,10 +173,10 @@
 		15F146E5247AA762006873B8 /* Authorization */ = {
 			isa = PBXGroup;
 			children = (
+				159E34D7244FA98700C5C6DF /* TabBarViewController.swift */,
+				158F00E8244CA86D00074359 /* ViewController.swift */,
 				158F00F8244CAAED00074359 /* SignUpViewController.swift */,
 				158F00FA244CAB0F00074359 /* LoginViewController.swift */,
-				158F00E8244CA86D00074359 /* ViewController.swift */,
-				159E34D7244FA98700C5C6DF /* TabBarViewController.swift */,
 			);
 			path = Authorization;
 			sourceTree = "<group>";

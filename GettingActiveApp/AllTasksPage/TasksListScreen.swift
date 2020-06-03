@@ -26,12 +26,12 @@ class TasksListScreen: UIViewController {
         db = Firestore.firestore()
         
         setUpDesign()
-        addTasks()
+        //copyTasks()
         loadData()
     }
     
-    //push tasks to the db
-    func addTasks() {
+    // copy tasks from general collection of tasks to user collection of tasks
+    func copyTasks() {
         
         // copy from db.collection("tasks").document("firstBundle").collection("tasks") = tasksFirstBundleCollRef
         // to db.collection("users").document(userID) = userDocRef
@@ -67,12 +67,15 @@ class TasksListScreen: UIViewController {
         }
     }
     
-    // load data to the table view from the db
+    // load data from the user tasks collection to the table view
     func loadData() {
+        
+        //copyTasks()
+        
         let userID = Auth.auth().currentUser!.uid
         let userTasksCollRef = db.collection("users").document(userID).collection("tasks")
+        //let allTasksCollRef = db.collection("tasks").document("firstBundle").collection("tasks")
         
-        // get data from userTasksCollRef that we passed in in the addTasks() method
         userTasksCollRef.getDocuments { (queryShapshot, error) in
             if let error = error {
                 print("Error loading data: \(error.localizedDescription)")
