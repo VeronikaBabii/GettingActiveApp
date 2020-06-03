@@ -23,7 +23,7 @@
 //        db = Firestore.firestore()
 //
 //        loadData()
-//        //checkForUpdates()
+//        checkForUpdates()
 //    }
 //
 //    func loadData() {
@@ -49,9 +49,9 @@
 //        }
 //    }
 //
+//    // listen to db and update tableview in real time
 //    func checkForUpdates() {
-//        db.collection("sweets").whereField("timeStamp", isGreaterThan:Date())
-//            .addSnapshotListener {
+//        db.collection("sweets").addSnapshotListener {
 //                querySnapshot, error in
 //
 //                guard let snapshot = querySnapshot else {return}
@@ -74,18 +74,18 @@
 //
 //    @IBAction func composeSweet(_ sender: Any) {
 //
-//           let composeAlert = UIAlertController(title: "New Sweet", message: "Enter your name and message", preferredStyle: .alert)
+//        let composeAlert = UIAlertController(title: "New Sweet", message: "Enter your name and message", preferredStyle: .alert)
 //
-//           composeAlert.addTextField { (textField:UITextField) in
-//               textField.placeholder = "Your name"
-//           }
+//        composeAlert.addTextField { (textField:UITextField) in
+//            textField.placeholder = "Your name"
+//        }
 //
-//           composeAlert.addTextField { (textField:UITextField) in
-//               textField.placeholder = "Your message"
-//           }
+//        composeAlert.addTextField { (textField:UITextField) in
+//            textField.placeholder = "Your message"
+//        }
 //
-//           composeAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-//           composeAlert.addAction(UIAlertAction(title: "Send", style: .default, handler: { (action:UIAlertAction) in
+//        composeAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+//        composeAlert.addAction(UIAlertAction(title: "Send", style: .default, handler: { (action:UIAlertAction) in
 //
 //            // check for information to send to db
 //            if let name = composeAlert.textFields?.first?.text, let content = composeAlert.textFields?.last?.text {
@@ -104,30 +104,27 @@
 //                    }
 //                }
 //            }
-//           }))
+//        }))
 //
-//           self.present(composeAlert, animated: true, completion: nil)
+//        self.present(composeAlert, animated: true, completion: nil)
 //
-//       }
+//    }
 //
-//       override func numberOfSections(in tableView: UITableView) -> Int {
+//    override func numberOfSections(in tableView: UITableView) -> Int {
 //        return 1
-//       }
+//    }
 //
-//       override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//           return sweetArray.count
-//       }
+//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return sweetArray.count
+//    }
 //
-//       override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 //        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-//
 //        let sweet = sweetArray[indexPath.row]
 //
 //        cell.textLabel?.text = "\(sweet.name) : \(sweet.content)"
 //
-//
-//
 //        return cell
-//       }
+//    }
 //
 //}

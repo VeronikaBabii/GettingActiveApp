@@ -37,7 +37,7 @@ extension Task : DocumentSerializable {
             let description = dictionary["description"] as? String ?? "Error! Description Field Not Found!"
             let tip = dictionary["tip"] as? String ?? "Error! Tip Field Not Found!"
             let hashtags = dictionary["hashtags"] as? String ?? "Error! Hashtags Field Not Found!"
-        
+
         self.init(title: title, description: description, tip: tip, hashtags: hashtags)
     }
 }

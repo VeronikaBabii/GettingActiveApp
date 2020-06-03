@@ -26,8 +26,9 @@ class TasksListScreen: UIViewController {
         db = Firestore.firestore()
         
         setUpDesign()
-        //copyTasks()
+        copyTasks()
         loadData()
+        checkForUpdates()
     }
     
     // copy tasks from general collection of tasks to user collection of tasks
@@ -70,8 +71,6 @@ class TasksListScreen: UIViewController {
     // load data from the user tasks collection to the table view
     func loadData() {
         
-        //copyTasks()
-        
         let userID = Auth.auth().currentUser!.uid
         let userTasksCollRef = db.collection("users").document(userID).collection("tasks")
         //let allTasksCollRef = db.collection("tasks").document("firstBundle").collection("tasks")
@@ -91,6 +90,36 @@ class TasksListScreen: UIViewController {
                 }
             }
         }
+    }
+    
+    // listen to the db and reload tableview when data is added
+    func checkForUpdates() {
+        let userID = Auth.auth().currentUser!.uid
+        let userTasksCollRef = db.collection("users").document(userID).collection("tasks")
+        
+        userTasksCollRef.addSnapshotListener() {
+            querySnapshot, error in
+            
+            guard let snapshot = querySnapshot else {return}
+            
+            snapshot.documentChanges.forEach {
+                diff in
+                
+                // if changes action is addition, then add task and reload
+                if diff.type == .added {
+                    self.tasksArray.append(Task(dictionary: diff.document.data())!)
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }
+                
+                // if changes action is deletion
+                
+                
+            }
+        }
+        
     }
     
     func setUpDesign() {
