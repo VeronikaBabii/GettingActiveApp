@@ -17,12 +17,12 @@ class MyTasksVC: UIViewController {
     var myTasksArray = [Task]()
 
     @IBOutlet weak var tableView: UITableView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         //setUpDesign()
         loadData()
-
+        checkForUpdates()
     }
 
     func setUpDesign() {
@@ -33,9 +33,10 @@ class MyTasksVC: UIViewController {
     func loadData() {
 
     }
-
-
-
+    
+    func checkForUpdates() {
+        
+    }
 }
 
 extension MyTasksVC: UITableViewDataSource, UITableViewDelegate {

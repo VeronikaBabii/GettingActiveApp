@@ -26,51 +26,12 @@ class TasksListScreen: UIViewController {
         db = Firestore.firestore()
         
         setUpDesign()
-        //copyTasks()
         loadData()
-    }
-    
-    // copy tasks from general collection of tasks to user collection of tasks
-    func copyTasks() {
-        
-        // copy from db.collection("tasks").document("firstBundle").collection("tasks") = tasksFirstBundleCollRef
-        // to db.collection("users").document(userID) = userDocRef
-        
-        let userID = Auth.auth().currentUser!.uid
-        let userRef = db.collection("users").document(userID)
-        let tasksFirstBundleCollRef = db.collection("tasks").document("firstBundle").collection("tasks")
-        
-        tasksFirstBundleCollRef.getDocuments { (querySnapshot, err) in
-            if let err = err {
-                print("Error getting documents: \(err.localizedDescription)")
-            } else {
-                if let snapshot = querySnapshot {
-                    for document in snapshot.documents {
-                        let data = document.data()
-                        let batch = self.db.batch()
-                        let docset = querySnapshot
-                        
-                        let newCollRef = userRef.collection("tasks").document()
-                        
-                        docset?.documents.forEach {_ in batch.setData(data, forDocument: newCollRef)}
-                        
-                        batch.commit(completion: { (error) in
-                            if let error = error {
-                                print(error.localizedDescription)
-                            } else {
-                                print("Successfuly copied doc")
-                            }
-                        })
-                    }
-                }
-            }
-        }
+        checkForUpdates()
     }
     
     // load data from the user tasks collection to the table view
     func loadData() {
-        
-        //copyTasks()
         
         let userID = Auth.auth().currentUser!.uid
         let userTasksCollRef = db.collection("users").document(userID).collection("tasks")
@@ -91,6 +52,36 @@ class TasksListScreen: UIViewController {
                 }
             }
         }
+    }
+    
+    // listen to the db and reload tableview when data is added
+    func checkForUpdates() {
+        let userID = Auth.auth().currentUser!.uid
+        let userTasksCollRef = db.collection("users").document(userID).collection("tasks")
+        
+        userTasksCollRef.addSnapshotListener() {
+            querySnapshot, error in
+            
+            guard let snapshot = querySnapshot else {return}
+            
+            snapshot.documentChanges.forEach {
+                diff in
+                
+                // if changes action is addition, then add task and reload
+                if diff.type == .added {
+                    self.tasksArray.append(Task(dictionary: diff.document.data())!)
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }
+                
+                // if changes action is deletion
+                
+                
+            }
+        }
+        
     }
     
     func setUpDesign() {
