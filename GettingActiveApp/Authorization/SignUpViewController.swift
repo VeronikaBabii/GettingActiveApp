@@ -14,6 +14,8 @@ import FirebaseStorage
 
 class SignUpViewController: UIViewController {
     
+    var db = Firestore.firestore()
+    
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
@@ -26,6 +28,41 @@ class SignUpViewController: UIViewController {
         setUpElements()
     }
     
+    // copy tasks for user from general tasks collection to user's own tasks collection
+    func copyTasks() {
+        // copy from db.collection("tasks").document("firstBundle").collection("tasks") = tasksFirstBundleCollRef
+        // to db.collection("users").document(userID) = userDocRef
+        
+        let userID = Auth.auth().currentUser!.uid
+        let userRef = db.collection("users").document(userID)
+        let tasksFirstBundleCollRef = db.collection("tasks").document("firstBundle").collection("tasks")
+        
+        tasksFirstBundleCollRef.getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err.localizedDescription)")
+            } else {
+                if let snapshot = querySnapshot {
+                    for document in snapshot.documents {
+                        let data = document.data()
+                        let batch = self.db.batch()
+                        let docset = querySnapshot
+                        
+                        let newCollRef = userRef.collection("tasks").document()
+                        
+                        docset?.documents.forEach {_ in batch.setData(data, forDocument: newCollRef)}
+                        
+                        batch.commit(completion: { (error) in
+                            if let error = error {
+                                print(error.localizedDescription)
+                            } else {
+                                print("Successfuly copied doc")
+                            }
+                        })
+                    }
+                }
+            }
+        }
+    }
     
     // to set the elements styling 
     func setUpElements() {
@@ -96,6 +133,9 @@ class SignUpViewController: UIViewController {
                     
                     // transition to the home screen
                     self.transitionToHome()
+                    
+                    // copy tasks for user from general tasks collection to his own tasks collection
+                    self.copyTasks()
                 }
             }
         }
