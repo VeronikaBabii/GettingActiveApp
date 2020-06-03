@@ -1,6 +1,5 @@
 import Foundation
 
-
 struct Constants {
     
     struct Storyboard {

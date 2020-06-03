@@ -13,24 +13,24 @@ import FirebaseFirestore
 import FirebaseStorage
 
 class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
+
     let db = Firestore.firestore()
     var archiveTasksArray = [Task]()
-    
+
     @IBOutlet weak var profileImage: UIImageView!
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var openArchiveButton: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setNavbar()
         getUserData()
         setProgress()
-        
+
         Utilities.styleFilledButton(openArchiveButton)
     }
-    
+
     // action to open image picker on click
     @IBAction func uploadImageButton(_ sender: Any) {
         let imagePicker = UIImagePickerController()
@@ -39,26 +39,26 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
         self.present(imagePicker, animated: true, completion: nil)
     }
-    
+
     // action to open tasks archive
     @IBAction func openArchiveClicked(_ sender: Any) {
-        
+
     }
-    
+
     func setNavbar() {
         let navbar = self.navigationController?.navigationBar
         navbar?.barTintColor = UIColor.init(red: 48/255, green: 173/255, blue: 99/255, alpha: 1)
         navbar?.tintColor = UIColor.black
 
     }
-    
+
     // configure user progress bar
     func setProgress() {
-        
+
         // print current archive collection size
         let userID = Auth.auth().currentUser!.uid
         let archiveCollRef = db.collection("users").document(userID).collection("archive")
-        
+
         archiveCollRef.getDocuments { (queryShapshot, error) in
             if let error = error {
                 print("\(error.localizedDescription)")
@@ -68,15 +68,15 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                     count += 1
                 }
                 //print("Number of archived tasks = \(count)");
-                
+
                 self.progressLabel.text = "You've done \(count) tasks. Great job! "
             }
         }
     }
-    
+
     private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         var selectedImageFromPicker: UIImage?
-        
+
         if let editedImage = info["UIImagePickerControllerEditedImage"] as? UIImage {
             selectedImageFromPicker = editedImage
         } else if let originalImage = info["UIImagePickerControllerOriginalImage"] as? UIImage {
@@ -87,11 +87,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         }
         dismiss(animated: true, completion: nil)
     }
-    
+
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
-    
+
     // get user data from db
     func getUserData() {
         if let userId = Auth.auth().currentUser?.uid {
@@ -100,7 +100,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                     print("Error getting documents: \(error)")
                 } else {
                     if let currentUserDoc = snapshot?.documents.first(where: { ($0["uid"] as? String) == userId }) {
-                        
+
                         // get and set first and last name
                         let userFirstname = currentUserDoc["firstname"] as! String
                         let userLastname = currentUserDoc["lastname"] as! String

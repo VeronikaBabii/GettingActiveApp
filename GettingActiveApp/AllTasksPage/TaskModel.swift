@@ -27,34 +27,17 @@ struct Task {
             "hashtags": hashtags
         ]
     }
-
-    func parseData(snapshot: QuerySnapshot?) -> [Task] {
-
-        var tasks = [Task]()
-
-        guard let snap = snapshot else { return tasks }
-        for document in snap.documents {
-            let data = document.data()
-            let title = data["title"] as? String ?? ""
-            let description = data["description"] as? String ?? ""
-            let tip = data["tip"] as? String ?? ""
-            let hashtags = data["hashtags"] as? String ?? ""
-
-            let task = Task(title: title, description: description, tip: tip, hashtags: hashtags)
-            tasks.append(task)
-        }
-
-        return tasks
-    }
 }
 
 extension Task : DocumentSerializable {
-    init?(dictionary: [String : Any]) {
-        guard let title = dictionary["title"] as? String,
-            let description = dictionary["description"] as? String,
-            let tip = dictionary["tip"] as? String,
-            let hashtags = dictionary["hashtags"] as? String else {return nil}
 
+    init?(dictionary: [String : Any]) {
+
+            let title = dictionary["title"] as? String ?? "Error! Title Field Not Found!"
+            let description = dictionary["description"] as? String ?? "Error! Description Field Not Found!"
+            let tip = dictionary["tip"] as? String ?? "Error! Tip Field Not Found!"
+            let hashtags = dictionary["hashtags"] as? String ?? "Error! Hashtags Field Not Found!"
+        
         self.init(title: title, description: description, tip: tip, hashtags: hashtags)
     }
 }
