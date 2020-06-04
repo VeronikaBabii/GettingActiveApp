@@ -12,11 +12,28 @@ import FirebaseAuth
 import FirebaseFirestore
 import FirebaseStorage
 
+protocol TaskCellDelegate {
+    func didTapImInButton(index: Int)
+}
+
 class TaskViewCell: UITableViewCell {
+    
+    var cellDelegate: TaskCellDelegate?
+    var index: IndexPath?
 
     @IBOutlet weak var previewTitleLabel: UILabel!
     @IBOutlet weak var previewMotivLabel: UILabel!
     @IBOutlet weak var previewTipLabel: UILabel!
     @IBOutlet weak var previewHashtagsLabel: UILabel!
     @IBOutlet weak var addMyTaskButton: UIButton!
+    
+    func styleButton() {
+        Utilities.styleFilledButton(addMyTaskButton)
+    }
+    
+    @IBAction func addMyTaskClicked(_ sender: UIButton) {
+        cellDelegate?.didTapImInButton(index: (index?.row)!)
+        print("Button clicked!")
+    }
+    
 }

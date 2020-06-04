@@ -30,6 +30,12 @@ class SignUpViewController: UIViewController {
     
     // copy tasks for user from general tasks collection to user's own tasks collection
     func copyTasks() {
+        copyFirstBundle()
+        //copySecondBundle()
+    }
+    
+    // copy tasks from first bundle to users coll
+    func copyFirstBundle() {
         // copy from db.collection("tasks").document("firstBundle").collection("tasks") = tasksFirstBundleCollRef
         // to db.collection("users").document(userID) = userDocRef
         
@@ -62,8 +68,12 @@ class SignUpViewController: UIViewController {
                 }
             }
         }
-        
-        // for testing added tasks from second bundle
+    }
+    
+    // copy tasks from second bundle to users coll
+    func copySecondBundle() {
+        let userID = Auth.auth().currentUser!.uid
+        let userRef = db.collection("users").document(userID)
         let tasksSecondBundleCollRef = db.collection("tasks").document("secondBundle").collection("tasks")
         
         tasksSecondBundleCollRef.getDocuments { (querySnapshot, err) in

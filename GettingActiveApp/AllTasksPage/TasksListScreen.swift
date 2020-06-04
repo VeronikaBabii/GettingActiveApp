@@ -76,7 +76,12 @@ class TasksListScreen: UIViewController {
                 }
                 
                 // if changes action is deletion
-                
+                if diff.type == .removed {
+                    
+                    DispatchQueue.main.async {
+                        self.tableView.reloadData()
+                    }
+                }
                 
             }
         }
@@ -106,6 +111,47 @@ class TasksListScreen: UIViewController {
     }
 }
 
+extension TasksListScreen: TaskCellDelegate {
+    
+    // when "i'm in" button in task is tapped
+    func didTapImInButton(index: Int) {
+        
+        let db = Firestore.firestore()
+        let userID = Auth.auth().currentUser!.uid
+        let userTasksCollRef = db.collection("users").document(userID).collection("tasks")
+        
+        // search for task with needed title
+        let query:Query = userTasksCollRef.whereField("title", isEqualTo: tasksArray[index].title)
+        print(tasksArray[index].title)
+        
+        query.getDocuments(completion:{ (snapshot, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                for document in snapshot!.documents {
+                    
+                    // create myTasks collection and push selected task to it
+                    let userID = Auth.auth().currentUser!.uid
+                    let myTasksCollRef = db.collection("users").document(userID).collection("myTasks")
+                    
+                    myTasksCollRef.addDocument(data: [
+                        "title": self.tasksArray[index].title,
+                        "description": self.tasksArray[index].description,
+                        "tip": self.tasksArray[index].tip,
+                        "hashtags": self.tasksArray[index].hashtags
+                    ])
+                    print("Task added to myTasks coll")
+                    
+                    // remove selected task from users.tasks collection
+                    self.tasksArray.remove(at: index)
+                    userTasksCollRef.document("\(document.documentID)").delete()
+                    print("Task deleted from db \n")
+                }
+            }
+        })
+    }
+}
+
 extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
     
     // number of rows
@@ -124,6 +170,9 @@ extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
         cell.previewMotivLabel.text = task.description
         cell.previewTipLabel.text = task.tip
         cell.previewHashtagsLabel.text = task.hashtags
+        
+        cell.cellDelegate = self
+        cell.index = indexPath
         
         return cell
     }
