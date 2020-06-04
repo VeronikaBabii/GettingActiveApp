@@ -35,7 +35,6 @@ class TasksListScreen: UIViewController {
         
         let userID = Auth.auth().currentUser!.uid
         let userTasksCollRef = db.collection("users").document(userID).collection("tasks")
-        //let allTasksCollRef = db.collection("tasks").document("firstBundle").collection("tasks")
         
         userTasksCollRef.getDocuments { (queryShapshot, error) in
             if let error = error {

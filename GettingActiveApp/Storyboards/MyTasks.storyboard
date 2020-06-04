@@ -30,7 +30,6 @@
                                                     <rect key="frame" x="27" y="16" width="360" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="6O2-I7-1wn"/>
-                                                        <constraint firstAttribute="width" constant="360" id="qSo-Cm-5Hj"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                                     <color key="textColor" red="0.36546239349999998" green="0.70864224220000005" blue="0.37552602860000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -39,7 +38,6 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7c4-aM-PPE">
                                                     <rect key="frame" x="27" y="71" width="360" height="120"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="360" id="Cu0-CQ-IIo"/>
                                                         <constraint firstAttribute="height" constant="120" id="GWW-Rw-SNC"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -49,7 +47,6 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABx-VF-7Xr">
                                                     <rect key="frame" x="82" y="209" width="305" height="60"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="305" id="EAt-Gx-rhS"/>
                                                         <constraint firstAttribute="height" constant="60" id="cQU-N1-oX9"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
@@ -59,7 +56,6 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="task hashtags" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDk-IT-rte">
                                                     <rect key="frame" x="27" y="281" width="360" height="23"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="360" id="X9O-IF-1sJ"/>
                                                         <constraint firstAttribute="height" constant="23" id="ouX-wg-Zc9"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>

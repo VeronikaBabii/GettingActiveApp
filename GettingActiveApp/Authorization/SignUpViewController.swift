@@ -62,6 +62,35 @@ class SignUpViewController: UIViewController {
                 }
             }
         }
+        
+        // for testing added tasks from second bundle
+        let tasksSecondBundleCollRef = db.collection("tasks").document("secondBundle").collection("tasks")
+        
+        tasksSecondBundleCollRef.getDocuments { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err.localizedDescription)")
+            } else {
+                if let snapshot = querySnapshot {
+                    for document in snapshot.documents {
+                        let data = document.data()
+                        let batch = self.db.batch()
+                        let docset = querySnapshot
+                        
+                        let newCollRef = userRef.collection("tasks").document()
+                        
+                        docset?.documents.forEach {_ in batch.setData(data, forDocument: newCollRef)}
+                        
+                        batch.commit(completion: { (error) in
+                            if let error = error {
+                                print(error.localizedDescription)
+                            } else {
+                                print("Successfuly copied doc")
+                            }
+                        })
+                    }
+                }
+            }
+        }
     }
     
     // to set the elements styling 
