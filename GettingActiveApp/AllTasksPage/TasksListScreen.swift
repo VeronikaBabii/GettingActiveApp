@@ -200,70 +200,69 @@ extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
             // delete task from table view
             tasksArray.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-            
         }
     }
     
     // swipe left - task done
-    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-        
-        let complete = completeAction(at: indexPath)
-        
-        // delete done task from db for the current user
-        let title = tasksArray[indexPath.row].title
-        let user = Auth.auth().currentUser
-        let collectionRef = db.collection("users").document((user?.uid)!).collection("tasks")
-        let query : Query = collectionRef.whereField("title", isEqualTo: title)
-        
-        query.getDocuments(completion:{ (snapshot, error) in
-            if let error = error {
-                print(error.localizedDescription)
-            } else {
-                for document in snapshot!.documents {
-                    collectionRef.document("\(document.documentID)").delete()
-                }
-            }
-        })
-        
-        // create archive collection and push done task in it
-        let userID = Auth.auth().currentUser!.uid
-        let archiveCollRef = db.collection("users").document(userID).collection("archive")
-        
-        archiveCollRef.addDocument(data: [
-            "title": tasksArray[indexPath.row].title,
-            "description": tasksArray[indexPath.row].description,
-            "tip": tasksArray[indexPath.row].tip,
-            "hashtags": tasksArray[indexPath.row].hashtags
-        ])
-        
-        // print current archive collection size
-        archiveCollRef.getDocuments { (queryShapshot, error) in
-            if let error = error {
-                print("\(error.localizedDescription)")
-            } else {
-                var count = 0
-                for document in queryShapshot!.documents {
-                    count += 1
-                    //print("\(document.documentID) => \(document.data())");
-                }
-                //print("Number of archived tasks = \(count)");
-            }
-        }
-        
-        return UISwipeActionsConfiguration(actions: [complete])
-    }
-    
-    // swipe left - done task, helper func
-    func completeAction(at indexPath: IndexPath) -> UIContextualAction {
-        // remove task from table view
-        let action = UIContextualAction(style: .destructive, title: "Complete") { (action, view, completion) in
-            self.tasksArray.remove(at: indexPath.row)
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
-            completion(true)
-        }
-        action.title = "Done"
-        action.backgroundColor = .green
-        
-        return action
-    }
+    //    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+    //
+    //        let complete = completeAction(at: indexPath)
+    //
+    //        // delete done task from db for the current user
+    //        let title = tasksArray[indexPath.row].title
+    //        let user = Auth.auth().currentUser
+    //        let collectionRef = db.collection("users").document((user?.uid)!).collection("tasks")
+    //        let query : Query = collectionRef.whereField("title", isEqualTo: title)
+    //
+    //        query.getDocuments(completion:{ (snapshot, error) in
+    //            if let error = error {
+    //                print(error.localizedDescription)
+    //            } else {
+    //                for document in snapshot!.documents {
+    //                    collectionRef.document("\(document.documentID)").delete()
+    //                }
+    //            }
+    //        })
+    //
+    //        // create archive collection and push done task in it
+    //        let userID = Auth.auth().currentUser!.uid
+    //        let archiveCollRef = db.collection("users").document(userID).collection("archive")
+    //
+    //        archiveCollRef.addDocument(data: [
+    //            "title": tasksArray[indexPath.row].title,
+    //            "description": tasksArray[indexPath.row].description,
+    //            "tip": tasksArray[indexPath.row].tip,
+    //            "hashtags": tasksArray[indexPath.row].hashtags
+    //        ])
+    //
+    //        // print current archive collection size
+    //        archiveCollRef.getDocuments { (queryShapshot, error) in
+    //            if let error = error {
+    //                print("\(error.localizedDescription)")
+    //            } else {
+    //                var count = 0
+    //                for document in queryShapshot!.documents {
+    //                    count += 1
+    //                    //print("\(document.documentID) => \(document.data())");
+    //                }
+    //                //print("Number of archived tasks = \(count)");
+    //            }
+    //        }
+    //
+    //        return UISwipeActionsConfiguration(actions: [complete])
+    //    }
+    //
+    //    // swipe left - done task, helper func
+    //    func completeAction(at indexPath: IndexPath) -> UIContextualAction {
+    //        // remove task from table view
+    //        let action = UIContextualAction(style: .destructive, title: "Complete") { (action, view, completion) in
+    //            self.tasksArray.remove(at: indexPath.row)
+    //            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+    //            completion(true)
+    //        }
+    //        action.title = "Done"
+    //        action.backgroundColor = .green
+    //
+    //        return action
+    //    }
 }

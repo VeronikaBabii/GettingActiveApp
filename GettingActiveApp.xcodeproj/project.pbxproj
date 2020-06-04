@@ -171,8 +171,8 @@
 			isa = PBXGroup;
 			children = (
 				158F00EA244CA86D00074359 /* Main.storyboard */,
-				15DF487D24882A3800A9ED6C /* MyTasks.storyboard */,
 				15DF487F24882A4300A9ED6C /* AllTasks.storyboard */,
+				15DF487D24882A3800A9ED6C /* MyTasks.storyboard */,
 				15DF487B24882A2900A9ED6C /* Profile.storyboard */,
 			);
 			path = Storyboards;
