@@ -13,8 +13,7 @@ import FirebaseFirestore
 
 class TasksListScreen: UIViewController {
     
-    var db:Firestore!
-    
+    var db = Firestore.firestore()
     var tasksArray = [Task]()
     
     @IBOutlet weak var tableView: UITableView!
@@ -22,9 +21,6 @@ class TasksListScreen: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        db = Firestore.firestore()
-        
         setUpDesign()
         loadData()
         checkForUpdates()
@@ -82,10 +78,8 @@ class TasksListScreen: UIViewController {
                         self.tableView.reloadData()
                     }
                 }
-                
             }
         }
-        
     }
     
     func setUpDesign() {
@@ -145,7 +139,7 @@ extension TasksListScreen: TaskCellDelegate {
                     // remove selected task from users.tasks collection
                     self.tasksArray.remove(at: index)
                     userTasksCollRef.document("\(document.documentID)").delete()
-                    print("Task deleted from db \n")
+                    print("Task deleted from allTasks coll \n")
                 }
             }
         })
@@ -170,6 +164,8 @@ extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
         cell.previewMotivLabel.text = task.description
         cell.previewTipLabel.text = task.tip
         cell.previewHashtagsLabel.text = task.hashtags
+        
+        cell.styleButton()
         
         cell.cellDelegate = self
         cell.index = indexPath
