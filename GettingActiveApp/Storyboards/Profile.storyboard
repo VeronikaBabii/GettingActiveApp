@@ -196,9 +196,11 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rA5-pK-ol0">
-                                <rect key="frame" x="132" y="486" width="150" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rA5-pK-ol0">
+                                <rect key="frame" x="132" y="493" width="150" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="KUe-4M-tNF"/>
+                                </constraints>
                                 <state key="normal" title="OPEN ARCHIVE"/>
                                 <connections>
                                     <action selector="openArchiveClicked:" destination="6Yy-qd-klG" eventType="touchUpInside" id="oLh-fz-xaf"/>
@@ -211,15 +213,19 @@
                             <constraint firstItem="dKk-sW-hK8" firstAttribute="centerX" secondItem="1GG-hW-pBj" secondAttribute="centerX" id="216-H5-3Xx"/>
                             <constraint firstItem="dKk-sW-hK8" firstAttribute="top" secondItem="Y1j-L5-uJQ" secondAttribute="bottom" constant="15" id="6Dt-YI-hCK"/>
                             <constraint firstItem="bR8-Pt-UJj" firstAttribute="centerX" secondItem="1GG-hW-pBj" secondAttribute="centerX" id="90M-if-n7E"/>
+                            <constraint firstItem="bjD-P5-KNP" firstAttribute="trailing" secondItem="rA5-pK-ol0" secondAttribute="trailing" constant="132" id="B1J-Y1-6Tv"/>
+                            <constraint firstItem="rA5-pK-ol0" firstAttribute="leading" secondItem="bjD-P5-KNP" secondAttribute="leading" constant="132" id="FO0-EG-u0u"/>
                             <constraint firstItem="bR8-Pt-UJj" firstAttribute="leading" secondItem="bjD-P5-KNP" secondAttribute="leading" constant="132" id="HhL-KR-9Vr"/>
                             <constraint firstItem="dJ1-XC-ppt" firstAttribute="leading" secondItem="bjD-P5-KNP" secondAttribute="leading" constant="70" id="Hjq-t5-Aun"/>
                             <constraint firstItem="Y1j-L5-uJQ" firstAttribute="leading" secondItem="bjD-P5-KNP" secondAttribute="leading" constant="132" id="Ik6-BZ-vgP"/>
                             <constraint firstItem="bjD-P5-KNP" firstAttribute="trailing" secondItem="dJ1-XC-ppt" secondAttribute="trailing" constant="70" id="JpD-u7-eci"/>
+                            <constraint firstItem="bjD-P5-KNP" firstAttribute="bottom" secondItem="rA5-pK-ol0" secondAttribute="bottom" constant="280" id="NZa-0N-1ap"/>
                             <constraint firstItem="bjD-P5-KNP" firstAttribute="trailing" secondItem="dKk-sW-hK8" secondAttribute="trailing" constant="97" id="SQ4-Hm-L53"/>
                             <constraint firstItem="dKk-sW-hK8" firstAttribute="leading" secondItem="bjD-P5-KNP" secondAttribute="leading" constant="97" id="YTt-vS-ohC"/>
                             <constraint firstItem="Y1j-L5-uJQ" firstAttribute="top" secondItem="bjD-P5-KNP" secondAttribute="top" constant="85" id="c4P-gZ-1Wy"/>
                             <constraint firstItem="bjD-P5-KNP" firstAttribute="trailing" secondItem="bR8-Pt-UJj" secondAttribute="trailing" constant="132" id="ceU-r7-d1q"/>
                             <constraint firstItem="dJ1-XC-ppt" firstAttribute="centerX" secondItem="1GG-hW-pBj" secondAttribute="centerX" id="dMK-yD-QuL"/>
+                            <constraint firstItem="rA5-pK-ol0" firstAttribute="centerX" secondItem="1GG-hW-pBj" secondAttribute="centerX" id="hnU-Dq-XJ1"/>
                             <constraint firstItem="bjD-P5-KNP" firstAttribute="trailing" secondItem="Y1j-L5-uJQ" secondAttribute="trailing" constant="132" id="rkr-Zv-6IX"/>
                             <constraint firstItem="dJ1-XC-ppt" firstAttribute="top" secondItem="Y1j-L5-uJQ" secondAttribute="bottom" constant="105" id="sEK-nH-FXk"/>
                             <constraint firstItem="Y1j-L5-uJQ" firstAttribute="centerX" secondItem="1GG-hW-pBj" secondAttribute="centerX" id="uUN-fZ-Egx"/>
