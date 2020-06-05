@@ -7,10 +7,6 @@
 //
 
 import UIKit
-import Firebase
-import FirebaseAuth
-import FirebaseFirestore
-import FirebaseStorage
 
 protocol TaskCellDelegate {
     func didTapImInButton(index: Int)
@@ -33,7 +29,7 @@ class TaskViewCell: UITableViewCell {
     
     @IBAction func addMyTaskClicked(_ sender: UIButton) {
         cellDelegate?.didTapImInButton(index: (index?.row)!)
-        print("Button clicked!")
+        print("Button clicked")
     }
     
 }

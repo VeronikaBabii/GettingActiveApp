@@ -36,8 +36,8 @@ class MyTasksVC: UIViewController {
             } else {
                 self.myTasksArray = queryShapshot!.documents.compactMap({Task(dictionary: $0.data())})
                 
-                print("Snapshots are \(queryShapshot!.documents)")
-                print("My tasks array is \(self.myTasksArray)")
+                //print("Snapshots are \(queryShapshot!.documents)")
+                //print("My tasks array is \(self.myTasksArray)")
                 
                 // update user interface
                 DispatchQueue.main.async {
@@ -86,6 +86,47 @@ class MyTasksVC: UIViewController {
     }
 }
 
+extension MyTasksVC: MyTaskCellDelegate {
+    
+    // when "done" button in task is tapped
+    func didTapDoneButton(index: Int) {
+        
+        let db = Firestore.firestore()
+        let userID = Auth.auth().currentUser!.uid
+        let userMyTasksCollRef = db.collection("users").document(userID).collection("myTasks")
+        
+        // search for task with needed title
+        let query:Query = userMyTasksCollRef.whereField("title", isEqualTo: myTasksArray[index].title)
+        print(myTasksArray[index].title)
+        
+        query.getDocuments(completion:{ (snapshot, error) in
+            if let error = error {
+                print(error.localizedDescription)
+            } else {
+                for document in snapshot!.documents {
+                    
+                    // create archive collection and push done task in it
+                    let userID = Auth.auth().currentUser!.uid
+                    let archiveCollRef = db.collection("users").document(userID).collection("archive")
+                    
+                    archiveCollRef.addDocument(data: [
+                        "title": self.myTasksArray[index].title,
+                        "description": self.myTasksArray[index].description,
+                        "tip": self.myTasksArray[index].tip,
+                        "hashtags": self.myTasksArray[index].hashtags
+                    ])
+                    print("Task added to archive coll")
+                    
+                    // remove selected task from users.myTasks collection
+                    self.myTasksArray.remove(at: index)
+                    userMyTasksCollRef.document("\(document.documentID)").delete()
+                    print("Task deleted from myTasks coll \n")
+                }
+            }
+        })
+    }
+}
+
 extension MyTasksVC: UITableViewDataSource, UITableViewDelegate {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -103,6 +144,41 @@ extension MyTasksVC: UITableViewDataSource, UITableViewDelegate {
         cell.myTipLabel.text = task.tip
         cell.myHashtags.text = task.hashtags
 
+        cell.styleButton()
+        
+        cell.cellDelegate = self
+        cell.index = indexPath
+        
         return cell
     }
+    
+    // swipe right - task deleted
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        // if action is deletion
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            
+            // delete task from db for the current user
+            let title = myTasksArray[indexPath.row].title
+            let user = Auth.auth().currentUser
+            let collectionRef = db.collection("users").document((user?.uid)!).collection("myTasks")
+            // search for task with needed title
+            let query : Query = collectionRef.whereField("title", isEqualTo: title)
+            
+            query.getDocuments(completion:{ (snapshot, error) in
+                if let error = error {
+                    print(error.localizedDescription)
+                } else {
+                    for document in snapshot!.documents {
+                        collectionRef.document("\(document.documentID)").delete()
+                    }
+                }
+            })
+            
+            // delete task from table view
+            myTasksArray.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
 }

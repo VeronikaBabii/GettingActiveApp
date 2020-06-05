@@ -8,11 +8,28 @@
 
 import UIKit
 
+protocol MyTaskCellDelegate {
+    func didTapDoneButton(index: Int)
+}
+
 class MyTaskTableViewCell: UITableViewCell {
+    
+    var cellDelegate: MyTaskCellDelegate?
+    var index: IndexPath?
 
     @IBOutlet weak var myTitle: UILabel!
     @IBOutlet weak var myDescription: UILabel!
     @IBOutlet weak var myTipLabel: UILabel!
     @IBOutlet weak var myHashtags: UILabel!
+    @IBOutlet weak var doneButton: UIButton!
 
+    func styleButton() {
+        Utilities.styleFilledButton(doneButton)
+    }
+    
+    @IBAction func taskDoneClicked(_ sender: UIButton) {
+        cellDelegate?.didTapDoneButton(index: (index?.row)!)
+        print("Task done clicked")
+    }
+    
 }

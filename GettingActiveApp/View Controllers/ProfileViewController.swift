@@ -26,7 +26,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         super.viewDidLoad()
         setNavbar()
         getUserData()
-        setProgress()
+        setProgressTitle()
 
         Utilities.styleFilledButton(openArchiveButton)
     }
@@ -40,22 +40,15 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.present(imagePicker, animated: true, completion: nil)
     }
 
-    // action to open tasks archive
-    @IBAction func openArchiveClicked(_ sender: Any) {
-
-    }
-
     func setNavbar() {
         let navbar = self.navigationController?.navigationBar
         navbar?.barTintColor = UIColor.init(red: 48/255, green: 173/255, blue: 99/255, alpha: 1)
         navbar?.tintColor = UIColor.black
-
     }
 
-    // configure user progress bar
-    func setProgress() {
+    // set user progress title
+    func setProgressTitle() {
 
-        // print current archive collection size
         let userID = Auth.auth().currentUser!.uid
         let archiveCollRef = db.collection("users").document(userID).collection("archive")
 
@@ -67,12 +60,26 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 for _ in queryShapshot!.documents {
                     count += 1
                 }
-                //print("Number of archived tasks = \(count)");
-
-                self.progressLabel.text = "You've done \(count) tasks. Great job! "
+                
+                if count == 0 {
+                    self.progressLabel.text = "No tasks done :( Let's complete first one!"
+                } else {
+                    switch count {
+                    case 1, 21, 31, 41:
+                        self.progressLabel.text = "You've done \(count) task. Great job!"
+                    default:
+                        self.progressLabel.text = "You've done \(count) tasks. Great job!"
+                    }
+                    
+                }
             }
         }
     }
+    
+    @IBAction func openArchiveTapped(_ sender: Any) {
+        
+    }
+    
 
     private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         var selectedImageFromPicker: UIImage?

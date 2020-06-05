@@ -38,8 +38,8 @@ class TasksListScreen: UIViewController {
             } else {
                 self.tasksArray = queryShapshot!.documents.compactMap({Task(dictionary: $0.data())})
                 
-                print("Snapshots are \(queryShapshot!.documents)")
-                print("Tasks array is \(self.tasksArray)")
+                //print("Snapshots are \(queryShapshot!.documents)")
+                //print("Tasks array is \(self.tasksArray)")
                 
                 // update user interface
                 DispatchQueue.main.async {
@@ -182,7 +182,6 @@ extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
             // delete task from db for the current user
             let title = tasksArray[indexPath.row].title
             let user = Auth.auth().currentUser
-            // access collection of tasks of the current user
             let collectionRef = db.collection("users").document((user?.uid)!).collection("tasks")
             // search for task with needed title
             let query : Query = collectionRef.whereField("title", isEqualTo: title)
