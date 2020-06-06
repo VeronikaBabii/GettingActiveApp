@@ -75,6 +75,9 @@
                                                         <constraint firstAttribute="height" constant="30" id="Lgy-lt-63d"/>
                                                     </constraints>
                                                     <state key="normal" title="Зроблено!"/>
+                                                    <connections>
+                                                        <action selector="taskDoneClicked:" destination="VVA-sD-MZ1" eventType="touchUpInside" id="6gb-0o-IPK"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
