@@ -11,6 +11,7 @@
 		151E80D72458958900856B46 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151E80D62458958900856B46 /* TaskModel.swift */; };
 		1523B89F245C2B54009918D0 /* ArchiveViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1523B89E245C2B54009918D0 /* ArchiveViewCell.swift */; };
 		1523B8A1245C314A009918D0 /* ArchiveListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1523B8A0245C314A009918D0 /* ArchiveListScreen.swift */; };
+		152B88D3248BBD1C009C4FB2 /* Poll.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 152B88D2248BBD1C009C4FB2 /* Poll.storyboard */; };
 		154DC46C2486A46C005C1B1E /* MyTasksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154DC46B2486A46C005C1B1E /* MyTasksVC.swift */; };
 		154DC46E2486A4A5005C1B1E /* MyTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154DC46D2486A4A5005C1B1E /* MyTaskTableViewCell.swift */; };
 		1567918B245458D600E606AD /* SettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1567918A245458D600E606AD /* SettingsTableViewController.swift */; };
@@ -39,6 +40,7 @@
 		151E80D62458958900856B46 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		1523B89E245C2B54009918D0 /* ArchiveViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewCell.swift; sourceTree = "<group>"; };
 		1523B8A0245C314A009918D0 /* ArchiveListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveListScreen.swift; sourceTree = "<group>"; };
+		152B88D2248BBD1C009C4FB2 /* Poll.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Poll.storyboard; sourceTree = "<group>"; };
 		154DC46B2486A46C005C1B1E /* MyTasksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTasksVC.swift; sourceTree = "<group>"; };
 		154DC46D2486A4A5005C1B1E /* MyTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTaskTableViewCell.swift; sourceTree = "<group>"; };
 		1567918A245458D600E606AD /* SettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewController.swift; sourceTree = "<group>"; };
@@ -87,6 +89,13 @@
 			path = ArchiveTasksPage;
 			sourceTree = "<group>";
 		};
+		152B88D1248BACDF009C4FB2 /* Poll */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Poll;
+			sourceTree = "<group>";
+		};
 		154DC46A2486A426005C1B1E /* MyTasksPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +141,7 @@
 				15DFD363244CCBF400B375DC /* Helpers */,
 				158F00FE244CAB3F00074359 /* View Controllers */,
 				15F146E5247AA762006873B8 /* Authorization */,
+				152B88D1248BACDF009C4FB2 /* Poll */,
 				15851B192457418F00863D50 /* AllTasksPage */,
 				1523B8A2245C315F009918D0 /* ArchiveTasksPage */,
 				154DC46A2486A426005C1B1E /* MyTasksPage */,
@@ -160,6 +170,7 @@
 				15DF487F24882A4300A9ED6C /* AllTasks.storyboard */,
 				15DF487D24882A3800A9ED6C /* MyTasks.storyboard */,
 				15DF487B24882A2900A9ED6C /* Profile.storyboard */,
+				152B88D2248BBD1C009C4FB2 /* Poll.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -267,6 +278,7 @@
 				15F05762244CDA54007B2AB3 /* GoogleService-Info.plist in Resources */,
 				15DF487C24882A2900A9ED6C /* Profile.storyboard in Resources */,
 				15DF487E24882A3800A9ED6C /* MyTasks.storyboard in Resources */,
+				152B88D3248BBD1C009C4FB2 /* Poll.storyboard in Resources */,
 				158F00EE244CA87000074359 /* Assets.xcassets in Resources */,
 				158F00EC244CA86D00074359 /* Main.storyboard in Resources */,
 			);
