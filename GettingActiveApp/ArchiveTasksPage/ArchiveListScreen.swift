@@ -41,19 +41,19 @@ class ArchiveListScreen: UIViewController {
             }
         }
     }
-    
+
     func checkForUpdates() {
         let userID = Auth.auth().currentUser!.uid
         let archiveCollRef = db.collection("users").document(userID).collection("archive")
-        
+
         archiveCollRef.addSnapshotListener() {
             querySnapshot, error in
-            
+
             guard let snapshot = querySnapshot else {return}
-            
+
             snapshot.documentChanges.forEach {
                 diff in
-                
+
                 // if changes action is addition, reload table view
                 if diff.type == .added {
                     DispatchQueue.main.async {
@@ -63,7 +63,7 @@ class ArchiveListScreen: UIViewController {
             }
         }
     }
-    
+
     func setUpDesign() {
         self.navigationController?.isNavigationBarHidden = true
         view.backgroundColor = UIColor.init(red: 48/255, green: 173/255, blue: 99/255, alpha: 1)

@@ -171,7 +171,8 @@ class SignUpViewController: UIViewController {
                     }
                     
                     // transition to the home screen
-                    self.transitionToHome()
+                    //self.transitionToHome()
+                    self.transitionToPoll()
                     
                     // copy tasks for user from general tasks collection to his own tasks collection
                     self.copyTasks()
@@ -201,6 +202,13 @@ class SignUpViewController: UIViewController {
         // swap - sign homeVC to the rootVC
         view.window?.rootViewController = tabBarViewController
         // show homeVC as rootVC instead
+        view.window?.makeKeyAndVisible()
+    }
+    
+    func transitionToPoll() {
+        let pollViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.pollViewController) as? MainPollViewController
+        
+        view.window?.rootViewController = pollViewController
         view.window?.makeKeyAndVisible()
     }
 }

@@ -60,7 +60,7 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 for _ in queryShapshot!.documents {
                     count += 1
                 }
-                
+
                 if count == 0 {
                     self.progressLabel.text = "No tasks done :( Let's complete first one!"
                 } else {
@@ -70,16 +70,16 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                     default:
                         self.progressLabel.text = "You've done \(count) tasks. Great job!"
                     }
-                    
+
                 }
             }
         }
     }
-    
+
     @IBAction func openArchiveTapped(_ sender: Any) {
-        
+
     }
-    
+
 
     private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         var selectedImageFromPicker: UIImage?
