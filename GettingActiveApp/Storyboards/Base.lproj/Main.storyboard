@@ -526,9 +526,13 @@
                                 </constraints>
                                 <state key="normal" title="ПРОДОВЖИТИ"/>
                                 <connections>
+                                    <action selector="continueButtonTapped:" destination="qGJ-f3-btQ" eventType="touchUpInside" id="KVO-Bv-C48"/>
                                     <segue destination="w20-43-pft" kind="show" id="D9i-6a-sSB"/>
                                 </connections>
                             </button>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="oER-0a-Ra5">
+                                <rect key="frame" x="5" y="289" width="404" height="216"/>
+                            </datePicker>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -538,9 +542,13 @@
                             <constraint firstItem="XUb-F2-2Pe" firstAttribute="trailing" secondItem="kf9-NP-gen" secondAttribute="trailing" constant="50" id="3lz-WQ-OE9"/>
                             <constraint firstItem="kf9-NP-gen" firstAttribute="centerX" secondItem="pYn-jG-MSl" secondAttribute="centerX" id="6jf-h0-55Z"/>
                             <constraint firstItem="XUb-F2-2Pe" firstAttribute="trailing" secondItem="tF4-lp-pE6" secondAttribute="trailing" constant="20" id="A0x-Lq-6zY"/>
+                            <constraint firstItem="XUb-F2-2Pe" firstAttribute="trailing" secondItem="oER-0a-Ra5" secondAttribute="trailing" constant="5" id="AFl-TA-PYo"/>
                             <constraint firstItem="0Xe-wh-QcE" firstAttribute="leading" secondItem="XUb-F2-2Pe" secondAttribute="leading" constant="20" id="AYd-4g-JDR"/>
+                            <constraint firstItem="oER-0a-Ra5" firstAttribute="leading" secondItem="XUb-F2-2Pe" secondAttribute="leading" constant="5" id="PNs-F4-n8B"/>
                             <constraint firstItem="0Xe-wh-QcE" firstAttribute="centerX" secondItem="pYn-jG-MSl" secondAttribute="centerX" id="eUm-Fv-xDz"/>
                             <constraint firstItem="0Xe-wh-QcE" firstAttribute="top" secondItem="tF4-lp-pE6" secondAttribute="bottom" constant="15" id="hSa-oS-zqP"/>
+                            <constraint firstItem="oER-0a-Ra5" firstAttribute="top" secondItem="0Xe-wh-QcE" secondAttribute="bottom" constant="70" id="qLH-zg-dUo"/>
+                            <constraint firstItem="oER-0a-Ra5" firstAttribute="centerX" secondItem="pYn-jG-MSl" secondAttribute="centerX" id="qLL-pF-BeX"/>
                             <constraint firstItem="XUb-F2-2Pe" firstAttribute="bottom" secondItem="kf9-NP-gen" secondAttribute="bottom" constant="50" id="sXZ-A4-0tG"/>
                             <constraint firstItem="XUb-F2-2Pe" firstAttribute="trailing" secondItem="0Xe-wh-QcE" secondAttribute="trailing" constant="20" id="uiZ-Xk-Dyz"/>
                             <constraint firstItem="tF4-lp-pE6" firstAttribute="centerX" secondItem="pYn-jG-MSl" secondAttribute="centerX" id="yex-VM-2Fv"/>
@@ -548,6 +556,10 @@
                         <viewLayoutGuide key="safeArea" id="XUb-F2-2Pe"/>
                     </view>
                     <navigationItem key="navigationItem" id="XEG-ja-sXt"/>
+                    <connections>
+                        <outlet property="continueButton" destination="kf9-NP-gen" id="RHQ-3W-OlV"/>
+                        <outlet property="datePicker" destination="oER-0a-Ra5" id="LOy-iz-FyT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xdu-s6-kTi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

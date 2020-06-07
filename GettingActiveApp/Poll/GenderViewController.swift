@@ -44,7 +44,6 @@ class GenderViewController: UIViewController {
         
         sender.tintColor = UIColor.white
         sender.backgroundColor = Colors.GAgreen
-        
     }
     
     @IBAction func continueButtonTapped(_ sender: Any) {

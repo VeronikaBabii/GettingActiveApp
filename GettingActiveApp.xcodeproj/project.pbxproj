@@ -18,8 +18,6 @@
 		152B88DC248D3B11009C4FB2 /* CategoriesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B88DB248D3B11009C4FB2 /* CategoriesViewController.swift */; };
 		152B88DE248D3B48009C4FB2 /* BirthdayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B88DD248D3B48009C4FB2 /* BirthdayViewController.swift */; };
 		152B88E0248D3B7C009C4FB2 /* RemindersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B88DF248D3B7C009C4FB2 /* RemindersViewController.swift */; };
-		152B88E6248D45FA009C4FB2 /* ButtonSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B88E5248D45FA009C4FB2 /* ButtonSelection.swift */; };
-		152B88E8248D470A009C4FB2 /* ContinueButtonSelection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B88E7248D470A009C4FB2 /* ContinueButtonSelection.swift */; };
 		153EA73C248DA8B600381AA4 /* MainPollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 153EA73B248DA8B600381AA4 /* MainPollViewController.swift */; };
 		154DC46C2486A46C005C1B1E /* MyTasksVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154DC46B2486A46C005C1B1E /* MyTasksVC.swift */; };
 		154DC46E2486A4A5005C1B1E /* MyTaskTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 154DC46D2486A4A5005C1B1E /* MyTaskTableViewCell.swift */; };
@@ -56,8 +54,6 @@
 		152B88DB248D3B11009C4FB2 /* CategoriesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoriesViewController.swift; sourceTree = "<group>"; };
 		152B88DD248D3B48009C4FB2 /* BirthdayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BirthdayViewController.swift; sourceTree = "<group>"; };
 		152B88DF248D3B7C009C4FB2 /* RemindersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemindersViewController.swift; sourceTree = "<group>"; };
-		152B88E5248D45FA009C4FB2 /* ButtonSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonSelection.swift; sourceTree = "<group>"; };
-		152B88E7248D470A009C4FB2 /* ContinueButtonSelection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContinueButtonSelection.swift; sourceTree = "<group>"; };
 		153EA73B248DA8B600381AA4 /* MainPollViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPollViewController.swift; sourceTree = "<group>"; };
 		154DC46B2486A46C005C1B1E /* MyTasksVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTasksVC.swift; sourceTree = "<group>"; };
 		154DC46D2486A4A5005C1B1E /* MyTaskTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyTaskTableViewCell.swift; sourceTree = "<group>"; };
@@ -110,11 +106,11 @@
 		152B88D1248BACDF009C4FB2 /* Poll */ = {
 			isa = PBXGroup;
 			children = (
-				153EA73B248DA8B600381AA4 /* MainPollViewController.swift */,
 				152B88D9248D39A9009C4FB2 /* GenderViewController.swift */,
-				152B88DB248D3B11009C4FB2 /* CategoriesViewController.swift */,
 				152B88DD248D3B48009C4FB2 /* BirthdayViewController.swift */,
+				152B88DB248D3B11009C4FB2 /* CategoriesViewController.swift */,
 				152B88DF248D3B7C009C4FB2 /* RemindersViewController.swift */,
+				153EA73B248DA8B600381AA4 /* MainPollViewController.swift */,
 			);
 			path = Poll;
 			sourceTree = "<group>";
@@ -126,15 +122,6 @@
 				152B88D7248BED4C009C4FB2 /* Sweet.swift */,
 			);
 			path = Swiffer;
-			sourceTree = "<group>";
-		};
-		152B88E9248D4710009C4FB2 /* Subclasses */ = {
-			isa = PBXGroup;
-			children = (
-				152B88E5248D45FA009C4FB2 /* ButtonSelection.swift */,
-				152B88E7248D470A009C4FB2 /* ContinueButtonSelection.swift */,
-			);
-			path = Subclasses;
 			sourceTree = "<group>";
 		};
 		154DC46A2486A426005C1B1E /* MyTasksPage */ = {
@@ -182,7 +169,6 @@
 				15DFD363244CCBF400B375DC /* Helpers */,
 				158F00FE244CAB3F00074359 /* View Controllers */,
 				15F146E5247AA762006873B8 /* Authorization */,
-				152B88E9248D4710009C4FB2 /* Subclasses */,
 				152B88D1248BACDF009C4FB2 /* Poll */,
 				15851B192457418F00863D50 /* AllTasksPage */,
 				1523B8A2245C315F009918D0 /* ArchiveTasksPage */,
@@ -385,7 +371,6 @@
 				158F00E5244CA86D00074359 /* AppDelegate.swift in Sources */,
 				15DFD362244CCBD500B375DC /* Utilities.swift in Sources */,
 				158F00F9244CAAED00074359 /* SignUpViewController.swift in Sources */,
-				152B88E8248D470A009C4FB2 /* ContinueButtonSelection.swift in Sources */,
 				152B88D6248BED36009C4FB2 /* TableViewController.swift in Sources */,
 				154DC46C2486A46C005C1B1E /* MyTasksVC.swift in Sources */,
 				152B88DE248D3B48009C4FB2 /* BirthdayViewController.swift in Sources */,
@@ -393,7 +378,6 @@
 				154DC46E2486A4A5005C1B1E /* MyTaskTableViewCell.swift in Sources */,
 				156791972456287700E606AD /* TaskViewCell.swift in Sources */,
 				158F00FB244CAB0F00074359 /* LoginViewController.swift in Sources */,
-				152B88E6248D45FA009C4FB2 /* ButtonSelection.swift in Sources */,
 				1567918B245458D600E606AD /* SettingsTableViewController.swift in Sources */,
 				152B88E0248D3B7C009C4FB2 /* RemindersViewController.swift in Sources */,
 				157BB52D24509D1E00319CFB /* ProfileViewController.swift in Sources */,
