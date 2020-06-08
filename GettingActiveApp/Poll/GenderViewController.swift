@@ -42,6 +42,7 @@ class GenderViewController: UIViewController {
         womenButton.tintColor = UIColor.black
         womenButton.backgroundColor = Colors.lightGray
         
+        // style selected button
         sender.tintColor = UIColor.white
         sender.backgroundColor = Colors.GAgreen
     }

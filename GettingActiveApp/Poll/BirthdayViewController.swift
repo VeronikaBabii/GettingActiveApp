@@ -70,6 +70,6 @@ class BirthdayViewController: UIViewController {
         let userID = Auth.auth().currentUser!.uid
         let userDocRef = db.collection("users").document(userID)
         
-        userDocRef.setData([ "birthday": userBirthday], merge: true)
+        userDocRef.setData(["birthday": userBirthday], merge: true)
     }
 }
