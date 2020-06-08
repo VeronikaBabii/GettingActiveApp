@@ -24,9 +24,9 @@ class GenderViewController: UIViewController {
         
         continueButton.isEnabled = false
 
-        Utilities.styleGreyButton(menButton)
-        Utilities.styleGreyButton(womenButton)
-        Utilities.unactiveContinueButton(continueButton)
+        Utilities.unactiveButton(menButton)
+        Utilities.unactiveButton(womenButton)
+        Utilities.unactiveButton(continueButton)
     }
     
     @IBAction func genderButtonTapped(_ sender: UIButton) {

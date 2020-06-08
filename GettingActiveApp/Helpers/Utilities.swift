@@ -35,28 +35,20 @@ class Utilities {
     }
     
     // buttons for poll
-    static func styleGreyButton(_ button:UIButton) {
+    static func unactiveButton(_ button:UIButton) {
         button.layer.borderWidth = 2
-        button.layer.borderColor = Colors.lightGray.cgColor
+        button.layer.borderColor =  Colors.lightGray.cgColor
         button.layer.cornerRadius = button.frame.height / 2
         button.tintColor = UIColor.black
         button.backgroundColor = Colors.lightGray
     }
     
-    static func unactiveContinueButton(_ button:UIButton) {
+    static func activeButton(_ button:UIButton) {
         button.layer.borderWidth = 2
-        button.layer.borderColor = Colors.lightGray.cgColor
+        button.layer.borderColor = Colors.GAgreen.cgColor
         button.layer.cornerRadius = button.frame.height / 2
         button.tintColor = UIColor.white
-        button.backgroundColor = Colors.lightGray
-    }
-    
-    static func activeContinueButton(_ button:UIButton) {
-        button.layer.borderWidth = 2
-        button.layer.borderColor = Colors.lightGray.cgColor
-        button.layer.cornerRadius = button.frame.height / 2
-        button.tintColor = UIColor.black
-        button.backgroundColor = Colors.lightGray
+        button.backgroundColor = Colors.GAgreen
     }
     
     static func styleRedButton(_ button:UIButton) {

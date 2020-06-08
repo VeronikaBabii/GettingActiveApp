@@ -22,7 +22,7 @@ class BirthdayViewController: UIViewController {
         super.viewDidLoad()
         
         continueButton.isEnabled = false
-        Utilities.unactiveContinueButton(continueButton)
+        Utilities.unactiveButton(continueButton)
         
         setUpDatePicker()
     }
