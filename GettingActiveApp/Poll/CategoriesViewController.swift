@@ -64,7 +64,14 @@ class CategoriesViewController: UIViewController {
     @IBAction func continueButtonTapped(_ sender: UIButton) {
         let userID = Auth.auth().currentUser!.uid
         let userDocRef = db.collection("users").document(userID)
+        var categories : [String] = []
         
-        
+        for button in categoriesButtons {
+            if button.tintColor == UIColor.white {
+                categories.append(button.title(for: .normal)!)
+                userDocRef.setData(["categories": categories ], merge: true)
+            }
+        }
+        print(categories)
     }
 }

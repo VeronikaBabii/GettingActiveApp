@@ -11,7 +11,6 @@
 		151E80D72458958900856B46 /* TaskModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 151E80D62458958900856B46 /* TaskModel.swift */; };
 		1523B89F245C2B54009918D0 /* ArchiveViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1523B89E245C2B54009918D0 /* ArchiveViewCell.swift */; };
 		1523B8A1245C314A009918D0 /* ArchiveListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1523B8A0245C314A009918D0 /* ArchiveListScreen.swift */; };
-		152B88D3248BBD1C009C4FB2 /* Poll.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 152B88D2248BBD1C009C4FB2 /* Poll.storyboard */; };
 		152B88D6248BED36009C4FB2 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B88D5248BED36009C4FB2 /* TableViewController.swift */; };
 		152B88D8248BED4C009C4FB2 /* Sweet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B88D7248BED4C009C4FB2 /* Sweet.swift */; };
 		152B88DA248D39A9009C4FB2 /* GenderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 152B88D9248D39A9009C4FB2 /* GenderViewController.swift */; };
@@ -48,7 +47,6 @@
 		151E80D62458958900856B46 /* TaskModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskModel.swift; sourceTree = "<group>"; };
 		1523B89E245C2B54009918D0 /* ArchiveViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveViewCell.swift; sourceTree = "<group>"; };
 		1523B8A0245C314A009918D0 /* ArchiveListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArchiveListScreen.swift; sourceTree = "<group>"; };
-		152B88D2248BBD1C009C4FB2 /* Poll.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Poll.storyboard; sourceTree = "<group>"; };
 		152B88D5248BED36009C4FB2 /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		152B88D7248BED4C009C4FB2 /* Sweet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sweet.swift; sourceTree = "<group>"; };
 		152B88D9248D39A9009C4FB2 /* GenderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderViewController.swift; sourceTree = "<group>"; };
@@ -210,7 +208,6 @@
 				15DF487F24882A4300A9ED6C /* AllTasks.storyboard */,
 				15DF487D24882A3800A9ED6C /* MyTasks.storyboard */,
 				15DF487B24882A2900A9ED6C /* Profile.storyboard */,
-				152B88D2248BBD1C009C4FB2 /* Poll.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -318,7 +315,6 @@
 				15F05762244CDA54007B2AB3 /* GoogleService-Info.plist in Resources */,
 				15DF487C24882A2900A9ED6C /* Profile.storyboard in Resources */,
 				15DF487E24882A3800A9ED6C /* MyTasks.storyboard in Resources */,
-				152B88D3248BBD1C009C4FB2 /* Poll.storyboard in Resources */,
 				158F00EE244CA87000074359 /* Assets.xcassets in Resources */,
 				158F00EC244CA86D00074359 /* Main.storyboard in Resources */,
 			);
