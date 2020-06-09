@@ -226,6 +226,7 @@
                                 </constraints>
                                 <state key="normal" title="Пізніше"/>
                                 <connections>
+                                    <action selector="laterButtonTapped:" destination="CFZ-hQ-pZC" eventType="touchUpInside" id="IUm-sK-1Fh"/>
                                     <segue destination="y4n-wU-wXj" kind="show" id="twn-ER-2J9"/>
                                 </connections>
                             </button>

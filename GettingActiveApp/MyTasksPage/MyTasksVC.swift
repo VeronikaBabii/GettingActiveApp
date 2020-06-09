@@ -142,7 +142,9 @@ extension MyTasksVC: UITableViewDataSource, UITableViewDelegate {
         cell.myTitle.text = task.title
         cell.myDescription.text = task.description
         cell.myTipLabel.text = task.tip
-        //cell.myHashtags.text = task.hashtags
+        
+        let hashtagsString = task.hashtags.map({$0}).joined(separator:" ")
+        cell.myHashtags.text = hashtagsString
 
         cell.styleButton()
 

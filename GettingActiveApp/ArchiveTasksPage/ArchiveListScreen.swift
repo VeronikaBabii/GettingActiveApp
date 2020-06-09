@@ -85,7 +85,9 @@ extension ArchiveListScreen: UITableViewDataSource, UITableViewDelegate {
         cell.archiveTitle.text = task.title
         cell.archiveDescription.text = task.description
         cell.archiveTipLabel.text = task.tip
-        //cell.archiveHashtags.text = task.hashtags
+        
+        let hashtagsString = task.hashtags.map({$0}).joined(separator:" ")
+        cell.archiveHashtags.text = hashtagsString
 
         return cell
     }

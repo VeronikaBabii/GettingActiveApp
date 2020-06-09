@@ -162,8 +162,6 @@ extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
         cell.previewTipLabel.text = task.tip
         
         let hashtagsString = task.hashtags.map({$0}).joined(separator:" ")
-        //print(hashtagsString)
-        
         cell.previewHashtagsLabel.text = hashtagsString
         
         cell.styleButton()

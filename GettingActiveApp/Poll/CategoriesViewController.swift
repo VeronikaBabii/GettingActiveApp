@@ -61,6 +61,7 @@ class CategoriesViewController: UIViewController {
     
     // get selected categories and push to user's coll
     @IBAction func continueButtonTapped(_ sender: UIButton) {
+        
         let userID = Auth.auth().currentUser!.uid
         let userDocRef = db.collection("users").document(userID)
         var categories : [String] = []
@@ -79,6 +80,10 @@ class CategoriesViewController: UIViewController {
             categoriesNew.append("#\(category.lowercased())")
         }
         print(categoriesNew)
+        
+        // if categoriesNew is empty (user didn't select any category) - push tasks from default collection
+        // ........//
+        
         
         // push to user's collection tasks with these categories
         let tasksFirstBundleCollRef = db.collection("tasks").document("firstBundle").collection("tasks")
@@ -112,5 +117,3 @@ class CategoriesViewController: UIViewController {
         }
     }
 }
-
-// if before poll "later" button is tapped - copy 5 first tasks from firstBundle to user coll
