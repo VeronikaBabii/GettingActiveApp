@@ -34,7 +34,6 @@ class CategoriesViewController: UIViewController {
         
         // style unselected buttons
         categoriesButtons.forEach({Utilities.unactiveButton($0)})
-        
     }
     
     @IBAction func categoryTapped(_ sender: UIButton) {
@@ -72,6 +71,46 @@ class CategoriesViewController: UIViewController {
                 userDocRef.setData(["categories": categories ], merge: true)
             }
         }
-        print(categories)
+        
+        // get selected categories
+        var categoriesNew: [String] = []
+        
+        for category in categories {
+            categoriesNew.append("#\(category.lowercased())")
+        }
+        print(categoriesNew)
+        
+        // push to user's collection tasks with these categories
+        let tasksFirstBundleCollRef = db.collection("tasks").document("firstBundle").collection("tasks")
+        
+        tasksFirstBundleCollRef.whereField("hashtags", arrayContainsAny: categoriesNew).getDocuments {
+            (querySnapshot, err) in
+            
+            if let err = err {
+                print("Error getting documents: \(err.localizedDescription)")
+            } else {
+                if let snapshot = querySnapshot {
+                    for document in snapshot.documents {
+                        let data = document.data()
+                        let batch = self.db.batch()
+                        let docset = querySnapshot
+                        
+                        let newCollRef = userDocRef.collection("tasks").document()
+                        
+                        docset?.documents.forEach {_ in batch.setData(data, forDocument: newCollRef)}
+                        
+                        batch.commit(completion: { (error) in
+                            if let error = error {
+                                print(error.localizedDescription)
+                            } else {
+                                print("Successfuly copied doc")
+                            }
+                        })
+                    }
+                }
+            }
+        }
     }
 }
+
+// if before poll "later" button is tapped - copy 5 first tasks from firstBundle to user coll

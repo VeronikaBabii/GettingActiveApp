@@ -72,12 +72,10 @@ class ArchiveListScreen: UIViewController {
 
 extension ArchiveListScreen: UITableViewDataSource, UITableViewDelegate {
 
-    // number of tasks
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return archiveTasksArray.count
     }
 
-    // add task to the archive page table view
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cell = tableView.dequeueReusableCell(withIdentifier: "archiveCell") as! ArchiveViewCell
@@ -87,7 +85,7 @@ extension ArchiveListScreen: UITableViewDataSource, UITableViewDelegate {
         cell.archiveTitle.text = task.title
         cell.archiveDescription.text = task.description
         cell.archiveTipLabel.text = task.tip
-        cell.archiveHashtags.text = task.hashtags
+        //cell.archiveHashtags.text = task.hashtags
 
         return cell
     }

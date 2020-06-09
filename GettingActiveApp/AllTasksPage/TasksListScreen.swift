@@ -37,10 +37,7 @@ class TasksListScreen: UIViewController {
                 print("Error loading data: \(error.localizedDescription)")
             } else {
                 self.tasksArray = queryShapshot!.documents.compactMap({Task(dictionary: $0.data())})
-                
-                //print("Snapshots are \(queryShapshot!.documents)")
-                //print("Tasks array is \(self.tasksArray)")
-                
+
                 // update user interface
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
@@ -163,10 +160,13 @@ extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
         cell.previewTitleLabel.text = task.title
         cell.previewMotivLabel.text = task.description
         cell.previewTipLabel.text = task.tip
-        cell.previewHashtagsLabel.text = task.hashtags
+        
+        let hashtagsString = task.hashtags.map({$0}).joined(separator:" ")
+        //print(hashtagsString)
+        
+        cell.previewHashtagsLabel.text = hashtagsString
         
         cell.styleButton()
-        
         cell.cellDelegate = self
         cell.index = indexPath
         
@@ -183,6 +183,7 @@ extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
             let title = tasksArray[indexPath.row].title
             let user = Auth.auth().currentUser
             let collectionRef = db.collection("users").document((user?.uid)!).collection("tasks")
+            
             // search for task with needed title
             let query : Query = collectionRef.whereField("title", isEqualTo: title)
             
@@ -201,67 +202,4 @@ extension TasksListScreen: UITableViewDataSource, UITableViewDelegate {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-    
-    // swipe left - task done
-    //    func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
-    //
-    //        let complete = completeAction(at: indexPath)
-    //
-    //        // delete done task from db for the current user
-    //        let title = tasksArray[indexPath.row].title
-    //        let user = Auth.auth().currentUser
-    //        let collectionRef = db.collection("users").document((user?.uid)!).collection("tasks")
-    //        let query : Query = collectionRef.whereField("title", isEqualTo: title)
-    //
-    //        query.getDocuments(completion:{ (snapshot, error) in
-    //            if let error = error {
-    //                print(error.localizedDescription)
-    //            } else {
-    //                for document in snapshot!.documents {
-    //                    collectionRef.document("\(document.documentID)").delete()
-    //                }
-    //            }
-    //        })
-    //
-    //        // create archive collection and push done task in it
-    //        let userID = Auth.auth().currentUser!.uid
-    //        let archiveCollRef = db.collection("users").document(userID).collection("archive")
-    //
-    //        archiveCollRef.addDocument(data: [
-    //            "title": tasksArray[indexPath.row].title,
-    //            "description": tasksArray[indexPath.row].description,
-    //            "tip": tasksArray[indexPath.row].tip,
-    //            "hashtags": tasksArray[indexPath.row].hashtags
-    //        ])
-    //
-    //        // print current archive collection size
-    //        archiveCollRef.getDocuments { (queryShapshot, error) in
-    //            if let error = error {
-    //                print("\(error.localizedDescription)")
-    //            } else {
-    //                var count = 0
-    //                for document in queryShapshot!.documents {
-    //                    count += 1
-    //                    //print("\(document.documentID) => \(document.data())");
-    //                }
-    //                //print("Number of archived tasks = \(count)");
-    //            }
-    //        }
-    //
-    //        return UISwipeActionsConfiguration(actions: [complete])
-    //    }
-    //
-    //    // swipe left - done task, helper func
-    //    func completeAction(at indexPath: IndexPath) -> UIContextualAction {
-    //        // remove task from table view
-    //        let action = UIContextualAction(style: .destructive, title: "Complete") { (action, view, completion) in
-    //            self.tasksArray.remove(at: indexPath.row)
-    //            self.tableView.deleteRows(at: [indexPath], with: .automatic)
-    //            completion(true)
-    //        }
-    //        action.title = "Done"
-    //        action.backgroundColor = .green
-    //
-    //        return action
-    //    }
 }

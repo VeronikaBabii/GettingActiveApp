@@ -170,12 +170,11 @@ class SignUpViewController: UIViewController {
                             if error != nil  { self.showError("Error saving user data!") }
                     }
                     
-                    // transition to the home screen
                     //self.transitionToHome()
                     self.transitionToPoll()
                     
                     // copy tasks for user from general tasks collection to his own tasks collection
-                    self.copyTasks()
+                    //self.copyTasks()
                 }
             }
         }
