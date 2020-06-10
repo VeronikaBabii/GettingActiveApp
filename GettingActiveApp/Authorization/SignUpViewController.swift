@@ -103,11 +103,9 @@ class SignUpViewController: UIViewController {
         }
     }
     
-    // to set the elements styling 
     func setUpElements() {
-        errorLabel.alpha = 0 // hide the error label
-        
-        // style the elements
+        errorLabel.alpha = 0
+
         Utilities.styleTextField(firstNameTextField)
         Utilities.styleTextField(lastNameTextField)
         Utilities.styleTextField(emailTextField)
@@ -170,11 +168,7 @@ class SignUpViewController: UIViewController {
                             if error != nil  { self.showError("Error saving user data!") }
                     }
                     
-                    //self.transitionToHome()
                     self.transitionToPoll()
-                    
-                    // copy tasks for user from general tasks collection to his own tasks collection
-                    //self.copyTasks()
                 }
             }
         }
@@ -189,8 +183,8 @@ class SignUpViewController: UIViewController {
     
     // method to show error message on the page
     func showError(_ message:String) {
-        errorLabel.text = message // show error message in our label
-        errorLabel.alpha = 1 // visible
+        errorLabel.text = message
+        errorLabel.alpha = 1
     }
     
     // method to go to the home screen (sign rootVC to any other VC we're now)

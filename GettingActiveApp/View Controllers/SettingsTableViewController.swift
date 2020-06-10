@@ -16,16 +16,17 @@ class SettingsTableViewController: UITableViewController {
     var db = Firestore.firestore()
     var datePicker: UIDatePicker?
     
-    @IBOutlet weak var logoutButton: UIButton!
-    @IBOutlet weak var aboutButton: UIView!
     @IBOutlet weak var firstnameTextfield: UITextField!
     @IBOutlet weak var datePickerTextfield: UITextField!
+    @IBOutlet weak var genderTextField: UITextField!
+    @IBOutlet weak var aboutButton: UIView!
+    @IBOutlet weak var logoutButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpDesign()
-        setUserFirstname()
-        setDatePicker()
+        setUserInfo()
+        //setDatePicker()
     }
 
     func setUpDesign() {
@@ -42,7 +43,7 @@ class SettingsTableViewController: UITableViewController {
 
     // redirect to about us file on web
     @IBAction func aboutButtonTapped(_ sender: Any) {
-
+        
     }
 
     // configure date picker
@@ -78,16 +79,27 @@ class SettingsTableViewController: UITableViewController {
         datePickerTextfield.text = dateFormatter.string(from: datePicker.date)
     }
 
-    // get user firstname and add it to the name field
-    func setUserFirstname() {
+    // get and set user info
+    func setUserInfo() {
         if let userId = Auth.auth().currentUser?.uid {
             db.collection("users").getDocuments { (snapshot, error) in
                 if let error = error {
                     print("Error getting documents: \(error)")
                 } else {
                     if let currentUserDoc = snapshot?.documents.first(where: { ($0["uid"] as? String) == userId }) {
+                        
+                        // set user firstname
                         let userFirstname = currentUserDoc["firstname"] as! String
                         self.firstnameTextfield.text = "\(userFirstname)"
+                        
+                        // set user birthday
+                        let userBirthday = currentUserDoc["birthday"] as! String
+                        self.datePickerTextfield.text = "\(userBirthday)"
+                        
+                        // set user gender
+                        let userGender = currentUserDoc["gender"] as! String
+                        self.genderTextField.text = "\(userGender)"
+                        
                     }
                 }
             }
