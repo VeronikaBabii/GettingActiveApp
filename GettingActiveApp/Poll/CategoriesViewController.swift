@@ -19,9 +19,12 @@ class CategoriesViewController: UIViewController {
     
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet var categoriesButtons: [UIButton]!
+    @IBOutlet weak var errorLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        errorLabel.alpha = 0
 
         // assign categories to buttons
         for button in categoriesButtons {
@@ -82,13 +85,49 @@ class CategoriesViewController: UIViewController {
         print(categoriesNew)
         
         // if categoriesNew is empty (user didn't select any category) - push tasks from default collection
-        // ........//
-        
-        
-        // push to user's collection tasks with these categories
+        if (categoriesNew.isEmpty) {
+            print("Categories wasn't selected")
+             pushFromFirstBundle()
+        } else {
+            // push to user's collection tasks with selected categories
+            let tasksFirstBundleCollRef = db.collection("tasks").document("firstBundle").collection("tasks")
+            
+            tasksFirstBundleCollRef.whereField("hashtags", arrayContainsAny: categoriesNew).getDocuments {
+                (querySnapshot, err) in
+                
+                if let err = err {
+                    print("Error getting documents: \(err.localizedDescription)")
+                } else {
+                    if let snapshot = querySnapshot {
+                        for document in snapshot.documents {
+                            let data = document.data()
+                            let batch = self.db.batch()
+                            let docset = querySnapshot
+                            
+                            let newCollRef = userDocRef.collection("tasks").document()
+                            
+                            docset?.documents.forEach {_ in batch.setData(data, forDocument: newCollRef)}
+                            
+                            batch.commit(completion: { (error) in
+                                if let error = error {
+                                    print(error.localizedDescription)
+                                } else {
+                                    print("Successfuly copied doc")
+                                }
+                            })
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    func pushFromFirstBundle() {
+        let userID = Auth.auth().currentUser!.uid
+        let userDocRef = db.collection("users").document(userID)
         let tasksFirstBundleCollRef = db.collection("tasks").document("firstBundle").collection("tasks")
         
-        tasksFirstBundleCollRef.whereField("hashtags", arrayContainsAny: categoriesNew).getDocuments {
+        tasksFirstBundleCollRef.getDocuments {
             (querySnapshot, err) in
             
             if let err = err {

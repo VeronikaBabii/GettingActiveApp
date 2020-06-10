@@ -94,7 +94,7 @@ class TasksListScreen: UIViewController {
                 } else {
                     if let currentUserDoc = snapshot?.documents.first(where: { ($0["uid"] as? String) == userId }) {
                         let userFirstname = currentUserDoc["firstname"] as! String
-                        self.helloLabel.text = "Hello, \(userFirstname)!"
+                        self.helloLabel.text = "Привіт, \(userFirstname)!"
                     }
                 }
             }

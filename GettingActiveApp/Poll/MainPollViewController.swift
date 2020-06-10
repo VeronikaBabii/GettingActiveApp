@@ -17,9 +17,14 @@ class MainPollViewController: UIViewController {
 
     @IBOutlet weak var nowButton: UIButton!
     @IBOutlet weak var laterButton: UIButton!
+    @IBOutlet weak var titleView: UIView!
+    @IBOutlet var imageView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        titleView.layer.cornerRadius = 8
+        titleView?.backgroundColor = UIColor(white: 1, alpha: 0.5)
         
         Utilities.activeButton(nowButton)
         Utilities.unactiveButton(laterButton)
@@ -27,7 +32,7 @@ class MainPollViewController: UIViewController {
     
     // create collection with default tasks
     
-    // push all tasks in user's collection without filtering by categories
+    // push all tasks from firstBundle in user's collection without filtering by categories
     @IBAction func laterButtonTapped(_ sender: UIButton) {
         
         let userID = Auth.auth().currentUser!.uid

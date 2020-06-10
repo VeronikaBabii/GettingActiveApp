@@ -13,6 +13,8 @@ import FirebaseFirestore
 
 class LoginViewController: UIViewController {
     
+    let db = Firestore.firestore()
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
@@ -72,6 +74,62 @@ class LoginViewController: UIViewController {
                     self.errorLabel.alpha = 1
                 } else { // no errors, the user signed in successfully
                     self.transitionToHome()
+                    
+                    self.pushTasksIfThereArent()
+                }
+            }
+        }
+    }
+    
+    // if there are no tasks in allTasks collection
+    // that means that user registered, but didn't take a poll,
+    // push firstBundle tasks to the user tasks collection
+    func pushTasksIfThereArent() {
+        let userID = Auth.auth().currentUser!.uid
+        let userTasksCollRef = db.collection("users").document(userID).collection("tasks")
+
+        userTasksCollRef.getDocuments { (queryShapshot, error) in
+            if let error = error {
+                print("\(error.localizedDescription)")
+            } else {
+                var count = 0
+                for _ in queryShapshot!.documents {
+                    count += 1
+                }
+
+                if count == 0 {
+                    print("No tasks")
+                    
+                    // copy from firstBundle to user coll and display
+                    let tasksFirstBundleCollRef = self.db.collection("tasks").document("firstBundle").collection("tasks")
+                    
+                    tasksFirstBundleCollRef.getDocuments {
+                        (querySnapshot, err) in
+                        
+                        if let err = err {
+                            print("Error getting documents: \(err.localizedDescription)")
+                        } else {
+                            if let snapshot = querySnapshot {
+                                for document in snapshot.documents {
+                                    let data = document.data()
+                                    let batch = self.db.batch()
+                                    let docset = querySnapshot
+                                    
+                                    let newCollRef = userTasksCollRef.document()
+                                    
+                                    docset?.documents.forEach {_ in batch.setData(data, forDocument: newCollRef)}
+                                    
+                                    batch.commit(completion: { (error) in
+                                        if let error = error {
+                                            print(error.localizedDescription)
+                                        } else {
+                                            print("Successfuly copied doc")
+                                        }
+                                    })
+                                }
+                            }
+                        }
+                    }
                 }
             }
         }

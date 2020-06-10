@@ -126,7 +126,7 @@
                                     <constraint firstAttribute="height" constant="50" id="r0o-b0-Ahk"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gY1-Az-xbR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Привіт!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gY1-Az-xbR">
                                 <rect key="frame" x="20" y="43" width="254" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="fLS-MT-Tjl"/>
@@ -160,11 +160,11 @@
             </objects>
             <point key="canvasLocation" x="5760.8695652173919" y="-212.27678571428569"/>
         </scene>
-        <!--ALL-->
+        <!--ВСІ-->
         <scene sceneID="SvR-Dp-WR6">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="XDb-mS-y3Z" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="ALL" image="list" id="rfA-5D-Ogz"/>
+                    <tabBarItem key="tabBarItem" title="ВСІ" image="list" id="rfA-5D-Ogz"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="StV-Ul-3Ww">

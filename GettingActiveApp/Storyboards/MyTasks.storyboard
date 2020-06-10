@@ -126,7 +126,7 @@
                                     <constraint firstAttribute="height" constant="50" id="u89-U8-VAs"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here are your tasks " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1z-yB-a46">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Твої завдання тут" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1z-yB-a46">
                                 <rect key="frame" x="20" y="43" width="234" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="GXU-Xy-gwk"/>
@@ -159,11 +159,11 @@
             </objects>
             <point key="canvasLocation" x="5047.826086956522" y="-895.3125"/>
         </scene>
-        <!--HOME-->
+        <!--МОЇ-->
         <scene sceneID="itV-DB-wWx">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="EHv-q8-S9z" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="HOME" image="home" id="IWb-dj-R9n"/>
+                    <tabBarItem key="tabBarItem" title="МОЇ" image="home" id="IWb-dj-R9n"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="F6O-U8-3ll">

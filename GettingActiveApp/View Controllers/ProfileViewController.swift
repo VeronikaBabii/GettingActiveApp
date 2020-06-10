@@ -62,13 +62,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 }
 
                 if count == 0 {
-                    self.progressLabel.text = "No tasks done :( Let's complete first one!"
+                    self.progressLabel.text = "Ви ще не виконали жодного завдання :("
                 } else {
                     switch count {
-                    case 1, 21, 31, 41:
-                        self.progressLabel.text = "You've done \(count) task. Great job!"
+                    case 1, 2, 3, 4, 21, 22, 23, 24, 31, 32, 33, 34:
+                        self.progressLabel.text = "Ви виконали \(count) завдання. Чудова робота!"
                     default:
-                        self.progressLabel.text = "You've done \(count) tasks. Great job!"
+                        self.progressLabel.text = "Ви виконали \(count) завдань. Чудова робота!"
                     }
 
                 }

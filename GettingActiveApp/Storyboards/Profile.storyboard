@@ -197,7 +197,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="KUe-4M-tNF"/>
                                 </constraints>
-                                <state key="normal" title="OPEN ARCHIVE"/>
+                                <state key="normal" title="ВІДКРИТИ АРХІВ"/>
                                 <connections>
                                     <action selector="openArchiveTapped:" destination="6Yy-qd-klG" eventType="touchUpInside" id="JSz-dD-AQx"/>
                                     <segue destination="Mz8-Xn-4hp" kind="show" id="dom-23-4yv"/>
@@ -265,14 +265,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mMW-2d-MlM">
-                                                    <rect key="frame" x="20" y="11" width="45" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Ім'я" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mMW-2d-MlM">
+                                                    <rect key="frame" x="20" y="11" width="30" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vuw-XH-NUz" userLabel="firstnameTextfield">
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Ім'я" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vuw-XH-NUz" userLabel="firstnameTextfield">
                                                     <rect key="frame" x="257" y="5" width="97" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -288,8 +288,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Birthday" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOo-oV-kQi">
-                                                    <rect key="frame" x="20" y="11" width="65" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="День народження" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sOo-oV-kQi">
+                                                    <rect key="frame" x="20" y="11" width="144" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -311,14 +311,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gender" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBn-mk-Xis">
-                                                    <rect key="frame" x="20" y="11" width="57" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Стать" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gBn-mk-Xis">
+                                                    <rect key="frame" x="20" y="11" width="46" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Female" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5LG-lJ-nRx">
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Жінка" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5LG-lJ-nRx">
                                                     <rect key="frame" x="257" y="4" width="97" height="34"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -338,8 +338,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="374" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Allow reminders" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFu-V7-F1K">
-                                                    <rect key="frame" x="20" y="11" width="123" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Дозволити сповіщення" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFu-V7-F1K">
+                                                    <rect key="frame" x="20" y="11" width="185" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -370,7 +370,7 @@
                                                         <constraint firstAttribute="height" constant="22" id="gF7-OS-gSn"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
-                                                    <state key="normal" title="About us"/>
+                                                    <state key="normal" title="Про нас"/>
                                                     <connections>
                                                         <action selector="aboutButtonTapped:" destination="lgu-U3-d3I" eventType="touchUpInside" id="yCb-ny-96r"/>
                                                     </connections>
@@ -401,7 +401,7 @@
                                                         <constraint firstAttribute="width" constant="80" id="x0y-PM-AyW"/>
                                                     </constraints>
                                                     <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
-                                                    <state key="normal" title="Log out">
+                                                    <state key="normal" title="Вийти">
                                                         <color key="titleColor" red="0.76944449010000004" green="0.25171552699999999" blue="0.201217592" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
                                                     <connections>
@@ -436,11 +436,11 @@
             </objects>
             <point key="canvasLocation" x="5761" y="497"/>
         </scene>
-        <!--PROFILE-->
+        <!--ПРОФІЛЬ-->
         <scene sceneID="Kcn-RW-rYF">
             <objects>
                 <navigationController id="hey-yc-Vo6" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="PROFILE" image="profile" id="pjR-9q-w0D"/>
+                    <tabBarItem key="tabBarItem" title="ПРОФІЛЬ" image="profile" id="pjR-9q-w0D"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Amx-Oz-ahc">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
