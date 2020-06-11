@@ -15,6 +15,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FZd-FY-kNu">
+                                <rect key="frame" x="0.0" y="83" width="414" height="730"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ти ще не виконав жодного завдання! Перейди до сторінки &quot;Моі завдання&quot; та виконай своє перше завдання." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qdp-rh-ZIV">
+                                        <rect key="frame" x="20" y="0.0" width="374" height="730"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="qdp-rh-ZIV" firstAttribute="leading" secondItem="FZd-FY-kNu" secondAttribute="leading" constant="20" id="1v4-Qv-DP4"/>
+                                    <constraint firstItem="qdp-rh-ZIV" firstAttribute="top" secondItem="FZd-FY-kNu" secondAttribute="top" id="Wmw-Yt-iFd"/>
+                                    <constraint firstAttribute="trailing" secondItem="qdp-rh-ZIV" secondAttribute="trailing" constant="20" id="ZeA-C8-XW1"/>
+                                    <constraint firstAttribute="bottom" secondItem="qdp-rh-ZIV" secondAttribute="bottom" id="fF6-dk-zb9"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="310" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="ZvB-e0-dNN">
                                 <rect key="frame" x="0.0" y="90" width="414" height="723"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -110,7 +128,7 @@
                                     <constraint firstAttribute="height" constant="50" id="I1e-zK-fhq"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your done tasks are stored here" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYS-rx-z7q" userLabel="archiveLabel">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Твоі виконані завдання тут" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYS-rx-z7q" userLabel="archiveLabel">
                                 <rect key="frame" x="20" y="43" width="274" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="DFk-4P-pjp"/>
@@ -122,7 +140,10 @@
                         </subviews>
                         <color key="backgroundColor" red="0.36470588235294116" green="0.70980392156862748" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="FZd-FY-kNu" firstAttribute="leading" secondItem="051-HU-I9L" secondAttribute="leading" id="5Fz-CF-jlj"/>
+                            <constraint firstItem="051-HU-I9L" firstAttribute="bottom" secondItem="FZd-FY-kNu" secondAttribute="bottom" id="BQC-ne-dgo"/>
                             <constraint firstItem="ZvB-e0-dNN" firstAttribute="top" secondItem="UQb-bU-zkt" secondAttribute="bottom" constant="5" id="D5P-z1-DDz"/>
+                            <constraint firstItem="051-HU-I9L" firstAttribute="trailing" secondItem="FZd-FY-kNu" secondAttribute="trailing" id="INN-Tq-Ot9"/>
                             <constraint firstItem="051-HU-I9L" firstAttribute="trailing" secondItem="ZvB-e0-dNN" secondAttribute="trailing" id="LF1-vc-zha"/>
                             <constraint firstItem="ZvB-e0-dNN" firstAttribute="top" secondItem="Vde-gk-14u" secondAttribute="top" constant="90" id="UPh-B2-L15"/>
                             <constraint firstItem="051-HU-I9L" firstAttribute="trailing" secondItem="UQb-bU-zkt" secondAttribute="trailing" constant="10" id="UaF-Ti-dcP"/>
@@ -130,12 +151,14 @@
                             <constraint firstItem="UQb-bU-zkt" firstAttribute="leading" secondItem="kYS-rx-z7q" secondAttribute="trailing" constant="50" id="XsV-GN-lrw"/>
                             <constraint firstItem="ZvB-e0-dNN" firstAttribute="leading" secondItem="051-HU-I9L" secondAttribute="leading" id="iUh-7M-nF2"/>
                             <constraint firstItem="051-HU-I9L" firstAttribute="bottom" secondItem="ZvB-e0-dNN" secondAttribute="bottom" id="maH-GB-CCj"/>
+                            <constraint firstItem="FZd-FY-kNu" firstAttribute="top" secondItem="kYS-rx-z7q" secondAttribute="bottom" id="o1I-Ck-cAO"/>
                             <constraint firstItem="ZvB-e0-dNN" firstAttribute="top" secondItem="kYS-rx-z7q" secondAttribute="bottom" constant="7" id="uzP-t5-NXW"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="051-HU-I9L"/>
                     </view>
                     <navigationItem key="navigationItem" id="dTH-fX-f3H"/>
                     <connections>
+                        <outlet property="noTasksView" destination="FZd-FY-kNu" id="4mL-zq-yDq"/>
                         <outlet property="tableView" destination="ZvB-e0-dNN" id="SU6-8A-g4K"/>
                     </connections>
                 </viewController>

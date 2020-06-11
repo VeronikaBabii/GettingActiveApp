@@ -88,6 +88,7 @@ class MyTasksVC: UIViewController {
 
                 // if changes action is addition, then add task and reload
                 if diff.type == .added {
+                    
                     self.myTasksArray.append(Task(dictionary: diff.document.data())!)
 
                     // hide no tasks message
@@ -100,7 +101,7 @@ class MyTasksVC: UIViewController {
 
                 // if changes action is deletion
                 if diff.type == .removed {
-
+                    
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }

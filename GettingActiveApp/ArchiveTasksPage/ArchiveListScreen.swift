@@ -17,12 +17,14 @@ class ArchiveListScreen: UIViewController {
     var archiveTasksArray = [Task]()
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var noTasksView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpDesign()
         loadData()
         checkForUpdates()
+        ifEmptyTableView()
     }
 
     // load data from db
@@ -53,12 +55,41 @@ class ArchiveListScreen: UIViewController {
 
             snapshot.documentChanges.forEach {
                 diff in
+                
+                // hide no tasks message
+                self.tableView.backgroundView = nil
 
                 // if changes action is addition, reload table view
                 if diff.type == .added {
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
+                }
+            }
+        }
+    }
+    
+    // show explanation message if no tasks were added to the archive collection yet (tableview is empty)
+    func ifEmptyTableView() {
+        let userID = Auth.auth().currentUser!.uid
+        let archiveCollRef = db.collection("users").document(userID).collection("archive")
+
+        archiveCollRef.getDocuments { (queryShapshot, error) in
+            if let error = error {
+                print("\(error.localizedDescription)")
+            } else {
+                
+                // count snapshots in a collection - number of tasks in archive
+                var count = 0
+                for _ in queryShapshot!.documents {
+                    count += 1
+                }
+
+                print("Tasks in archive coll - \(count)")
+                
+                // no tasks - tableview is empty
+                if count == 0 {
+                    self.tableView.backgroundView = self.noTasksView
                 }
             }
         }
