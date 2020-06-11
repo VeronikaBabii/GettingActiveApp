@@ -84,8 +84,6 @@ class ArchiveListScreen: UIViewController {
                 for _ in queryShapshot!.documents {
                     count += 1
                 }
-
-                print("Tasks in archive coll - \(count)")
                 
                 // no tasks - tableview is empty
                 if count == 0 {

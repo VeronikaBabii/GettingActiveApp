@@ -105,13 +105,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                                 count += 1
                             }
                             
-                            print("Count is \(count)")
-                            
                             switch count {
                             case 1, 2, 3, 4, 21, 22, 23, 24, 31, 32, 33, 34, 41, 42, 43, 44:
-                                self.progressLabel.text = "Ви виконали \(count) завдання. Чудова робота!"
+                                self.progressLabel.text = "Ти виконав \(count) завдання. Чудова робота!"
                             default:
-                                self.progressLabel.text = "Ви виконали \(count) завдань. Чудова робота!"
+                                self.progressLabel.text = "Ти виконав \(count) завдань. Чудова робота!"
                             }
                         }
                     }

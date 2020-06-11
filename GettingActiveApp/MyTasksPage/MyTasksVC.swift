@@ -62,8 +62,6 @@ class MyTasksVC: UIViewController {
                 for _ in queryShapshot!.documents {
                     count += 1
                 }
-
-                print("Tasks in myTasks coll - \(count)")
                 
                 // no tasks - tableview is empty
                 if count == 0 {
