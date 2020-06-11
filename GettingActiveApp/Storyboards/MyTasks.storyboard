@@ -15,6 +15,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J0s-Tx-fiN">
+                                <rect key="frame" x="0.0" y="83" width="414" height="730"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTp-7c-Wgk">
+                                        <rect key="frame" x="20" y="0.0" width="374" height="730"/>
+                                        <string key="text">Ти ще не додав жодного завдання до коллекціі твоіх завдань! Перейди до сторінки "ВСІ завдання" та обери завдання, які тобі до вподоби.</string>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="18"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <string key="userLabel">Ви ще не додали жодного завдання до коллекціі ваших завдань! Перейдіть до сторінки "Всі завдання" та оберіть завдання, які вам до вподоби.</string>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="QTp-7c-Wgk" firstAttribute="top" secondItem="J0s-Tx-fiN" secondAttribute="top" id="4zH-Uj-Mvq"/>
+                                    <constraint firstAttribute="bottom" secondItem="QTp-7c-Wgk" secondAttribute="bottom" id="8jv-pk-rMP"/>
+                                    <constraint firstItem="QTp-7c-Wgk" firstAttribute="leading" secondItem="J0s-Tx-fiN" secondAttribute="leading" constant="20" id="VZ3-fy-zJj"/>
+                                    <constraint firstAttribute="trailing" secondItem="QTp-7c-Wgk" secondAttribute="trailing" constant="20" id="vPL-9k-V67"/>
+                                </constraints>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="330" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Uur-Ir-qmf">
                                 <rect key="frame" x="0.0" y="90" width="414" height="723"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -139,7 +159,10 @@
                         <color key="backgroundColor" red="0.36470588235294116" green="0.70980392156862748" blue="0.37647058823529411" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="qf6-1W-NqE" firstAttribute="trailing" secondItem="Uur-Ir-qmf" secondAttribute="trailing" id="8Ry-W6-Y8i"/>
+                            <constraint firstItem="J0s-Tx-fiN" firstAttribute="leading" secondItem="qf6-1W-NqE" secondAttribute="leading" id="C7t-4z-3Hu"/>
+                            <constraint firstItem="J0s-Tx-fiN" firstAttribute="top" secondItem="Q1z-yB-a46" secondAttribute="bottom" id="H8p-pk-6og"/>
                             <constraint firstItem="qf6-1W-NqE" firstAttribute="bottom" secondItem="Uur-Ir-qmf" secondAttribute="bottom" id="Ity-dZ-vpN"/>
+                            <constraint firstItem="qf6-1W-NqE" firstAttribute="trailing" secondItem="J0s-Tx-fiN" secondAttribute="trailing" id="Jlq-cf-6AS"/>
                             <constraint firstItem="qf6-1W-NqE" firstAttribute="trailing" secondItem="ykL-RB-yh5" secondAttribute="trailing" constant="10" id="LEI-Xo-raq"/>
                             <constraint firstItem="Uur-Ir-qmf" firstAttribute="top" secondItem="iaj-ax-Ogh" secondAttribute="top" constant="90" id="Qcp-5X-3aG"/>
                             <constraint firstItem="ykL-RB-yh5" firstAttribute="leading" secondItem="Q1z-yB-a46" secondAttribute="trailing" constant="90" id="kXx-J2-a3H"/>
@@ -147,11 +170,13 @@
                             <constraint firstItem="Q1z-yB-a46" firstAttribute="leading" secondItem="qf6-1W-NqE" secondAttribute="leading" constant="20" id="nv2-Je-daX"/>
                             <constraint firstItem="Uur-Ir-qmf" firstAttribute="top" secondItem="Q1z-yB-a46" secondAttribute="bottom" constant="7" id="tEU-Dk-pOB"/>
                             <constraint firstItem="Uur-Ir-qmf" firstAttribute="top" secondItem="ykL-RB-yh5" secondAttribute="bottom" constant="5" id="uNh-7c-qzI"/>
+                            <constraint firstItem="qf6-1W-NqE" firstAttribute="bottom" secondItem="J0s-Tx-fiN" secondAttribute="bottom" id="zHf-2y-lde"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="qf6-1W-NqE"/>
                     </view>
                     <navigationItem key="navigationItem" id="cgf-D6-d0b"/>
                     <connections>
+                        <outlet property="noTasksView" destination="J0s-Tx-fiN" id="Sjm-na-IHj"/>
                         <outlet property="tableView" destination="Uur-Ir-qmf" id="mY2-ig-dzi"/>
                     </connections>
                 </viewController>

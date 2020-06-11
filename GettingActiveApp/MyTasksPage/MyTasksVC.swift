@@ -17,12 +17,14 @@ class MyTasksVC: UIViewController {
     var myTasksArray = [Task]()
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var noTasksView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpDesign()
         loadData()
         checkForUpdates()
+        ifEmptyTableView()
     }
 
     // load data from the myTasks collection to the tableview
@@ -36,12 +38,36 @@ class MyTasksVC: UIViewController {
             } else {
                 self.myTasksArray = queryShapshot!.documents.compactMap({Task(dictionary: $0.data())})
 
-                //print("Snapshots are \(queryShapshot!.documents)")
-                //print("My tasks array is \(self.myTasksArray)")
-
-                // update user interface
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
+                }
+            }
+        }
+    }
+    
+    // show explanation message if no tasks were added to the myTasks collection yet (tableview is empty)
+    func ifEmptyTableView() {
+        
+        // get count of tasks in myTasks collection
+        let userID = Auth.auth().currentUser!.uid
+        let myTasksCollRef = db.collection("users").document(userID).collection("myTasks")
+
+        myTasksCollRef.getDocuments { (queryShapshot, error) in
+            if let error = error {
+                print("\(error.localizedDescription)")
+            } else {
+                
+                // count snapshots in a collection - number of tasks in myTasks
+                var count = 0
+                for _ in queryShapshot!.documents {
+                    count += 1
+                }
+
+                print("Tasks in myTasks coll - \(count)")
+                
+                // no tasks - tableview is empty
+                if count == 0 {
+                    self.tableView.backgroundView = self.noTasksView
                 }
             }
         }
@@ -64,6 +90,9 @@ class MyTasksVC: UIViewController {
                 if diff.type == .added {
                     self.myTasksArray.append(Task(dictionary: diff.document.data())!)
 
+                    // hide no tasks message
+                    self.tableView.backgroundView = nil
+                    
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }

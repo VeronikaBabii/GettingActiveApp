@@ -25,9 +25,9 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUp()
         setUserData()
         setProgressTitle()
-        setUp()
         checkForCountUpdates()
     }
 
@@ -66,13 +66,13 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                 }
 
                 if count == 0 {
-                    self.progressLabel.text = "Ви ще не виконали жодного завдання :("
+                    self.progressLabel.text = "Ти ще не виконав жодного завдання :("
                 } else {
                     switch count {
                     case 1, 2, 3, 4, 21, 22, 23, 24, 31, 32, 33, 34, 41, 42, 43, 44:
-                        self.progressLabel.text = "Ви виконали \(count) завдання. Чудова робота!"
+                        self.progressLabel.text = "Ти виконав \(count) завдання. Чудова робота!"
                     default:
-                        self.progressLabel.text = "Ви виконали \(count) завдань. Чудова робота!"
+                        self.progressLabel.text = "Ти виконав \(count) завдань. Чудова робота!"
                     }
                 }
             }
