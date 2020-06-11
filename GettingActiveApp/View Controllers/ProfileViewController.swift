@@ -24,11 +24,11 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavbar()
-        getUserData()
+        
+        setUserData()
         setProgressTitle()
-
-        Utilities.styleFilledButton(openArchiveButton)
+        setUp()
+        checkForCountUpdates()
     }
 
     // action to open image picker on click
@@ -40,10 +40,12 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         self.present(imagePicker, animated: true, completion: nil)
     }
 
-    func setNavbar() {
+    func setUp() {
         let navbar = self.navigationController?.navigationBar
         navbar?.barTintColor = UIColor.init(red: 48/255, green: 173/255, blue: 99/255, alpha: 1)
         navbar?.tintColor = UIColor.black
+        
+        Utilities.styleFilledButton(openArchiveButton)
     }
 
     // set user progress title
@@ -56,6 +58,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
             if let error = error {
                 print("\(error.localizedDescription)")
             } else {
+                
+                // count snapshots in a collection - number of tasks in archive
                 var count = 0
                 for _ in queryShapshot!.documents {
                     count += 1
@@ -65,12 +69,52 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
                     self.progressLabel.text = "Ви ще не виконали жодного завдання :("
                 } else {
                     switch count {
-                    case 1, 2, 3, 4, 21, 22, 23, 24, 31, 32, 33, 34:
+                    case 1, 2, 3, 4, 21, 22, 23, 24, 31, 32, 33, 34, 41, 42, 43, 44:
                         self.progressLabel.text = "Ви виконали \(count) завдання. Чудова робота!"
                     default:
                         self.progressLabel.text = "Ви виконали \(count) завдань. Чудова робота!"
                     }
-
+                }
+            }
+        }
+    }
+    
+    func checkForCountUpdates() {
+        let userID = Auth.auth().currentUser!.uid
+        let archiveCollRef = db.collection("users").document(userID).collection("archive")
+        
+        archiveCollRef.getDocuments { (queryShapshot, error) in
+            if let error = error {
+                print("\(error.localizedDescription)")
+            } else {
+                
+                // listen to archive collection
+                archiveCollRef.addSnapshotListener() {
+                    querySnapshot, error in
+                    
+                    guard let snapshot = querySnapshot else {return}
+                    
+                    snapshot.documentChanges.forEach {
+                        diff in
+                        
+                        // if action is addition - count number of done tasks again
+                        if diff.type == .added {
+                            
+                            var count = 0
+                            for _ in querySnapshot!.documents {
+                                count += 1
+                            }
+                            
+                            print("Count is \(count)")
+                            
+                            switch count {
+                            case 1, 2, 3, 4, 21, 22, 23, 24, 31, 32, 33, 34, 41, 42, 43, 44:
+                                self.progressLabel.text = "Ви виконали \(count) завдання. Чудова робота!"
+                            default:
+                                self.progressLabel.text = "Ви виконали \(count) завдань. Чудова робота!"
+                            }
+                        }
+                    }
                 }
             }
         }
@@ -79,7 +123,6 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBAction func openArchiveTapped(_ sender: Any) {
 
     }
-
 
     private func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         var selectedImageFromPicker: UIImage?
@@ -99,8 +142,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         dismiss(animated: true, completion: nil)
     }
 
-    // get user data from db
-    func getUserData() {
+    // get and set user data from db to the label
+    func setUserData() {
         if let userId = Auth.auth().currentUser?.uid {
             db.collection("users").getDocuments { (snapshot, error) in
                 if let error = error {

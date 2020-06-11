@@ -24,7 +24,6 @@
 		15679195245626BB00E606AD /* TasksListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15679194245626BB00E606AD /* TasksListScreen.swift */; };
 		156791972456287700E606AD /* TaskViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156791962456287700E606AD /* TaskViewCell.swift */; };
 		157BB52D24509D1E00319CFB /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 157BB52C24509D1E00319CFB /* ProfileViewController.swift */; };
-		15815F5E248E6B2C00A8A033 /* ButtonWithImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15815F5D248E6B2C00A8A033 /* ButtonWithImage.swift */; };
 		158F00E5244CA86D00074359 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158F00E4244CA86D00074359 /* AppDelegate.swift */; };
 		158F00E7244CA86D00074359 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158F00E6244CA86D00074359 /* SceneDelegate.swift */; };
 		158F00E9244CA86D00074359 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 158F00E8244CA86D00074359 /* ViewController.swift */; };
@@ -60,7 +59,6 @@
 		15679194245626BB00E606AD /* TasksListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksListScreen.swift; sourceTree = "<group>"; };
 		156791962456287700E606AD /* TaskViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewCell.swift; sourceTree = "<group>"; };
 		157BB52C24509D1E00319CFB /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		15815F5D248E6B2C00A8A033 /* ButtonWithImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonWithImage.swift; sourceTree = "<group>"; };
 		158F00E1244CA86D00074359 /* GettingActiveApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GettingActiveApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		158F00E4244CA86D00074359 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		158F00E6244CA86D00074359 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -133,14 +131,6 @@
 			path = MyTasksPage;
 			sourceTree = "<group>";
 		};
-		15815F5F248E822000A8A033 /* Subclasses */ = {
-			isa = PBXGroup;
-			children = (
-				15815F5D248E6B2C00A8A033 /* ButtonWithImage.swift */,
-			);
-			path = Subclasses;
-			sourceTree = "<group>";
-		};
 		15851B192457418F00863D50 /* AllTasksPage */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,7 +167,6 @@
 				15DFD363244CCBF400B375DC /* Helpers */,
 				158F00FE244CAB3F00074359 /* View Controllers */,
 				15F146E5247AA762006873B8 /* Authorization */,
-				15815F5F248E822000A8A033 /* Subclasses */,
 				152B88D1248BACDF009C4FB2 /* Poll */,
 				15851B192457418F00863D50 /* AllTasksPage */,
 				1523B8A2245C315F009918D0 /* ArchiveTasksPage */,
@@ -372,7 +361,6 @@
 				1523B8A1245C314A009918D0 /* ArchiveListScreen.swift in Sources */,
 				152B88DA248D39A9009C4FB2 /* GenderViewController.swift in Sources */,
 				1523B89F245C2B54009918D0 /* ArchiveViewCell.swift in Sources */,
-				15815F5E248E6B2C00A8A033 /* ButtonWithImage.swift in Sources */,
 				15679195245626BB00E606AD /* TasksListScreen.swift in Sources */,
 				158F00E9244CA86D00074359 /* ViewController.swift in Sources */,
 				152B88DC248D3B11009C4FB2 /* CategoriesViewController.swift in Sources */,
