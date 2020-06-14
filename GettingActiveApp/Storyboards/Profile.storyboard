@@ -196,7 +196,7 @@
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="username" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="dKk-sW-hK8">
-                                <rect key="frame" x="97" y="338" width="181" height="50"/>
+                                <rect key="frame" x="97" y="343" width="181" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="CnS-bB-KMi"/>
                                 </constraints>
@@ -205,7 +205,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="dJ1-XC-ppt">
-                                <rect key="frame" x="70" y="443" width="235" height="40"/>
+                                <rect key="frame" x="70" y="433" width="235" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="hWG-Xr-KE8"/>
                                 </constraints>
@@ -214,7 +214,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rA5-pK-ol0">
-                                <rect key="frame" x="102.66666666666669" y="508" width="170" height="40"/>
+                                <rect key="frame" x="102.66666666666669" y="513" width="170" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="170" id="6Dx-gb-37Z"/>
                                     <constraint firstAttribute="height" constant="40" id="KUe-4M-tNF"/>
@@ -228,9 +228,9 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="rA5-pK-ol0" firstAttribute="top" secondItem="dJ1-XC-ppt" secondAttribute="bottom" constant="25" id="0K2-uP-7OR"/>
+                            <constraint firstItem="rA5-pK-ol0" firstAttribute="top" secondItem="dJ1-XC-ppt" secondAttribute="bottom" constant="40" id="0K2-uP-7OR"/>
                             <constraint firstItem="dKk-sW-hK8" firstAttribute="centerX" secondItem="1GG-hW-pBj" secondAttribute="centerX" id="216-H5-3Xx"/>
-                            <constraint firstItem="dKk-sW-hK8" firstAttribute="top" secondItem="Y1j-L5-uJQ" secondAttribute="bottom" constant="15" id="6Dt-YI-hCK"/>
+                            <constraint firstItem="dKk-sW-hK8" firstAttribute="top" secondItem="Y1j-L5-uJQ" secondAttribute="bottom" constant="20" id="6Dt-YI-hCK"/>
                             <constraint firstItem="bR8-Pt-UJj" firstAttribute="centerX" secondItem="1GG-hW-pBj" secondAttribute="centerX" id="90M-if-n7E"/>
                             <constraint firstItem="dJ1-XC-ppt" firstAttribute="leading" secondItem="bjD-P5-KNP" secondAttribute="leading" constant="70" id="Hjq-t5-Aun"/>
                             <constraint firstItem="bjD-P5-KNP" firstAttribute="trailing" secondItem="dJ1-XC-ppt" secondAttribute="trailing" constant="70" id="JpD-u7-eci"/>
@@ -240,7 +240,7 @@
                             <constraint firstItem="dJ1-XC-ppt" firstAttribute="centerX" secondItem="1GG-hW-pBj" secondAttribute="centerX" id="dMK-yD-QuL"/>
                             <constraint firstItem="rA5-pK-ol0" firstAttribute="centerX" secondItem="1GG-hW-pBj" secondAttribute="centerX" id="hnU-Dq-XJ1"/>
                             <constraint firstItem="Y1j-L5-uJQ" firstAttribute="centerX" secondItem="1GG-hW-pBj" secondAttribute="centerX" id="uUN-fZ-Egx"/>
-                            <constraint firstItem="dJ1-XC-ppt" firstAttribute="top" secondItem="dKk-sW-hK8" secondAttribute="bottom" constant="55" id="vIG-b2-NRE"/>
+                            <constraint firstItem="dJ1-XC-ppt" firstAttribute="top" secondItem="dKk-sW-hK8" secondAttribute="bottom" constant="40" id="vIG-b2-NRE"/>
                             <constraint firstItem="bR8-Pt-UJj" firstAttribute="top" secondItem="bjD-P5-KNP" secondAttribute="top" constant="85" id="vul-F1-4Po"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="bjD-P5-KNP"/>
