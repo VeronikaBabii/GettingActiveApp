@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EHv-q8-S9z">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,14 +12,14 @@
             <objects>
                 <viewController id="V4r-Xc-UGc" customClass="MyTasksVC" customModule="GettingActiveApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iaj-ax-Ogh">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J0s-Tx-fiN">
-                                <rect key="frame" x="0.0" y="83" width="414" height="730"/>
+                                <rect key="frame" x="0.0" y="103" width="414" height="584"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QTp-7c-Wgk">
-                                        <rect key="frame" x="20" y="0.0" width="374" height="730"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="QTp-7c-Wgk">
+                                        <rect key="frame" x="20" y="0.0" width="374" height="584"/>
                                         <string key="text">Ти ще не додав жодного завдання до коллекціі твоіх завдань! Перейди до сторінки "ВСІ завдання" та обери завдання, які тобі до вподоби.</string>
                                         <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="18"/>
                                         <nil key="textColor"/>
@@ -36,17 +36,17 @@
                                 </constraints>
                             </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="330" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="Uur-Ir-qmf">
-                                <rect key="frame" x="0.0" y="90" width="414" height="723"/>
+                                <rect key="frame" x="0.0" y="90" width="414" height="597"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myTaskCell" id="VVA-sD-MZ1" customClass="MyTaskTableViewCell" customModule="GettingActiveApp" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="55.5" width="414" height="330"/>
+                                        <rect key="frame" x="0.0" y="55.333332061767578" width="414" height="330"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="VVA-sD-MZ1" id="pUN-X2-mlW">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="330"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ren-k7-goM">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task title" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Ren-k7-goM">
                                                     <rect key="frame" x="27" y="14" width="360" height="50"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="50" id="6O2-I7-1wn"/>
@@ -55,7 +55,7 @@
                                                     <color key="textColor" red="0.36546239349999998" green="0.70864224220000005" blue="0.37552602860000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7c4-aM-PPE">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task description" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="7c4-aM-PPE">
                                                     <rect key="frame" x="27" y="65" width="360" height="120"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="120" id="GWW-Rw-SNC"/>
@@ -64,7 +64,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ABx-VF-7Xr">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tip" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="ABx-VF-7Xr">
                                                     <rect key="frame" x="82" y="186" width="305" height="60"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="60" id="cQU-N1-oX9"/>
@@ -73,7 +73,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="task hashtags" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tDk-IT-rte">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="task hashtags" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="tDk-IT-rte">
                                                     <rect key="frame" x="27" y="251" width="360" height="23"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="23" id="ouX-wg-Zc9"/>
@@ -90,8 +90,9 @@
                                                     </constraints>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G2m-I5-fff">
-                                                    <rect key="frame" x="155" y="282" width="104" height="30"/>
+                                                    <rect key="frame" x="147" y="282" width="120" height="30"/>
                                                     <constraints>
+                                                        <constraint firstAttribute="width" constant="120" id="CN8-B5-eHP"/>
                                                         <constraint firstAttribute="height" constant="30" id="Lgy-lt-63d"/>
                                                     </constraints>
                                                     <state key="normal" title="Зроблено!"/>
@@ -111,11 +112,9 @@
                                                 <constraint firstItem="7c4-aM-PPE" firstAttribute="leading" secondItem="pUN-X2-mlW" secondAttribute="leadingMargin" constant="7" id="OXr-J1-90D"/>
                                                 <constraint firstItem="Ren-k7-goM" firstAttribute="top" secondItem="pUN-X2-mlW" secondAttribute="topMargin" constant="3" id="Pn4-uP-2ka"/>
                                                 <constraint firstItem="Ren-k7-goM" firstAttribute="centerX" secondItem="pUN-X2-mlW" secondAttribute="centerX" id="Q9m-4v-Wug"/>
-                                                <constraint firstItem="G2m-I5-fff" firstAttribute="leading" secondItem="pUN-X2-mlW" secondAttribute="leadingMargin" constant="135" id="RvJ-sf-VVX"/>
                                                 <constraint firstItem="7c4-aM-PPE" firstAttribute="top" secondItem="Ren-k7-goM" secondAttribute="bottom" constant="1" id="UY9-Td-YFD"/>
                                                 <constraint firstItem="ABx-VF-7Xr" firstAttribute="top" secondItem="7c4-aM-PPE" secondAttribute="bottom" constant="1" id="fzR-OT-HNJ"/>
                                                 <constraint firstItem="G2m-I5-fff" firstAttribute="top" secondItem="tDk-IT-rte" secondAttribute="bottom" constant="8" id="i20-fB-IUm"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="G2m-I5-fff" secondAttribute="trailing" constant="135" id="jHu-AE-zhW"/>
                                                 <constraint firstItem="ABx-VF-7Xr" firstAttribute="centerY" secondItem="850-Ta-Edz" secondAttribute="centerY" id="jpV-f6-bsb"/>
                                                 <constraint firstItem="Ren-k7-goM" firstAttribute="leading" secondItem="pUN-X2-mlW" secondAttribute="leadingMargin" constant="7" id="kuK-Bo-vlE"/>
                                                 <constraint firstItem="tDk-IT-rte" firstAttribute="top" secondItem="ABx-VF-7Xr" secondAttribute="bottom" constant="5" id="lI4-qA-Wfk"/>
@@ -140,13 +139,13 @@
                                 </connections>
                             </tableView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="whiteIcon" translatesAutoresizingMaskIntoConstraints="NO" id="ykL-RB-yh5">
-                                <rect key="frame" x="344" y="35" width="60" height="50"/>
+                                <rect key="frame" x="344" y="40" width="60" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="60" id="gPj-Hp-xOX"/>
-                                    <constraint firstAttribute="height" constant="50" id="u89-U8-VAs"/>
+                                    <constraint firstAttribute="height" constant="45" id="u89-U8-VAs"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Твої завдання тут" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q1z-yB-a46">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Твої завдання тут" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="Q1z-yB-a46">
                                 <rect key="frame" x="20" y="43" width="234" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="GXU-Xy-gwk"/>
@@ -160,7 +159,7 @@
                         <constraints>
                             <constraint firstItem="qf6-1W-NqE" firstAttribute="trailing" secondItem="Uur-Ir-qmf" secondAttribute="trailing" id="8Ry-W6-Y8i"/>
                             <constraint firstItem="J0s-Tx-fiN" firstAttribute="leading" secondItem="qf6-1W-NqE" secondAttribute="leading" id="C7t-4z-3Hu"/>
-                            <constraint firstItem="J0s-Tx-fiN" firstAttribute="top" secondItem="Q1z-yB-a46" secondAttribute="bottom" id="H8p-pk-6og"/>
+                            <constraint firstItem="J0s-Tx-fiN" firstAttribute="top" secondItem="Q1z-yB-a46" secondAttribute="bottom" constant="20" id="H8p-pk-6og"/>
                             <constraint firstItem="qf6-1W-NqE" firstAttribute="bottom" secondItem="Uur-Ir-qmf" secondAttribute="bottom" id="Ity-dZ-vpN"/>
                             <constraint firstItem="qf6-1W-NqE" firstAttribute="trailing" secondItem="J0s-Tx-fiN" secondAttribute="trailing" id="Jlq-cf-6AS"/>
                             <constraint firstItem="qf6-1W-NqE" firstAttribute="trailing" secondItem="ykL-RB-yh5" secondAttribute="trailing" constant="10" id="LEI-Xo-raq"/>
@@ -205,8 +204,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="home" width="25" height="25"/>
-        <image name="lamp" width="32" height="32"/>
-        <image name="whiteIcon" width="344" height="313"/>
+        <image name="home" width="16.666666030883789" height="16.666666030883789"/>
+        <image name="lamp" width="21.333333969116211" height="21.333333969116211"/>
+        <image name="whiteIcon" width="100" height="100"/>
     </resources>
 </document>

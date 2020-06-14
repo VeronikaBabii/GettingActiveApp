@@ -64,6 +64,36 @@ class ArchiveListScreen: UIViewController {
                     DispatchQueue.main.async {
                         self.tableView.reloadData()
                     }
+                    
+                    // when done task is added to archive, update badges field of the user
+                    self.addBadges()
+                }
+            }
+        }
+    }
+    
+    func addBadges() {
+        let userID = Auth.auth().currentUser!.uid
+        let userDocRef = self.db.collection("users").document(userID)
+        
+        db.collection("users").getDocuments { (snapshot, error) in
+            if let error = error {
+                print("Error getting documents: \(error)")
+            } else {
+                if let currentUserDoc = snapshot?.documents.first(where: { ($0["uid"] as? String) == userID }) {
+                   
+                    let userBadges = currentUserDoc["badges"] as? Int
+                    if userBadges != nil {
+                        print("\nBadges exist \n")
+                        // if there is badges field for current user - get current badges + 5
+                        
+                        
+                    } else {
+                        print("\nBadges don't exist \n")
+                        // if there isn't - create field add push 5
+                        let badge = 5
+                        userDocRef.setData(["badges": badge], merge: true)
+                    }
                 }
             }
         }

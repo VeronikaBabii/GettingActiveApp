@@ -92,14 +92,19 @@ class SettingsTableViewController: UITableViewController {
                         let userFirstname = currentUserDoc["firstname"] as! String
                         self.firstnameTextfield.text = "\(userFirstname)"
                         
-                        // set user birthday
-                        let userBirthday = currentUserDoc["birthday"] as! String
-                        self.datePickerTextfield.text = "\(userBirthday)"
+                        // check whether birthday field exists in coll
+                        //if () {
+                            // set user birthday
+                            let userBirthday = currentUserDoc["birthday"] as! String
+                            self.datePickerTextfield.text = "\(userBirthday)"
+                        //}
                         
-                        // set user gender
-                        let userGender = currentUserDoc["gender"] as! String
-                        self.genderTextField.text = "\(userGender)"
-                        
+                        // check whether gender field exists in coll
+                       // if() {
+                            // set user gender
+                            let userGender = currentUserDoc["gender"] as! String
+                            self.genderTextField.text = "\(userGender)"
+                      //  }
                     }
                 }
             }
