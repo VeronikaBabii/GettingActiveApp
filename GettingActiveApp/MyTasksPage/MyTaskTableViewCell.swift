@@ -29,7 +29,7 @@ class MyTaskTableViewCell: UITableViewCell {
     
     @IBAction func taskDoneClicked(_ sender: UIButton) {
         cellDelegate?.didTapDoneButton(index: (index?.row)!)
-        print("Task done clicked")
+        //print("Task done clicked")
     }
     
 }

@@ -131,12 +131,12 @@ extension TasksListScreen: TaskCellDelegate {
                         "tip": self.tasksArray[index].tip,
                         "hashtags": self.tasksArray[index].hashtags
                     ])
-                    print("Task added to myTasks coll")
+                    //print("Task added to myTasks coll")
                     
                     // remove selected task from users.tasks collection
                     self.tasksArray.remove(at: index)
                     userTasksCollRef.document("\(document.documentID)").delete()
-                    print("Task deleted from allTasks coll \n")
+                    //print("Task deleted from allTasks coll \n")
                 }
             }
         })

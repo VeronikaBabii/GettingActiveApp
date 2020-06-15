@@ -143,12 +143,12 @@ extension MyTasksVC: MyTaskCellDelegate {
                         "tip": self.myTasksArray[index].tip,
                         "hashtags": self.myTasksArray[index].hashtags
                     ])
-                    print("Task added to archive coll")
+                    print("Task added to archive")
 
                     // remove selected task from users.myTasks collection
                     self.myTasksArray.remove(at: index)
                     userMyTasksCollRef.document("\(document.documentID)").delete()
-                    print("Task deleted from myTasks coll \n")
+                    //print("Task deleted from myTasks coll \n")
                 }
             }
         })

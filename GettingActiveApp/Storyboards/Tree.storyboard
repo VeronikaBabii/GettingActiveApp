@@ -24,7 +24,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You're on Level 1 now. 3/10 badges to go to Level 2." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msU-td-EfE">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You're on Level 0 " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msU-td-EfE">
                                 <rect key="frame" x="50" y="144" width="314" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="faa-W7-7Ud"/>
@@ -33,8 +33,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tree-1" translatesAutoresizingMaskIntoConstraints="NO" id="myd-qp-P55">
-                                <rect key="frame" x="20" y="324" width="374" height="484"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tree-0" translatesAutoresizingMaskIntoConstraints="NO" id="myd-qp-P55">
+                                <rect key="frame" x="20" y="324" width="374" height="487"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -46,7 +46,7 @@
                             <constraint firstItem="47g-A9-8Wo" firstAttribute="leading" secondItem="mz1-DP-RyX" secondAttribute="leading" constant="50" id="LkU-xA-FXz"/>
                             <constraint firstItem="mz1-DP-RyX" firstAttribute="trailing" secondItem="myd-qp-P55" secondAttribute="trailing" constant="20" id="Noh-sU-6d2"/>
                             <constraint firstItem="myd-qp-P55" firstAttribute="leading" secondItem="mz1-DP-RyX" secondAttribute="leading" constant="20" id="Yha-KF-wNR"/>
-                            <constraint firstItem="mz1-DP-RyX" firstAttribute="bottom" secondItem="myd-qp-P55" secondAttribute="bottom" constant="5" id="bAC-mN-7Ln"/>
+                            <constraint firstItem="mz1-DP-RyX" firstAttribute="bottom" secondItem="myd-qp-P55" secondAttribute="bottom" constant="2" id="bAC-mN-7Ln"/>
                             <constraint firstItem="mz1-DP-RyX" firstAttribute="trailing" secondItem="msU-td-EfE" secondAttribute="trailing" constant="50" id="cUo-sz-umq"/>
                             <constraint firstItem="47g-A9-8Wo" firstAttribute="centerX" secondItem="ao5-zF-6qV" secondAttribute="centerX" id="ctC-VW-0CN"/>
                             <constraint firstItem="myd-qp-P55" firstAttribute="top" secondItem="msU-td-EfE" secondAttribute="bottom" constant="90" id="flX-ad-roV"/>
@@ -57,16 +57,20 @@
                         <viewLayoutGuide key="safeArea" id="mz1-DP-RyX"/>
                     </view>
                     <navigationItem key="navigationItem" id="pj9-cj-mSf"/>
+                    <connections>
+                        <outlet property="progressLabel" destination="msU-td-EfE" id="yGS-iY-04W"/>
+                        <outlet property="treeImage" destination="myd-qp-P55" id="Zd2-Tp-roy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6AC-xc-q4l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="682.60869565217399" y="93.75"/>
         </scene>
-        <!--TREE-->
+        <!--ДЕРЕВО-->
         <scene sceneID="GB8-E9-6g3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="lx8-yM-Cb5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="TREE" image="tree" id="uzX-sF-5f5"/>
+                    <tabBarItem key="tabBarItem" title="ДЕРЕВО" image="tree" id="uzX-sF-5f5"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="98P-h4-5Ob">
@@ -84,6 +88,6 @@
     </scenes>
     <resources>
         <image name="tree" width="25" height="25"/>
-        <image name="tree-1" width="385" height="347"/>
+        <image name="tree-0" width="374" height="347"/>
     </resources>
 </document>
