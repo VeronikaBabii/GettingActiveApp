@@ -9,6 +9,7 @@ struct Constants {
         static let tabBarViewController = "TabBarVC"
         static let mainViewController = "MainVC"
         static let pollViewController = "PollVC"
+        static let genderViewController = "GenderVC"
     }
 }
 

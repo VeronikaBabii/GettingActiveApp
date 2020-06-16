@@ -14,8 +14,8 @@ import FirebaseFirestore
 class CategoriesViewController: UIViewController {
 
     var db = Firestore.firestore()
-    var categoriesArray : [String] = ["Соціалізація", "Розвиток", "Спорт", "Догляд",
-                   "Продуктивність", "Краса", "Відпочинок", "Здоров'я"]
+    var categoriesArray: [String] = ["Соціалізація", "Розвиток", "Спорт", "Догляд",
+    "Продуктивність", "Відпочинок", "Здоров'я", "Хобі"]
     
     @IBOutlet weak var continueButton: UIButton!
     @IBOutlet var categoriesButtons: [UIButton]!
@@ -41,8 +41,6 @@ class CategoriesViewController: UIViewController {
     
     @IBAction func categoryTapped(_ sender: UIButton) {
         
-         print("Tapped")
-        
         // enable continue button
         continueButton.isEnabled = true
         continueButton.tintColor = UIColor.white
@@ -62,6 +60,20 @@ class CategoriesViewController: UIViewController {
         }
     }
     
+    func showError(_ message:String) {
+        errorLabel.text = message
+        errorLabel.alpha = 1
+    }
+    
+    // check whether user selected at least 3 categories
+    func validateCategories(categories: [String]) -> String? {
+        if categories.count < 3 {
+            return "Please select at least 3 categories!"
+        }
+        
+         return nil
+    }
+    
     // get selected categories and push to user's coll
     @IBAction func continueButtonTapped(_ sender: UIButton) {
         
@@ -76,83 +88,51 @@ class CategoriesViewController: UIViewController {
             }
         }
         
-        // get selected categories
-        var categoriesNew: [String] = []
+        // push to user's coll tasks from collection with selected names
+        let error = validateCategories(categories: categories)
         
-        for category in categories {
-            categoriesNew.append("#\(category.lowercased())")
-        }
-        print(categoriesNew)
-        
-        // if categoriesNew is empty (user didn't select any category) - push tasks from default collection
-        if (categoriesNew.isEmpty) {
+        if error != nil {
             print("Categories wasn't selected")
-             pushFromFirstBundle()
+            showError(error!)
         } else {
-            // push to user's collection tasks with selected categories
-            let tasksFirstBundleCollRef = db.collection("tasks").document("firstBundle").collection("tasks")
-            
-            tasksFirstBundleCollRef.whereField("hashtags", arrayContainsAny: categoriesNew).getDocuments {
-                (querySnapshot, err) in
+            for category in categories {
+                let categoryCollRef = db.collection("categories").document("categories").collection("\(category)")
+                print(category)
                 
-                if let err = err {
-                    print("Error getting documents: \(err.localizedDescription)")
-                } else {
-                    if let snapshot = querySnapshot {
-                        for document in snapshot.documents {
-                            let data = document.data()
-                            let batch = self.db.batch()
-                            let docset = querySnapshot
-                            
-                            let newCollRef = userDocRef.collection("tasks").document()
-                            
-                            docset?.documents.forEach {_ in batch.setData(data, forDocument: newCollRef)}
-                            
-                            batch.commit(completion: { (error) in
-                                if let error = error {
-                                    print(error.localizedDescription)
-                                } else {
-                                    print("Successfuly copied doc")
-                                }
-                            })
+                categoryCollRef.getDocuments { (querySnapshot, err) in
+                    if let err = err {
+                        print("Error getting documents: \(err.localizedDescription)")
+                    } else {
+                        if let snapshot = querySnapshot {
+                            for document in snapshot.documents {
+                                let data = document.data()
+                                let batch = self.db.batch()
+                                let docset = querySnapshot
+                                
+                                let newCollRef = userDocRef.collection("tasks").document()
+                                
+                                docset?.documents.forEach {_ in batch.setData(data, forDocument: newCollRef)}
+                                
+                                batch.commit(completion: { (error) in
+                                    if let error = error {
+                                        print(error.localizedDescription)
+                                    } else {
+                                        print("Successfuly copied doc")
+                                    }
+                                })
+                            }
                         }
+                         self.transitionToNextQuestion()
                     }
                 }
             }
         }
     }
     
-    func pushFromFirstBundle() {
-        let userID = Auth.auth().currentUser!.uid
-        let userDocRef = db.collection("users").document(userID)
-        let tasksFirstBundleCollRef = db.collection("tasks").document("firstBundle").collection("tasks")
+    func transitionToNextQuestion() {
+        let genderViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.genderViewController) as? GenderViewController
         
-        tasksFirstBundleCollRef.getDocuments {
-            (querySnapshot, err) in
-            
-            if let err = err {
-                print("Error getting documents: \(err.localizedDescription)")
-            } else {
-                if let snapshot = querySnapshot {
-                    for document in snapshot.documents {
-                        let data = document.data()
-                        let batch = self.db.batch()
-                        let docset = querySnapshot
-                        
-                        let newCollRef = userDocRef.collection("tasks").document()
-                        
-                        docset?.documents.forEach {_ in batch.setData(data, forDocument: newCollRef)}
-                        
-                        batch.commit(completion: { (error) in
-                            if let error = error {
-                                print(error.localizedDescription)
-                            } else {
-                                print("Successfuly copied doc")
-                            }
-                        })
-                    }
-                }
-            }
-        }
+        view.window?.rootViewController = genderViewController
+        view.window?.makeKeyAndVisible()
     }
 }

@@ -314,7 +314,6 @@
                                 <state key="normal" title="ПРОДОВЖИТИ"/>
                                 <connections>
                                     <action selector="continueButtonTapped:" destination="bCJ-kL-L8r" eventType="touchUpInside" id="HKV-j2-6kv"/>
-                                    <segue destination="aaM-Zu-1YD" kind="show" id="G5w-ih-FSc"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ОБЕРІТЬ КАТЕГОРІЇ ЗАВДАНЬ, ЩО ВАС ЦІКАВЛЯТЬ" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="c35-03-Q47">
@@ -621,7 +620,7 @@
         <!--Gender View Controller-->
         <scene sceneID="T9i-Hd-Au3">
             <objects>
-                <viewController modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="aaM-Zu-1YD" customClass="GenderViewController" customModule="GettingActiveApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GenderVC" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" id="aaM-Zu-1YD" customClass="GenderViewController" customModule="GettingActiveApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="33K-pd-5ey">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -905,7 +904,7 @@
         <image name="back" width="24" height="24"/>
         <image name="book" catalog="system" width="128" height="101"/>
         <image name="eye" catalog="system" width="128" height="81"/>
-        <image name="gettingActive" width="592" height="522"/>
+        <image name="gettingActive" width="296" height="261"/>
         <image name="hand.thumbsup" catalog="system" width="128" height="128"/>
         <image name="home" width="25" height="25"/>
         <image name="list" width="25" height="25"/>

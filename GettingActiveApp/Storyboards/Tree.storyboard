@@ -33,7 +33,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tree-0" translatesAutoresizingMaskIntoConstraints="NO" id="myd-qp-P55">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="bottom" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tree-4" translatesAutoresizingMaskIntoConstraints="NO" id="myd-qp-P55">
                                 <rect key="frame" x="20" y="324" width="374" height="487"/>
                             </imageView>
                         </subviews>
@@ -88,6 +88,6 @@
     </scenes>
     <resources>
         <image name="tree" width="25" height="25"/>
-        <image name="tree-0" width="374" height="347"/>
+        <image name="tree-4" width="375.5" height="447.5"/>
     </resources>
 </document>
