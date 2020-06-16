@@ -45,27 +45,27 @@ class ProgressTreeViewController: UIViewController {
                 switch count {
                 case 0:
                     print("0")
-                    self.progressLabel.text = "You're on Level 0"
+                    self.progressLabel.text = "Ти на 0 рівні :("
                     self.treeImage.image = UIImage(named: "tree-0")
                 case 1:
                     print("\nLevel 1: 5-20 points")
-                    self.progressLabel.text = "You're on Level 1"
+                    self.progressLabel.text = "Ти на 1 рівні!"
                     self.treeImage.image = UIImage(named: "tree-1")
                 case 4:
                     print("\nLevel 2: 25-40 points")
-                    self.progressLabel.text = "You're on Level 2"
+                    self.progressLabel.text = "Ти на 2 рівні!"
                     self.treeImage.image = UIImage(named: "tree-2")
                 case 8:
                     print("\nLevel 3: 45-60 points")
-                    self.progressLabel.text = "You're on Level 3"
+                    self.progressLabel.text = "Ти на 3 рівні!"
                     self.treeImage.image = UIImage(named: "tree-3")
                 case 12:
                     print("\nLevel 4: 65-80 points")
-                    self.progressLabel.text = "You're on Level 4"
+                    self.progressLabel.text = "Ти на 4 рівні!"
                     self.treeImage.image = UIImage(named: "tree-4")
                 case 16:
                     print("\nLevel 5: 85-100 points")
-                    self.progressLabel.text = "You're on Level 5"
+                    self.progressLabel.text = "Ти на 5 рівні! Вітаю!"
                     self.treeImage.image = UIImage(named: "tree-5")
                 default:
                     print("Default")
@@ -103,27 +103,27 @@ class ProgressTreeViewController: UIViewController {
                             switch count {
                             case 0:
                                 print("0")
-                                self.progressLabel.text = "You're on Level 0"
+                                self.progressLabel.text = "Ти на 0 рівні :("
                                 self.treeImage.image = UIImage(named: "tree-0")
                             case 1:
                                 print("\nLevel 1: 5-20 points")
-                                self.progressLabel.text = "You're on Level 1"
+                                self.progressLabel.text = "Ти на 1 рівні!"
                                 self.treeImage.image = UIImage(named: "tree-1")
                             case 4:
                                 print("\nLevel 2: 25-40 points")
-                                self.progressLabel.text = "You're on Level 2"
+                                self.progressLabel.text = "Ти на 2 рівні!"
                                 self.treeImage.image = UIImage(named: "tree-2")
                             case 8:
                                 print("\nLevel 3: 45-60 points")
-                                self.progressLabel.text = "You're on Level 3"
+                                self.progressLabel.text = "Ти на 3 рівні!"
                                 self.treeImage.image = UIImage(named: "tree-3")
                             case 12:
                                 print("\nLevel 4: 65-80 points")
-                                self.progressLabel.text = "You're on Level 4"
+                                self.progressLabel.text = "Ти на 4 рівні!"
                                 self.treeImage.image = UIImage(named: "tree-4")
                             case 16:
                                 print("\nLevel 5: 85-100 points")
-                                self.progressLabel.text = "You're on Level 5"
+                                self.progressLabel.text = "Ти на 5 рівні! Вітаю!"
                                 self.treeImage.image = UIImage(named: "tree-5")
                             default:
                                 print("Default")

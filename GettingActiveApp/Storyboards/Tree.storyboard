@@ -15,19 +15,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Here is your progress tree" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="47g-A9-8Wo">
-                                <rect key="frame" x="50" y="64" width="314" height="50"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="47g-A9-8Wo">
+                                <rect key="frame" x="20" y="64" width="374" height="150"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="OvF-bo-WWD"/>
+                                    <constraint firstAttribute="height" constant="150" id="OvF-bo-WWD"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="23"/>
+                                <string key="text">Це твоє дерево прогресу, яке зростає, коли ти виконуєш завдання. Всього дерево має 5 рівнів росту.  Новий рівень за кожні 4 виконані завдання.</string>
+                                <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You're on Level 0 " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msU-td-EfE">
-                                <rect key="frame" x="50" y="144" width="314" height="90"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ти на 0 рівні :(" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="msU-td-EfE">
+                                <rect key="frame" x="50" y="244" width="314" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="90" id="faa-W7-7Ud"/>
+                                    <constraint firstAttribute="height" constant="50" id="faa-W7-7Ud"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="23"/>
                                 <nil key="textColor"/>
@@ -40,16 +41,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="msU-td-EfE" firstAttribute="leading" secondItem="mz1-DP-RyX" secondAttribute="leading" constant="50" id="03i-RU-T4m"/>
-                            <constraint firstItem="mz1-DP-RyX" firstAttribute="trailing" secondItem="47g-A9-8Wo" secondAttribute="trailing" constant="50" id="1bC-9Q-RS8"/>
+                            <constraint firstItem="mz1-DP-RyX" firstAttribute="trailing" secondItem="47g-A9-8Wo" secondAttribute="trailing" constant="20" id="1bC-9Q-RS8"/>
                             <constraint firstItem="myd-qp-P55" firstAttribute="centerX" secondItem="ao5-zF-6qV" secondAttribute="centerX" id="ACa-eK-m4S"/>
                             <constraint firstItem="msU-td-EfE" firstAttribute="top" secondItem="47g-A9-8Wo" secondAttribute="bottom" constant="30" id="DwO-C7-Gek"/>
-                            <constraint firstItem="47g-A9-8Wo" firstAttribute="leading" secondItem="mz1-DP-RyX" secondAttribute="leading" constant="50" id="LkU-xA-FXz"/>
+                            <constraint firstItem="47g-A9-8Wo" firstAttribute="leading" secondItem="mz1-DP-RyX" secondAttribute="leading" constant="20" id="LkU-xA-FXz"/>
                             <constraint firstItem="mz1-DP-RyX" firstAttribute="trailing" secondItem="myd-qp-P55" secondAttribute="trailing" constant="20" id="Noh-sU-6d2"/>
                             <constraint firstItem="myd-qp-P55" firstAttribute="leading" secondItem="mz1-DP-RyX" secondAttribute="leading" constant="20" id="Yha-KF-wNR"/>
                             <constraint firstItem="mz1-DP-RyX" firstAttribute="bottom" secondItem="myd-qp-P55" secondAttribute="bottom" constant="2" id="bAC-mN-7Ln"/>
                             <constraint firstItem="mz1-DP-RyX" firstAttribute="trailing" secondItem="msU-td-EfE" secondAttribute="trailing" constant="50" id="cUo-sz-umq"/>
                             <constraint firstItem="47g-A9-8Wo" firstAttribute="centerX" secondItem="ao5-zF-6qV" secondAttribute="centerX" id="ctC-VW-0CN"/>
-                            <constraint firstItem="myd-qp-P55" firstAttribute="top" secondItem="msU-td-EfE" secondAttribute="bottom" constant="90" id="flX-ad-roV"/>
+                            <constraint firstItem="myd-qp-P55" firstAttribute="top" secondItem="msU-td-EfE" secondAttribute="bottom" constant="30" id="flX-ad-roV"/>
                             <constraint firstItem="msU-td-EfE" firstAttribute="centerX" secondItem="ao5-zF-6qV" secondAttribute="centerX" id="lAo-2e-Gt8"/>
                             <constraint firstItem="47g-A9-8Wo" firstAttribute="top" secondItem="mz1-DP-RyX" secondAttribute="top" constant="20" id="mbf-VT-dEI"/>
                             <constraint firstItem="47g-A9-8Wo" firstAttribute="centerX" secondItem="ao5-zF-6qV" secondAttribute="centerX" id="rV8-wH-r7F"/>

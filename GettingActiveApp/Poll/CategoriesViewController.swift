@@ -89,6 +89,9 @@ class CategoriesViewController: UIViewController {
         }
         
         // push to user's coll tasks from collection with selected names
+        
+        //>>>>>>>>> here I need copy one document from each category collection to user's collection
+        
         let error = validateCategories(categories: categories)
         
         if error != nil {
