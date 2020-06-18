@@ -264,7 +264,7 @@
             </objects>
             <point key="canvasLocation" x="5042" y="497"/>
         </scene>
-        <!--Settings-->
+        <!--Налаштування-->
         <scene sceneID="jcr-cB-lfZ">
             <objects>
                 <tableViewController id="lgu-U3-d3I" customClass="SettingsTableViewController" customModule="GettingActiveApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -272,7 +272,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <sections>
-                            <tableViewSection headerTitle="Personal details" id="ay4-ea-Ids">
+                            <tableViewSection headerTitle="Персональна інформація" id="ay4-ea-Ids">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="6vu-hJ-tvI">
                                         <rect key="frame" x="16" y="55.333332061767578" width="343" height="43.5"/>
@@ -366,7 +366,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Reminders" id="d8F-EG-tvt">
+                            <tableViewSection headerTitle="Сповіщення" id="d8F-EG-tvt">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="QSI-hS-Xjy">
                                         <rect key="frame" x="16" y="241.83333206176758" width="343" height="43.5"/>
@@ -395,7 +395,7 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="LANGUAGE" id="AOU-Q3-xVx">
+                            <tableViewSection headerTitle="Мова" id="AOU-Q3-xVx">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ZXt-e2-xWT">
                                         <rect key="frame" x="16" y="341.33333206176758" width="343" height="43.5"/>
@@ -429,10 +429,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="About" id="nVa-Jq-Gsw">
+                            <tableViewSection id="nVa-Jq-Gsw">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="btz-mJ-q4s">
-                                        <rect key="frame" x="16" y="440.83333206176758" width="343" height="43.5"/>
+                                        <rect key="frame" x="16" y="420.83333206176758" width="343" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="btz-mJ-q4s" id="r8N-AT-f8W">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
@@ -455,10 +455,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Log out" id="Sy4-AI-sAC">
+                            <tableViewSection id="Sy4-AI-sAC">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="ehc-jy-6dc">
-                                        <rect key="frame" x="16" y="540.33333206176758" width="343" height="43.5"/>
+                                        <rect key="frame" x="16" y="500.33333206176758" width="343" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ehc-jy-6dc" id="X06-a8-8QM">
                                             <rect key="frame" x="0.0" y="0.0" width="343" height="43.5"/>
@@ -489,7 +489,7 @@
                             <outlet property="delegate" destination="lgu-U3-d3I" id="VaN-R1-QF7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Settings" id="FVc-wY-M0j"/>
+                    <navigationItem key="navigationItem" title="Налаштування" id="FVc-wY-M0j"/>
                     <connections>
                         <outlet property="aboutButton" destination="r8N-AT-f8W" id="LKs-eb-0Fp"/>
                         <outlet property="datePickerTextfield" destination="jBi-I5-Yzz" id="upb-wd-zIx"/>

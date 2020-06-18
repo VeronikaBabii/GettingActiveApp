@@ -100,9 +100,10 @@ class CategoriesViewController: UIViewController {
         } else {
             for category in categories {
                 let categoryCollRef = db.collection("categories").document("categories").collection("\(category)")
+                   // .order(by: "__id__").limit(to: 1)
                 print(category)
                 
-                categoryCollRef.getDocuments { (querySnapshot, err) in
+                categoryCollRef.whereField("count", isEqualTo: "1").getDocuments { (querySnapshot, err) in
                     if let err = err {
                         print("Error getting documents: \(err.localizedDescription)")
                     } else {

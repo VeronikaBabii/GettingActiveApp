@@ -101,10 +101,6 @@ class ProgressTreeViewController: UIViewController {
                             }
                             
                             switch count {
-                            case 0:
-                                print("0")
-                                self.progressLabel.text = "Ти на 0 рівні :("
-                                self.treeImage.image = UIImage(named: "tree-0")
                             case 1:
                                 print("\nLevel 1: 5-20 points")
                                 self.progressLabel.text = "Ти на 1 рівні!"

@@ -156,12 +156,12 @@
 				158F00E4244CA86D00074359 /* AppDelegate.swift */,
 				158F00E6244CA86D00074359 /* SceneDelegate.swift */,
 				15DFD363244CCBF400B375DC /* Helpers */,
-				158F00FE244CAB3F00074359 /* ViewControllers */,
 				15F146E5247AA762006873B8 /* Authorization */,
 				152B88D1248BACDF009C4FB2 /* Poll */,
 				15851B192457418F00863D50 /* AllTasksPage */,
 				154DC46A2486A426005C1B1E /* MyTasksPage */,
 				1523B8A2245C315F009918D0 /* ArchiveTasksPage */,
+				158F00FE244CAB3F00074359 /* ViewControllers */,
 				15DF487A248829D400A9ED6C /* Storyboards */,
 				158F00ED244CA87000074359 /* Assets.xcassets */,
 				158F00EF244CA87000074359 /* LaunchScreen.storyboard */,
@@ -519,12 +519,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V28569HS5K;
 				INFOPLIST_FILE = GettingActiveApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.veronikababii.GettingActiveApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.veronikababii.GettingActiveApp12345;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -537,12 +538,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = V28569HS5K;
 				INFOPLIST_FILE = GettingActiveApp/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.veronikababii.GettingActiveApp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.veronikababii.GettingActiveApp12345;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

@@ -59,11 +59,11 @@ class GenderViewController: UIViewController {
         
         if menButton.tintColor == UIColor.white {
             print("Men gender is selected")
-            userDocRef.setData([ "gender": "Men" ], merge: true)
+            userDocRef.setData([ "gender": "Чоловік" ], merge: true)
             
         } else if womenButton.tintColor == UIColor.white {
             print("Women gender is selected")
-            userDocRef.setData([ "gender": "Women" ], merge: true)
+            userDocRef.setData([ "gender": "Жінка" ], merge: true)
             
         }
     }

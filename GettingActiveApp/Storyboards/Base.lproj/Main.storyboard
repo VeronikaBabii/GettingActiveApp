@@ -85,7 +85,7 @@
             </objects>
             <point key="canvasLocation" x="1047.8260869565217" y="129.91071428571428"/>
         </scene>
-        <!--Login-->
+        <!--Логін-->
         <scene sceneID="f6w-Xb-VNY">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="T6G-Ng-ZAT" customClass="LoginViewController" customModule="GettingActiveApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -137,7 +137,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xbu-UL-C4t"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Login" id="e8N-zP-Ddx">
+                    <navigationItem key="navigationItem" title="Логін" id="e8N-zP-Ddx">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="back" id="s1Z-Zc-2Nk" userLabel="loginBackButton">
                             <connections>
                                 <action selector="backButtonTapped:" destination="T6G-Ng-ZAT" id="hdW-BN-HKi"/>
@@ -524,7 +524,7 @@
             </objects>
             <point key="canvasLocation" x="4934.7826086956529" y="-216.29464285714286"/>
         </scene>
-        <!--Sign Up-->
+        <!--Реєстрація-->
         <scene sceneID="rXA-cd-5eg">
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="l43-5J-D6Q" customClass="SignUpViewController" customModule="GettingActiveApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -597,7 +597,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="m1o-kp-Y8m"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Sign Up" id="cYh-ps-ab8">
+                    <navigationItem key="navigationItem" title="Реєстрація" id="cYh-ps-ab8">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="back" id="arR-rp-4kf" userLabel="signUpBackButton">
                             <connections>
                                 <action selector="backButtonTapped:" destination="l43-5J-D6Q" id="b7c-99-Rgh"/>
