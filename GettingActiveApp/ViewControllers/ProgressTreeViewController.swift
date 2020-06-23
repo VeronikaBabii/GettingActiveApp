@@ -40,6 +40,8 @@ class ProgressTreeViewController: UIViewController {
                     count += 1
                 }
                 
+                
+                
                 // count number of tasks, badges = count * 5
                 // switch for different number of tasks and set appropriate images
                 switch count {

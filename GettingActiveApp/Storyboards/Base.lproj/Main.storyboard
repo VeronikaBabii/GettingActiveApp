@@ -83,7 +83,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hgY-ZK-0Gx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="129.91071428571428"/>
+            <point key="canvasLocation" x="1143" y="130"/>
         </scene>
         <!--Логін-->
         <scene sceneID="f6w-Xb-VNY">
@@ -817,7 +817,7 @@
                                 </constraints>
                                 <state key="normal" title="ПРОДОВЖИТИ"/>
                                 <connections>
-                                    <segue destination="y4n-wU-wXj" kind="show" id="ohD-HN-IFg"/>
+                                    <action selector="allowNotifButton:" destination="w20-43-pft" eventType="touchUpInside" id="zJS-7j-cVE"/>
                                 </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="reminders" adjustsImageSizeForAccessibilityContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="f2E-Lc-6jw">
@@ -896,9 +896,6 @@
             <point key="canvasLocation" x="2615.9420289855075" y="432.58928571428572"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="ohD-HN-IFg"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
     <resources>
         <image name="back" width="24" height="24"/>

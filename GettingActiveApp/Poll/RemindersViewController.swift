@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 class RemindersViewController: UIViewController {
     
@@ -16,6 +17,26 @@ class RemindersViewController: UIViewController {
         super.viewDidLoad()
         
         Utilities.activeButton(continueButton)
+        
+        
+    }
+    
+    @IBAction func allowNotifButton(_ sender: Any) {
+        // ask for permission
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .sound]) { (grantedAccess, error) in
+        }
+        
+        //
+        
+        
+        transitionToTasks()
     }
 
+    func transitionToTasks() {
+        let tabBarViewController = storyboard?.instantiateViewController(identifier: Constants.Storyboard.tabBarViewController) as? TabBarViewController
+        
+        view.window?.rootViewController = tabBarViewController
+        view.window?.makeKeyAndVisible()
+    }
 }

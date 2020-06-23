@@ -21,7 +21,10 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var progressLabel: UILabel!
     @IBOutlet weak var openArchiveButton: UIButton!
-
+    
+    @IBOutlet weak var timeLabel: UILabel!
+    var time: Date?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,6 +32,8 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         setUserData()
         setProgressTitle()
         checkForCountUpdates()
+        
+        updateUI()
     }
 
     // action to open image picker on click
@@ -38,6 +43,15 @@ class ProfileViewController: UIViewController, UIImagePickerControllerDelegate, 
         imagePicker.allowsEditing = true
         imagePicker.sourceType = UIImagePickerController.SourceType.photoLibrary
         self.present(imagePicker, animated: true, completion: nil)
+    }
+    
+    func updateUI() {
+        // set to current time
+        time = Date()
+        
+        timeLabel.text = "\(time!)"
+        
+        timeLabel.alpha = 0
     }
 
     func setUp() {

@@ -68,9 +68,8 @@ class CategoriesViewController: UIViewController {
     // check whether user selected at least 3 categories
     func validateCategories(categories: [String]) -> String? {
         if categories.count < 3 {
-            return "Please select at least 3 categories!"
+            return "Будь ласка, оберіть принаймні 3 категорії!"
         }
-        
          return nil
     }
     
@@ -89,8 +88,7 @@ class CategoriesViewController: UIViewController {
         }
         
         // push to user's coll tasks from collection with selected names
-        
-        //>>>>>>>>> here I need copy one document from each category collection to user's collection
+        // copy one document from each category collection to user's collection
         
         let error = validateCategories(categories: categories)
         
