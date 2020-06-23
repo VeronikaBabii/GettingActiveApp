@@ -111,6 +111,8 @@ class MyTasksVC: UIViewController {
     func setUpDesign() {
         self.navigationController?.isNavigationBarHidden = true
         view.backgroundColor = UIColor.init(red: 48/255, green: 173/255, blue: 99/255, alpha: 1)
+        
+        tableView.separatorColor = UIColor(white: 1, alpha: 1)
     }
 }
 

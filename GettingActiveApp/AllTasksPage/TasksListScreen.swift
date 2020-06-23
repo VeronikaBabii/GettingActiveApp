@@ -24,7 +24,6 @@ class TasksListScreen: UIViewController {
         setUpDesign()
         loadData()
         checkForUpdates()
-        
     }
     
     // load data from the user tasks collection to the table view
