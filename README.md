@@ -1,4 +1,7 @@
 # GettingActiveApp
+
+Motivational iOS app that uses Firebase Firestore database. Tasks for users are arranged in UITableView. Has 3 screens for different purposes.   
+
 iOS app that gives user motivational tasks based on his/her interests.
 
 App uses Firestore database to save tasks and user info. 
